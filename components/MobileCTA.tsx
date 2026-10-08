@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { ArrowRight } from "./icons";
 
-/** Sticky "Get a quote" bar on small screens — shown after the hero, hidden over the contact form. */
+/** Sticky "Get a quote" bar on small screens: shown after the hero, hidden over the contact form. */
 export function MobileCTA() {
   const [show, setShow] = useState(false);
 

@@ -9,6 +9,8 @@ const valueIcons = [Chat, Shield, Doc, Clock];
 export function WhyUs() {
   return (
     <section id="why" className="relative isolate overflow-hidden bg-night-950 py-20 text-white sm:py-36">
+      <div className="absolute -left-40 top-40 -z-10 h-[28rem] w-[28rem] rounded-full bg-electric-600/25 blur-[140px]" />
+      <div className="absolute -right-32 bottom-1/3 -z-10 h-80 w-80 rounded-full bg-cyan-400/10 blur-[120px]" />
       <div className="bg-grid absolute inset-0 -z-10 [mask-image:linear-gradient(to_bottom,black,transparent_50%)]" />
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -24,13 +26,13 @@ export function WhyUs() {
           text="International trade has a lot of moving parts. We keep them moving in the right direction."
         />
 
-        <div className="mt-12 grid gap-px overflow-hidden rounded-[1.75rem] sm:mt-14 sm:rounded-[2rem] border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-3 sm:mt-14 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
           {values.map((v, i) => {
             const Icon = valueIcons[i % valueIcons.length];
             return (
               <Reveal key={v.title} delay={i * 90} className="h-full">
-                <div className="group flex h-full gap-4 bg-night-950 p-6 transition-colors duration-300 hover:bg-night-900 sm:block sm:p-8">
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-white/10 text-electric-300 transition group-hover:border-electric-400 group-hover:bg-electric-500 group-hover:text-white">
+                <div className="glass-dark glass-edge group flex h-full gap-4 rounded-[1.5rem] p-6 transition duration-300 hover:-translate-y-1 hover:bg-white/[0.06] sm:block sm:rounded-[1.75rem] sm:p-8">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-electric-400 to-electric-600 text-white shadow-lg shadow-electric-600/30 transition group-hover:scale-105">
                     <Icon className="h-5 w-5" />
                   </span>
                   <div>
@@ -46,9 +48,9 @@ export function WhyUs() {
         <Reveal className="mt-16 sm:mt-24">
           <div className="relative isolate overflow-hidden rounded-[1.75rem] border border-white/10 sm:rounded-[2.25rem]">
             <Image src="/images/airport-sunset.jpg" alt="" fill sizes="(min-width: 1280px) 1216px, 100vw" className="-z-10 object-cover" />
-            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-night-950 via-night-950/85 to-night-950/20" />
+            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-night-950/70 via-night-950/30 to-transparent" />
             <div className="absolute -left-20 bottom-0 -z-10 h-80 w-80 rounded-full bg-electric-500/30 blur-[100px]" />
-            <div className="max-w-2xl px-6 py-14 sm:px-14 sm:py-24">
+            <div className="glass-dark glass-edge m-3 max-w-2xl rounded-[1.5rem] px-6 py-10 sm:m-8 sm:rounded-[1.75rem] sm:px-12 sm:py-14 lg:m-12">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-electric-300">Ready when you are</p>
               <h2 className="mt-5 text-4xl font-semibold leading-[1.02] tracking-[-0.035em] sm:text-6xl">
                 Let&apos;s move your next shipment.

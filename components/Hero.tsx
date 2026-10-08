@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { divisions, heroWords, site } from "@/lib/site";
+import { divisions, heroWords } from "@/lib/site";
 import { RotatingWord } from "./fx";
 import { ArrowRight, Check } from "./icons";
 import { QuickQuote } from "./QuickQuote";
@@ -38,12 +38,7 @@ export function Hero() {
 
       <div className="mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 items-end gap-12 px-5 pb-8 pt-28 sm:px-8 sm:pb-12 lg:grid-cols-[1.3fr_1fr] lg:items-center lg:pt-36">
         <div className="min-w-0">
-          <p className="inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 font-mono text-xs uppercase tracking-[0.16em] text-white/80 backdrop-blur">
-            <span className="h-1.5 w-1.5 rounded-full bg-amber-brand" />
-            {site.country}-based · Global trade
-          </p>
-
-          <h1 className="mt-7 text-[3.1rem] font-semibold leading-[0.98] tracking-[-0.04em] sm:text-7xl lg:text-[5.6rem]">
+          <h1 className="text-[3.1rem] font-semibold leading-[0.98] tracking-[-0.04em] sm:text-7xl lg:text-[5.6rem]">
             We move
             <br />
             <RotatingWord words={heroWords} />
@@ -53,7 +48,7 @@ export function Hero() {
 
           <p className="mt-6 max-w-xl text-base leading-relaxed text-white/70 sm:mt-7 sm:text-lg">
             Littlenext is an Australian-based parent company in international trade. Our specialised divisions source,
-            inspect, ship and deliver — so you get the right goods, on time, with one partner accountable end to end.
+            inspect, ship and deliver, so you get the right goods on time with one partner accountable end to end.
           </p>
 
           <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-9 sm:flex">
@@ -97,7 +92,7 @@ export function Hero() {
           </ul>
         </div>
 
-        {/* Instant enquiry widget — desktop only */}
+        {/* Instant enquiry widget: desktop only */}
         <div className="hidden lg:block lg:justify-self-end lg:pl-6">
           <QuickQuote />
         </div>

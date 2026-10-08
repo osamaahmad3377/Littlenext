@@ -43,7 +43,7 @@ export function Divisions() {
               <br className="hidden sm:block" /> <span className="text-white/40">One trusted group.</span>
             </>
           }
-          text="Each division has its own supplier network and product expertise — backed by the group's logistics, quality and compliance teams."
+          text="Each division has its own supplier network and product expertise, backed by the group's logistics, quality and compliance teams."
         />
 
         <Reveal className="mt-12 lg:mt-14">
@@ -71,10 +71,10 @@ export function Divisions() {
                   sizes="(min-width: 1024px) 760px, 100vw"
                   className={`object-cover transition duration-1000 ${isActive ? "scale-100" : "lg:scale-110 lg:grayscale-[60%]"}`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-night-950 via-night-950/40 to-night-950/10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-night-950/60 via-transparent to-night-950/20" />
 
                 <div className="absolute left-6 top-6 flex items-center gap-3">
-                  <span className="rounded-full border border-white/20 bg-night-950/40 px-3 py-1 font-mono text-xs backdrop-blur">
+                  <span className="glass-dark rounded-full px-3 py-1 font-mono text-xs">
                     0{i + 1}
                   </span>
                 </div>
@@ -91,17 +91,17 @@ export function Divisions() {
 
                 {/* Expanded content (always visible on mobile) */}
                 <div
-                  className={`absolute inset-x-0 bottom-0 p-6 transition-all duration-700 sm:p-8 ${
+                  className={`glass-dark glass-edge absolute inset-x-3 bottom-3 rounded-[1.4rem] bg-night-950/45 p-5 transition-all duration-700 sm:inset-x-4 sm:bottom-4 sm:p-7 ${
                     isActive ? "lg:translate-y-0 lg:opacity-100 lg:delay-200" : "lg:pointer-events-none lg:translate-y-6 lg:opacity-0"
                   }`}
                 >
-                  <h3 className="text-3xl font-semibold tracking-tight sm:text-4xl">{d.title}</h3>
-                  <p className="mt-3 max-w-lg leading-relaxed text-white/75">{d.summary}</p>
-                  <ul className="mt-5 flex max-w-xl flex-wrap gap-2">
+                  <h3 className="text-2xl font-semibold tracking-tight sm:text-4xl">{d.title}</h3>
+                  <p className="mt-2 max-w-lg text-[15px] leading-relaxed text-white/75 sm:mt-3 sm:text-base">{d.summary}</p>
+                  <ul className="mt-4 flex max-w-xl flex-wrap gap-1.5 sm:mt-5 sm:gap-2">
                     {d.items.map((item) => (
                       <li
                         key={item}
-                        className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-sm text-white/85 backdrop-blur"
+                        className="rounded-full border border-white/15 bg-white/10 px-2.5 py-1 text-xs text-white/85 sm:px-3 sm:text-sm"
                       >
                         {item}
                       </li>
@@ -110,7 +110,7 @@ export function Divisions() {
                   <a
                     href="#contact"
                     onClick={(e) => e.stopPropagation()}
-                    className="group/link mt-6 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-night-950 transition hover:bg-electric-300"
+                    className="group/link mt-5 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-night-950 transition hover:bg-electric-300"
                   >
                     Enquire about {d.title.toLowerCase()}
                     <ArrowUpRight className="h-4 w-4 transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />

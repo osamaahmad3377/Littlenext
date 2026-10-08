@@ -11,8 +11,8 @@ function ServiceCard({ service, delay = 0 }: { service: (typeof services)[number
   const Icon = serviceIcons[service.icon];
   return (
     <Reveal delay={delay} className="h-full">
-      <Spotlight className="group flex h-full gap-4 overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white p-6 transition sm:rounded-[1.75rem] sm:p-7 duration-300 hover:-translate-y-1 hover:border-electric-300 hover:shadow-2xl hover:shadow-electric-500/10 sm:block">
-        <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-slate-100 text-night-950 transition duration-300 group-hover:bg-electric-500 group-hover:text-white">
+      <Spotlight className="glass glass-edge group flex h-full gap-4 overflow-hidden rounded-[1.5rem] p-6 transition duration-300 hover:-translate-y-1 hover:shadow-[0_30px_60px_-25px_rgb(42_98_232/0.35)] sm:block sm:rounded-[1.75rem] sm:p-7">
+        <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-electric-400 to-electric-600 text-white shadow-lg shadow-electric-600/25 transition duration-300 group-hover:scale-105">
           <Icon className="h-6 w-6" />
         </span>
         <div>
@@ -27,7 +27,7 @@ function ServiceCard({ service, delay = 0 }: { service: (typeof services)[number
 function ShipmentTracker() {
   const stages = ["Booked", "Loaded", "In transit", "Delivered"];
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5" aria-hidden="true">
+    <div className="glass-dark glass-edge rounded-2xl p-5" aria-hidden="true">
       <div className="flex items-center justify-between">
         <p className="font-mono text-xs text-white/50">SHIPMENT · LN-2048</p>
         <span className="flex items-center gap-1.5 rounded-full bg-electric-500/15 px-2.5 py-1 font-mono text-[11px] text-electric-300">
@@ -64,7 +64,7 @@ export function Services() {
   const ImportIcon = serviceIcons[importSvc.icon];
 
   return (
-    <section id="services" className="bg-slate-50 py-20 sm:py-36">
+    <section id="services" className="mesh-light relative isolate overflow-hidden py-20 sm:py-36">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
           index="03"
@@ -78,7 +78,7 @@ export function Services() {
         />
 
         <div className="mt-12 grid gap-3 sm:mt-14 sm:auto-rows-[minmax(15rem,auto)] sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
-          {/* Import — large photo card */}
+          {/* Import: large photo card */}
           <Reveal className="sm:col-span-2 lg:row-span-2">
             <div className="group relative h-full min-h-[21rem] overflow-hidden rounded-[1.5rem] sm:min-h-[26rem] sm:rounded-[1.75rem] bg-night-900 text-white">
               <Image
@@ -86,15 +86,15 @@ export function Services() {
                 alt="Warehouse aisle with stocked shelves"
                 fill
                 sizes="(min-width: 1024px) 620px, 100vw"
-                className="object-cover opacity-70 transition duration-[1.5s] group-hover:scale-105"
+                className="object-cover opacity-80 transition duration-[1.5s] group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-night-950 via-night-950/50 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-7 sm:p-9">
-                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-white/15 backdrop-blur">
+              <div className="absolute inset-0 bg-gradient-to-t from-night-950/70 via-transparent to-transparent" />
+              <div className="glass-dark glass-edge absolute inset-x-3 bottom-3 rounded-[1.25rem] p-6 sm:inset-x-4 sm:bottom-4 sm:rounded-[1.5rem] sm:p-8">
+                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-electric-400 to-electric-600 shadow-lg shadow-electric-600/30">
                   <ImportIcon className="h-6 w-6" />
                 </span>
-                <h3 className="mt-6 text-3xl font-semibold tracking-tight">{importSvc.title}</h3>
-                <p className="mt-3 max-w-md leading-relaxed text-white/75">{importSvc.text}</p>
+                <h3 className="mt-5 text-2xl font-semibold tracking-tight sm:text-3xl">{importSvc.title}</h3>
+                <p className="mt-2 max-w-md leading-relaxed text-white/75">{importSvc.text}</p>
               </div>
             </div>
           </Reveal>
@@ -102,12 +102,13 @@ export function Services() {
           <ServiceCard service={exportSvc} delay={80} />
           <ServiceCard service={sourcingSvc} delay={160} />
 
-          {/* Logistics — tracker card */}
+          {/* Logistics: tracker card */}
           <Reveal className="sm:col-span-2" delay={80}>
-            <div className="flex h-full flex-col justify-between gap-6 rounded-[1.5rem] bg-night-950 p-5 text-white sm:rounded-[1.75rem] sm:p-7">
+            <div className="relative isolate flex h-full flex-col justify-between gap-6 overflow-hidden rounded-[1.5rem] bg-night-950 p-5 text-white shadow-2xl shadow-night-950/20 sm:rounded-[1.75rem] sm:p-7">
+              <div className="absolute -right-10 -top-16 -z-10 h-56 w-56 rounded-full bg-electric-500/30 blur-[70px]" aria-hidden="true" />
               <ShipmentTracker />
               <div className="flex items-start gap-4">
-                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-electric-500">
+                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-electric-400 to-electric-600 shadow-lg shadow-electric-600/30">
                   <LogisticsIcon className="h-6 w-6" />
                 </span>
                 <div>
@@ -132,7 +133,7 @@ export function Services() {
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-white/70">Not sure where to start?</p>
               <div className="mt-10 flex items-end justify-between gap-6">
                 <h3 className="max-w-sm text-2xl font-semibold leading-tight tracking-tight sm:text-3xl">
-                  Tell us what you need — we&apos;ll map the route.
+                  Tell us what you need and we&apos;ll map the route.
                 </h3>
                 <span className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-white text-electric-600 transition group-hover:scale-110">
                   <ArrowRight className="h-6 w-6 -rotate-45 transition-transform group-hover:rotate-0" />

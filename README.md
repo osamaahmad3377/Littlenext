@@ -1,6 +1,6 @@
 # Littlenext
 
-Website for **Littlenext** — a parent company in international import & export (commodities, textiles, baby products).
+Website for **Littlenext**, an Australian-based parent company in international import & export (commodities, textiles, baby products).
 
 Built with [Next.js](https://nextjs.org) 16, React 19, TypeScript and Tailwind CSS 4.
 
@@ -17,28 +17,29 @@ Production build: `npm run build && npm start`
 
 Almost all text lives in **`lib/site.ts`**:
 
-- `site.contact` — email, phone, WhatsApp, office address, hours (**replace the placeholders before launch**)
-- `site.url` — your live domain (used for SEO, sitemap and social previews)
-- `divisions` — the division cards and their example products
-- `services`, `steps`, `values` — the "Services", "Process" and "Why Littlenext" sections
-- `regions` — markets on the network map; the entry marked `hq: true` (Australia) is headquarters and gets a trade lane to every other region
-- `heroWords` — the rotating words in the hero headline
+- `site.contact`: email, phone, WhatsApp, office address, hours (**replace the placeholders before launch**)
+- `site.url`: your live domain (used for SEO, sitemap and social previews)
+- `divisions`: the division cards and their example products
+- `services`, `steps`, `values`: the "Services", "Process" and "Why Littlenext" sections
+- `regions`: markets on the network map; the entry marked `hq: true` (Australia) is headquarters and gets a trade lane to every other region
+- `heroWords`: the rotating words in the hero headline
 
 ## Project structure
 
 ```
 app/            layout, page, global styles, favicon, robots & sitemap
 components/     one file per section (Hero, Intro, Divisions, Services, Network, Process, WhyUs, Contact, Footer)
-                plus QuickQuote (hero widget), fx (scroll/animation effects), ui (section headings)
+                plus QuickQuote (hero widget), Globe3D (mobile globe), fx (scroll/animation effects), ui (section headings)
 lib/site.ts     company details, copy and map regions
-lib/worldDots.ts  pre-generated dotted world map, Pacific-centred (Natural Earth data)
+lib/worldDots.ts  pre-generated dotted world map, Pacific-centred (desktop network map)
+lib/globeDots.ts  evenly spaced land dots for the interactive 3D globe (phones and tablets)
 public/images/  photography
 ```
 
 ## Images
 
 Photos in `public/images/` are from [Unsplash](https://unsplash.com) (free for commercial use under the Unsplash License).
-Swap in your own product, warehouse or team photos any time — keep the same file names, or update the paths in
+Swap in your own product, warehouse or team photos any time. Keep the same file names, or update the paths in
 `lib/site.ts` (division photos) and the components.
 
 ## Contact form
@@ -49,4 +50,4 @@ It can be switched to a hosted form service (e.g. Formspree) or an email API lat
 
 ## Deploy
 
-The easiest option is [Vercel](https://vercel.com/new): import this GitHub repository and click **Deploy** — no configuration needed.
+The easiest option is [Vercel](https://vercel.com/new): import this GitHub repository and click **Deploy**. No configuration needed.

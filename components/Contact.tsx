@@ -8,7 +8,7 @@ import { Reveal } from "./Reveal";
 import { SectionLabel } from "./ui";
 
 const fieldClass =
-  "mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-base font-normal text-slate-900 placeholder:text-slate-400 outline-none transition focus:border-electric-500 focus:ring-4 focus:ring-electric-500/15";
+  "mt-2 w-full rounded-xl border border-slate-200 bg-white/80 px-4 py-3 text-base font-normal text-slate-900 placeholder:text-slate-400 outline-none transition focus:border-electric-500 focus:ring-4 focus:ring-electric-500/15";
 const labelClass = "block text-sm font-medium text-slate-700";
 
 const categories = [...divisions.map((d) => d.title), "Other products"];
@@ -49,7 +49,7 @@ function Chip({ selected, onClick, children }: { selected: boolean; onClick: () 
       className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
         selected
           ? "border-night-950 bg-night-950 text-white"
-          : "border-slate-300 bg-white text-slate-700 hover:border-slate-400"
+          : "border-slate-200 bg-white/80 text-slate-700 hover:border-slate-400"
       }`}
     >
       {children}
@@ -88,19 +88,19 @@ export function Contact() {
   // No backend yet: compose the enquiry in the visitor's email app.
   function send(e: React.FormEvent) {
     e.preventDefault();
-    const subject = `${data.mode} enquiry: ${data.category} — ${data.company || data.name}`;
+    const subject = `${data.mode} enquiry: ${data.category} (${data.company || data.name})`;
     const body = [
       `Trade type: ${data.mode}`,
       `Category: ${data.category}`,
-      `Route: ${data.from || "—"} → ${data.to || "—"}`,
-      `Quantity: ${data.quantity || "—"}`,
+      `Route: ${data.from || "Not specified"} → ${data.to || "Not specified"}`,
+      `Quantity: ${data.quantity || "Not specified"}`,
       "",
       data.message,
       "",
       `Name: ${data.name}`,
-      `Company: ${data.company || "—"}`,
+      `Company: ${data.company || "Not provided"}`,
       `Email: ${data.email}`,
-      `Phone: ${data.phone || "—"}`,
+      `Phone: ${data.phone || "Not provided"}`,
     ].join("\n");
     window.location.href = `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSent(true);
@@ -119,17 +119,17 @@ export function Contact() {
   const review: [string, string][] = [
     ["Trade type", data.mode],
     ["Category", data.category],
-    ["Route", `${data.from || "—"} → ${data.to || "—"}`],
-    ["Quantity", data.quantity || "—"],
+    ["Route", `${data.from || "Not specified"} → ${data.to || "Not specified"}`],
+    ["Quantity", data.quantity || "Not specified"],
     ["Requirement", data.message],
     ["Name", data.name],
-    ["Company", data.company || "—"],
+    ["Company", data.company || "Not provided"],
     ["Email", data.email],
-    ["Phone", data.phone || "—"],
+    ["Phone", data.phone || "Not provided"],
   ];
 
   return (
-    <section id="contact" className="bg-slate-50 py-20 sm:py-36">
+    <section id="contact" className="mesh-light relative isolate overflow-hidden py-20 sm:py-36">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[1fr_1.35fr] lg:gap-16">
         <Reveal>
           <SectionLabel index="07">Contact</SectionLabel>
@@ -137,14 +137,14 @@ export function Contact() {
             Let&apos;s talk <span className="text-slate-400">trade.</span>
           </h2>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-slate-600">
-            Buying or selling, one shipment or a long-term contract — tell us what you need.
+            Buying or selling, one shipment or a long-term contract. Tell us what you need.
           </p>
 
           <ol className="mt-10 space-y-4">
-            {["We review your requirement within one business day", "We share supplier options and a clear quotation", "You decide — no obligation"].map(
+            {["We review your requirement within one business day", "We share supplier options and a clear quotation", "You decide, with no obligation"].map(
               (t, i) => (
                 <li key={t} className="flex items-center gap-4 text-slate-700">
-                  <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-white font-mono text-xs text-electric-600 ring-1 ring-slate-200">
+                  <span className="glass grid h-8 w-8 shrink-0 place-items-center rounded-full font-mono text-xs text-electric-600">
                     0{i + 1}
                   </span>
                   {t}
@@ -157,7 +157,7 @@ export function Contact() {
             {details.map(({ icon: Icon, label, value, href }) => {
               const inner = (
                 <>
-                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-night-950 text-white">
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-electric-400 to-electric-600 text-white shadow-lg shadow-electric-600/25">
                     <Icon className="h-[18px] w-[18px]" />
                   </span>
                   <span className="min-w-0">
@@ -166,7 +166,7 @@ export function Contact() {
                   </span>
                 </>
               );
-              const cls = "flex h-full flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-4 sm:flex-row sm:items-center sm:p-3";
+              const cls = "glass glass-edge flex h-full flex-col gap-3 rounded-2xl p-4 sm:flex-row sm:items-center sm:p-3";
               return (
                 <li key={label}>
                   {href ? (
@@ -174,7 +174,7 @@ export function Contact() {
                       href={href}
                       target={href.startsWith("http") ? "_blank" : undefined}
                       rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className={`${cls} transition hover:border-electric-300 hover:shadow-lg hover:shadow-electric-500/5`}
+                      className={`${cls} transition duration-300 hover:-translate-y-0.5`}
                     >
                       {inner}
                     </a>
@@ -188,7 +188,7 @@ export function Contact() {
         </Reveal>
 
         <Reveal delay={120}>
-          <div className="rounded-[1.75rem] border border-slate-200 bg-white p-5 shadow-2xl shadow-slate-900/[0.06] sm:rounded-[2rem] sm:p-10">
+          <div className="glass glass-edge rounded-[1.75rem] p-5 sm:rounded-[2rem] sm:p-10">
             {sent ? (
               <div className="flex min-h-[30rem] flex-col items-center justify-center text-center" role="status">
                 <span className="grid h-16 w-16 place-items-center rounded-full bg-electric-500 text-white shadow-lg shadow-electric-500/30">
@@ -331,7 +331,7 @@ export function Contact() {
 
                 {step === 2 && (
                   <form onSubmit={send} className="mt-8">
-                    <dl className="divide-y divide-slate-100 rounded-2xl border border-slate-200">
+                    <dl className="divide-y divide-slate-100 rounded-2xl border border-slate-200 bg-white/70">
                       {review.map(([k, v]) => (
                         <div key={k} className="grid grid-cols-[6.5rem_1fr] gap-3 px-4 py-3 text-sm sm:grid-cols-[8rem_1fr] sm:gap-4 sm:px-5">
                           <dt className="font-mono text-xs uppercase tracking-wider text-slate-500">{k}</dt>

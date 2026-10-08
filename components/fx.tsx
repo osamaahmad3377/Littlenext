@@ -125,16 +125,3 @@ export function Spotlight({ children, className = "" }: { children: React.ReactN
   );
 }
 
-/** Horizontal scroller that starts centred on a point (0–1 of its content width). Used for the map on small screens. */
-export function CenterScroll({ at, children, className = "" }: { at: number; children: React.ReactNode; className?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (el && el.scrollWidth > el.clientWidth) el.scrollLeft = at * el.scrollWidth - el.clientWidth / 2;
-  }, [at]);
-  return (
-    <div ref={ref} className={className}>
-      {children}
-    </div>
-  );
-}

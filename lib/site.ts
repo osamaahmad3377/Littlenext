@@ -5,16 +5,16 @@ export const site = {
   name: "Littlenext",
   tagline: "Global trade, made simple.",
   description:
-    "Littlenext is an Australian-based parent company in international import and export — sourcing and supplying commodities, textiles and baby products for businesses worldwide.",
+    "Littlenext is an Australian-based parent company in international import and export, sourcing and supplying commodities, textiles and baby products for businesses worldwide.",
   country: "Australia",
   url: "https://www.littlenext.com", // TODO: replace with your real domain
 
   contact: {
     email: "info@littlenext.com", // TODO: replace
     phone: "+61 0 0000 0000", // TODO: replace
-    whatsapp: "", // TODO: digits only incl. country code, e.g. "61400000000" — leave empty to hide
+    whatsapp: "", // TODO: digits only incl. country code, e.g. "61400000000"; leave empty to hide
     address: "Office address, City, Australia", // TODO: replace
-    hours: "Mon – Sat, 9:00 – 18:00 (AEST)",
+    hours: "Monday to Saturday, 9am to 6pm (AEST)",
   },
 
   nav: [
@@ -54,7 +54,7 @@ export const divisions: Division[] = [
     id: "textiles",
     title: "Textiles",
     summary:
-      "From fibre to finished goods — yarns, fabrics and made-ups produced by mills we know and audit.",
+      "From fibre to finished goods: yarns, fabrics and made-ups produced by mills we know and audit.",
     items: ["Yarn", "Greige & finished fabric", "Home textiles", "Towels & linen", "Denim", "Readymade garments"],
     image: "/images/textiles.jpg",
     imageAlt: "Neutral-toned garments hanging on a clothing rail",
@@ -63,7 +63,7 @@ export const divisions: Division[] = [
     id: "baby-products",
     title: "Baby Products",
     summary:
-      "Safe, compliant essentials for little ones — sourced from certified manufacturers for retailers and distributors.",
+      "Safe, compliant essentials for little ones, sourced from certified manufacturers for retailers and distributors.",
     items: ["Diapers & wipes", "Feeding & bottles", "Baby apparel", "Bath & skincare", "Toys & accessories", "Nursery essentials"],
     image: "/images/baby-products.jpg",
     imageAlt: "Baby's feet wrapped in a soft white blanket",
@@ -72,7 +72,7 @@ export const divisions: Division[] = [
 
 export const stats = [
   { value: 3, label: "Specialised divisions" },
-  { value: 2, label: "Directions — import & export" },
+  { value: 2, label: "Directions: import and export" },
   { value: 6, label: "Core trade services" },
   { value: 1, label: "Point of contact for everything" },
 ];
@@ -90,7 +90,7 @@ export const services = [
   },
   {
     title: "Product sourcing",
-    text: "Tell us what you need — we find, compare and negotiate with the right manufacturers.",
+    text: "Tell us what you need. We find, compare and negotiate with the right manufacturers.",
     icon: "search",
   },
   {
@@ -105,7 +105,7 @@ export const services = [
   },
   {
     title: "Customs & documentation",
-    text: "Invoices, certificates of origin, packing lists and compliance — prepared correctly, first time.",
+    text: "Invoices, certificates of origin, packing lists and compliance, prepared correctly the first time.",
     icon: "doc",
   },
 ] as const;
@@ -141,7 +141,7 @@ export const steps = [
   },
   {
     title: "Shipping & delivery",
-    text: "Goods are shipped, tracked and cleared — you get regular updates until they reach your door.",
+    text: "Goods are shipped, tracked and cleared, with regular updates until they reach your door.",
     output: "Delivered & cleared",
   },
 ];
