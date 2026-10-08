@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { site } from "@/lib/site";
+import "lenis/dist/lenis.css";
 import "./globals.css";
 
 const geist = Geist({
@@ -61,6 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         {children}
+        <div className="grain" aria-hidden="true" />
       </body>
     </html>
   );

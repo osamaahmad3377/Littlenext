@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { site } from "@/lib/site";
 import { Logo } from "./Logo";
+import { Magnetic } from "./Magnetic";
 import { ArrowRight, Close, Menu } from "./icons";
 
 export function Header() {
@@ -67,13 +68,17 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-1.5">
-            <a
-              href="#contact"
-              className="group hidden items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-night-950 transition hover:bg-electric-300 sm:inline-flex"
-            >
-              Get a quote
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </a>
+            <span className="hidden sm:inline-flex">
+              <Magnetic strength={0.2}>
+                <a
+                  href="#contact"
+                  className="group inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-night-950 transition hover:bg-electric-300"
+                >
+                  Get a quote
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                </a>
+              </Magnetic>
+            </span>
             <button
               type="button"
               onClick={() => setOpen((v) => !v)}

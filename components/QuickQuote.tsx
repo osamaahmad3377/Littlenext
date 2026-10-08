@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { divisions, tradeModes } from "@/lib/site";
 import { ArrowRight, Swap } from "./icons";
+import { scrollToSection } from "./SmoothScroll";
 
 export type Prefill = {
   mode: string;
@@ -26,7 +27,7 @@ export function QuickQuote() {
     e.preventDefault();
     const detail: Prefill = { mode, category, from: from.trim(), to: to.trim() };
     window.dispatchEvent(new CustomEvent<Prefill>(PREFILL_EVENT, { detail }));
-    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+    scrollToSection("contact");
   }
 
   return (

@@ -9,6 +9,8 @@ import { MobileCTA } from "@/components/MobileCTA";
 import { Network } from "@/components/Network";
 import { Process } from "@/components/Process";
 import { Services } from "@/components/Services";
+import { Showcase } from "@/components/Showcase";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { WhyUs } from "@/components/WhyUs";
 import { site } from "@/lib/site";
 
@@ -30,11 +32,13 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
       />
+      <SmoothScroll />
       <ScrollProgress />
       <Header />
       <main id="main">
         <Hero />
         <Intro />
+        <Showcase />
         <Divisions />
         <Services />
         <Network />

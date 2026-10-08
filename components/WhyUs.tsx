@@ -1,6 +1,7 @@
-import Image from "next/image";
 import { site, values } from "@/lib/site";
 import { ArrowRight, Chat, Doc, Shield, Clock } from "./icons";
+import { LogoMark } from "./Logo";
+import { Magnetic } from "./Magnetic";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./ui";
 
@@ -46,32 +47,48 @@ export function WhyUs() {
         </div>
 
         <Reveal className="mt-16 sm:mt-24">
-          <div className="relative isolate overflow-hidden rounded-[1.75rem] border border-white/10 sm:rounded-[2.25rem]">
-            <Image src="/images/airport-sunset.jpg" alt="" fill sizes="(min-width: 1280px) 1216px, 100vw" className="-z-10 object-cover" />
-            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-night-950/70 via-night-950/30 to-transparent" />
-            <div className="absolute -left-20 bottom-0 -z-10 h-80 w-80 rounded-full bg-electric-500/30 blur-[100px]" />
-            <div className="glass-dark glass-edge m-3 max-w-2xl rounded-[1.5rem] px-6 py-10 sm:m-8 sm:rounded-[1.75rem] sm:px-12 sm:py-14 lg:m-12">
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-electric-300">Ready when you are</p>
-              <h2 className="mt-5 text-4xl font-semibold leading-[1.02] tracking-[-0.035em] sm:text-6xl">
-                Let&apos;s move your next shipment.
-              </h2>
-              <p className="mt-5 text-lg text-white/70">
-                Share your requirement and our team will come back with options and a clear quotation.
-              </p>
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <a
-                  href="#contact"
-                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-4 font-semibold text-night-950 transition hover:bg-electric-300"
-                >
-                  Get a quote
-                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-                </a>
-                <a
-                  href={`mailto:${site.contact.email}`}
-                  className="inline-flex items-center justify-center rounded-full border border-white/25 bg-white/5 px-7 py-4 font-semibold text-white backdrop-blur transition hover:bg-white/10"
-                >
-                  Email our team
-                </a>
+          <div className="relative isolate overflow-hidden rounded-[1.75rem] border border-white/10 bg-night-900 sm:rounded-[2.25rem]">
+            {/* Drifting aurora behind the glass panel */}
+            <div className="absolute -left-[10%] -top-1/3 -z-10 h-[34rem] w-[34rem] animate-aurora rounded-full bg-electric-500/45 blur-[110px]" />
+            <div className="absolute -bottom-1/3 right-[-5%] -z-10 h-[30rem] w-[30rem] animate-aurora rounded-full bg-cyan-400/30 blur-[110px] [animation-delay:-6s]" />
+            <div className="absolute left-1/3 top-1/4 -z-10 h-72 w-72 animate-aurora rounded-full bg-amber-brand/25 blur-[100px] [animation-delay:-12s]" />
+            <div className="bg-grid absolute inset-0 -z-10 opacity-60 [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
+
+            <div className="grid items-center gap-8 p-3 sm:p-8 lg:grid-cols-[1.4fr_1fr] lg:p-12">
+              <div className="glass-dark glass-edge rounded-[1.5rem] px-6 py-10 sm:rounded-[1.75rem] sm:px-12 sm:py-14">
+                <p className="font-mono text-xs uppercase tracking-[0.2em] text-electric-300">Ready when you are</p>
+                <h2 className="mt-5 text-4xl font-semibold leading-[1.02] tracking-[-0.035em] sm:text-6xl">
+                  Let&apos;s move your next shipment.
+                </h2>
+                <p className="mt-5 text-lg text-white/70">
+                  Share your requirement and our team will come back with options and a clear quotation.
+                </p>
+                <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                  <Magnetic>
+                    <a
+                      href="#contact"
+                      className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-7 py-4 font-semibold text-night-950 shadow-[0_10px_40px_-10px_rgb(255_255_255/0.45)] transition hover:bg-electric-300"
+                    >
+                      Get a quote
+                      <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                    </a>
+                  </Magnetic>
+                  <Magnetic>
+                    <a
+                      href={`mailto:${site.contact.email}`}
+                      className="inline-flex w-full items-center justify-center rounded-full border border-white/25 bg-white/5 px-7 py-4 font-semibold text-white backdrop-blur transition hover:bg-white/10"
+                    >
+                      Email our team
+                    </a>
+                  </Magnetic>
+                </div>
+              </div>
+
+              {/* Brand mark floating in the aurora (desktop) */}
+              <div className="hidden justify-center lg:flex" aria-hidden="true">
+                <div className="glass-dark glass-edge grid h-56 w-56 place-items-center rounded-[3rem] shadow-[0_40px_80px_-30px_rgb(59_123_255/0.6)]">
+                  <LogoMark className="h-28 w-28 drop-shadow-[0_20px_30px_rgb(59_123_255/0.5)]" />
+                </div>
               </div>
             </div>
           </div>

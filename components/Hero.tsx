@@ -2,6 +2,7 @@ import Image from "next/image";
 import { divisions, heroWords } from "@/lib/site";
 import { RotatingWord } from "./fx";
 import { ArrowRight, Check } from "./icons";
+import { Magnetic } from "./Magnetic";
 import { QuickQuote } from "./QuickQuote";
 
 const ticker = [
@@ -25,7 +26,7 @@ export function Hero() {
           alt=""
           fill
           priority
-          sizes="100vw"
+          sizes="(orientation: portrait) 180vh, 100vw"
           className="animate-kenburns object-cover opacity-75 lg:opacity-60"
         />
       </div>
@@ -39,36 +40,51 @@ export function Hero() {
       <div className="mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 items-end gap-12 px-5 pb-8 pt-28 sm:px-8 sm:pb-12 lg:grid-cols-[1.3fr_1fr] lg:items-center lg:pt-36">
         <div className="min-w-0">
           <h1 className="text-[3.1rem] font-semibold leading-[0.98] tracking-[-0.04em] sm:text-7xl lg:text-[5.6rem]">
-            We move
-            <br />
-            <RotatingWord words={heroWords} />
-            <br />
-            across borders.
+            {/* Each line slides up out of its own mask on load */}
+            <span className="block overflow-hidden pb-[0.04em]">
+              <span className="block animate-line-up" style={{ animationDelay: "0.1s" }}>
+                We move
+              </span>
+            </span>
+            <span className="block overflow-hidden pb-[0.1em]">
+              <span className="block animate-line-up" style={{ animationDelay: "0.22s" }}>
+                <RotatingWord words={heroWords} />
+              </span>
+            </span>
+            <span className="block overflow-hidden pb-[0.04em]">
+              <span className="block animate-line-up" style={{ animationDelay: "0.34s" }}>
+                across borders.
+              </span>
+            </span>
           </h1>
 
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-white/70 sm:mt-7 sm:text-lg">
+          <p className="mt-6 max-w-xl animate-rise text-base leading-relaxed text-white/70 [animation-delay:0.55s] sm:mt-7 sm:text-lg">
             Littlenext is an Australian-based parent company in international trade. Our specialised divisions source,
             inspect, ship and deliver, so you get the right goods on time with one partner accountable end to end.
           </p>
 
-          <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-9 sm:flex">
-            <a
-              href="#contact"
-              className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3.5 text-[15px] font-semibold text-night-950 transition hover:bg-electric-300 sm:px-7 sm:py-4 sm:text-base"
-            >
-              Get a quote
-              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </a>
-            <a
-              href="#divisions"
-              className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-5 py-3.5 text-[15px] font-semibold text-white backdrop-blur transition hover:border-white/40 hover:bg-white/10 sm:px-7 sm:py-4 sm:text-base"
-            >
-              Our divisions
-            </a>
+          <div className="mt-8 grid animate-rise grid-cols-2 gap-3 [animation-delay:0.7s] sm:mt-9 sm:flex">
+            <Magnetic className="w-full sm:w-auto">
+              <a
+                href="#contact"
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-5 py-3.5 text-[15px] font-semibold text-night-950 shadow-[0_10px_40px_-10px_rgb(255_255_255/0.45)] transition hover:bg-electric-300 sm:px-7 sm:py-4 sm:text-base"
+              >
+                Get a quote
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </a>
+            </Magnetic>
+            <Magnetic className="w-full sm:w-auto">
+              <a
+                href="#divisions"
+                className="glass-dark inline-flex w-full items-center justify-center rounded-full px-5 py-3.5 text-[15px] font-semibold text-white transition hover:bg-white/10 sm:px-7 sm:py-4 sm:text-base"
+              >
+                Our divisions
+              </a>
+            </Magnetic>
           </div>
 
           {/* Mobile: swipeable division shortcuts */}
-          <ul className="-mx-5 mt-8 flex gap-2 overflow-x-auto px-5 [scrollbar-width:none] sm:hidden [&::-webkit-scrollbar]:hidden">
+          <ul className="-mx-5 mt-8 flex animate-rise gap-2 overflow-x-auto px-5 [animation-delay:0.85s] [scrollbar-width:none] sm:hidden [&::-webkit-scrollbar]:hidden">
             {divisions.map((d) => (
               <li key={d.id} className="shrink-0">
                 <a
@@ -82,7 +98,7 @@ export function Hero() {
             ))}
           </ul>
 
-          <ul className="mt-10 hidden flex-wrap gap-x-6 gap-y-2 text-sm text-white/60 sm:flex">
+          <ul className="mt-10 hidden animate-rise flex-wrap gap-x-6 gap-y-2 text-sm text-white/60 [animation-delay:0.85s] sm:flex">
             {["Quality inspected", "Documents handled", "Door-to-door logistics"].map((t) => (
               <li key={t} className="flex items-center gap-2">
                 <Check className="h-4 w-4 text-electric-400" strokeWidth={2.4} />
@@ -93,10 +109,22 @@ export function Hero() {
         </div>
 
         {/* Instant enquiry widget: desktop only */}
-        <div className="hidden lg:block lg:justify-self-end lg:pl-6">
+        <div className="hidden animate-rise [animation-delay:0.5s] lg:block lg:justify-self-end lg:pl-6">
           <QuickQuote />
         </div>
       </div>
+
+      {/* Scroll cue (desktop) */}
+      <a
+        href="#about"
+        aria-label="Scroll to next section"
+        className="absolute bottom-24 left-1/2 hidden -translate-x-1/2 animate-rise flex-col items-center gap-3 font-mono text-[10px] uppercase tracking-[0.3em] text-white/45 [animation-delay:1.1s] hover:text-white lg:flex"
+      >
+        Scroll
+        <span className="relative h-10 w-px overflow-hidden bg-white/15">
+          <span className="absolute inset-x-0 top-0 h-1/2 animate-scroll-cue bg-gradient-to-b from-transparent via-white to-transparent" />
+        </span>
+      </a>
 
       {/* Capability ticker */}
       <div className="border-t border-white/10 bg-night-950/40 py-4 backdrop-blur sm:py-5" aria-hidden="true">

@@ -133,8 +133,10 @@ export function Contact() {
       <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[1fr_1.35fr] lg:gap-16">
         <Reveal>
           <SectionLabel index="07">Contact</SectionLabel>
-          <h2 className="mt-5 text-4xl font-semibold leading-[1.02] tracking-[-0.035em] text-night-950 sm:text-6xl">
-            Let&apos;s talk <span className="text-slate-400">trade.</span>
+          <h2 className="mt-5 overflow-hidden pb-[0.06em] text-4xl font-semibold leading-[1.02] tracking-[-0.035em] text-night-950 sm:text-6xl">
+            <span className="reveal-line">
+              Let&apos;s talk <span className="text-slate-400">trade.</span>
+            </span>
           </h2>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-slate-600">
             Buying or selling, one shipment or a long-term contract. Tell us what you need.

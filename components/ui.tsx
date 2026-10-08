@@ -30,11 +30,11 @@ export function SectionHeading({
           {label}
         </SectionLabel>
         <h2
-          className={`mt-5 text-4xl font-semibold leading-[1.02] tracking-[-0.035em] sm:text-6xl ${
+          className={`mt-5 overflow-hidden pb-[0.06em] text-4xl font-semibold leading-[1.02] tracking-[-0.035em] sm:text-6xl ${
             light ? "text-white" : "text-night-950"
           }`}
         >
-          {title}
+          <span className="reveal-line">{title}</span>
         </h2>
       </div>
       {text && (
