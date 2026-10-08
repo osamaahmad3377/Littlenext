@@ -1,7 +1,7 @@
 import { site, values } from "@/lib/site";
 import { Handshake, Receipt, ShieldCheck, Timer } from "@phosphor-icons/react/dist/ssr";
 import { ArrowRight } from "./icons";
-import { BgIcon, IconTile } from "./IconTile";
+import { BgIcon } from "./BgIcon";
 import { LogoMark } from "./Logo";
 import { Magnetic } from "./Magnetic";
 import { Reveal } from "./Reveal";
@@ -34,11 +34,10 @@ export function WhyUs() {
             const Icon = valueIcons[i % valueIcons.length];
             return (
               <Reveal key={v.title} delay={i * 90} className="h-full">
-                <div className="glass-dark glass-edge group relative isolate flex h-full gap-4 overflow-hidden rounded-[1.5rem] p-6 transition duration-300 hover:-translate-y-1 hover:bg-white/[0.06] sm:block sm:rounded-[1.75rem] sm:p-8">
+                <div className="glass-dark glass-edge group relative isolate block h-full min-h-[10rem] overflow-hidden rounded-[1.5rem] p-6 sm:min-h-[14rem] transition duration-300 hover:-translate-y-1 hover:bg-white/[0.06] sm:rounded-[1.75rem] sm:p-8">
                   <BgIcon icon={Icon} tone="dark" />
-                  <IconTile icon={Icon} />
-                  <div>
-                    <h3 className="text-lg font-semibold sm:mt-12">{v.title}</h3>
+                  <div className="max-w-[85%]">
+                    <h3 className="text-lg font-semibold">{v.title}</h3>
                     <p className="mt-1.5 leading-relaxed text-white/55 sm:mt-2">{v.text}</p>
                   </div>
                 </div>

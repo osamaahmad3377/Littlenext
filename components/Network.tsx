@@ -2,7 +2,7 @@ import { regions, site } from "@/lib/site";
 import { landDots, MAP_H, MAP_W, project } from "@/lib/worldDots";
 import { Globe3D } from "./Globe3D";
 import { Airplane, Boat, Truck } from "@phosphor-icons/react/dist/ssr";
-import { BgIcon, IconTile } from "./IconTile";
+import { BgIcon } from "./BgIcon";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./ui";
 
@@ -136,10 +136,9 @@ export function Network() {
         <div className="mt-4 grid gap-3 sm:mt-5 sm:gap-5 md:grid-cols-3">
           {modes.map((m, i) => (
             <Reveal key={m.title} delay={i * 90}>
-              <div className="glass-dark glass-edge group relative isolate flex h-full items-start gap-4 overflow-hidden rounded-[1.5rem] p-5 sm:p-6">
+              <div className="glass-dark glass-edge group relative isolate block h-full min-h-[8.5rem] overflow-hidden rounded-[1.5rem] p-5 sm:p-6">
                 <BgIcon icon={m.icon} tone="dark" size={140} />
-                <IconTile icon={m.icon} />
-                <div>
+                <div className="max-w-[80%]">
                   <h3 className="font-semibold">{m.title}</h3>
                   <p className="mt-1 text-sm leading-relaxed text-white/55">{m.text}</p>
                 </div>

@@ -62,7 +62,7 @@ export const ArrowUp = (p: IconProps) => (
   </Base>
 );
 
-/* Premium feature icons (Phosphor, rendered duotone inside <IconTile />) */
+/* Premium feature icons (Phosphor, shown as card background watermarks via <BgIcon />) */
 export const serviceIcons = {
   import: TrayArrowDown,
   export: TrayArrowUp,

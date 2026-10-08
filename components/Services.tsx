@@ -3,7 +3,7 @@ import { services } from "@/lib/site";
 import { Spotlight } from "./fx";
 import { Boat } from "@phosphor-icons/react/dist/ssr";
 import { ArrowRight, Check, serviceIcons } from "./icons";
-import { BgIcon, IconTile } from "./IconTile";
+import { BgIcon } from "./BgIcon";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./ui";
 
@@ -13,11 +13,10 @@ function ServiceCard({ service, delay = 0 }: { service: (typeof services)[number
   const Icon = serviceIcons[service.icon];
   return (
     <Reveal delay={delay} className="h-full">
-      <Spotlight className="glass glass-edge group flex h-full gap-4 overflow-hidden rounded-[1.5rem] p-6 transition duration-300 hover:-translate-y-1 hover:shadow-[0_30px_60px_-25px_rgb(42_98_232/0.35)] sm:block sm:rounded-[1.75rem] sm:p-7">
+      <Spotlight className="glass glass-edge group block h-full min-h-[11rem] overflow-hidden rounded-[1.5rem] p-6 transition duration-300 hover:-translate-y-1 hover:shadow-[0_30px_60px_-25px_rgb(42_98_232/0.35)] sm:rounded-[1.75rem] sm:p-7">
         <BgIcon icon={Icon} />
-        <IconTile icon={Icon} />
-        <div>
-          <h3 className="text-lg font-semibold tracking-tight text-night-950 sm:mt-10 sm:text-xl">{service.title}</h3>
+        <div className="max-w-[85%]">
+          <h3 className="text-lg font-semibold tracking-tight text-night-950 sm:text-xl">{service.title}</h3>
           <p className="mt-1.5 leading-relaxed text-slate-600 sm:mt-2.5">{service.text}</p>
         </div>
       </Spotlight>
@@ -90,9 +89,9 @@ export function Services() {
                 className="object-cover opacity-80 transition duration-[1.5s] group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-night-950/70 via-transparent to-transparent" />
-              <div className="glass-dark glass-edge absolute inset-x-3 bottom-3 rounded-[1.25rem] p-6 sm:inset-x-4 sm:bottom-4 sm:rounded-[1.5rem] sm:p-8">
-                <IconTile icon={ImportIcon} />
-                <h3 className="mt-5 text-2xl font-semibold tracking-tight sm:text-3xl">{importSvc.title}</h3>
+              <div className="glass-dark glass-edge absolute inset-x-3 bottom-3 isolate overflow-hidden rounded-[1.25rem] p-6 sm:inset-x-4 sm:bottom-4 sm:rounded-[1.5rem] sm:p-8">
+                <BgIcon icon={ImportIcon} tone="dark" size={180} />
+                <h3 className="text-2xl font-semibold tracking-tight sm:text-3xl">{importSvc.title}</h3>
                 <p className="mt-2 max-w-md leading-relaxed text-white/75">{importSvc.text}</p>
               </div>
             </div>
@@ -106,10 +105,9 @@ export function Services() {
             <div className="group relative isolate flex h-full flex-col justify-between gap-6 overflow-hidden rounded-[1.5rem] bg-night-950 p-5 text-white shadow-2xl shadow-night-950/20 sm:rounded-[1.75rem] sm:p-7">
               <div className="absolute -right-10 -top-16 -z-10 h-56 w-56 rounded-full bg-electric-500/30 blur-[70px]" aria-hidden="true" />
               <ShipmentTracker />
-              <div className="flex items-start gap-4">
+              <div>
                 <BgIcon icon={LogisticsIcon} tone="dark" size={200} />
-                <IconTile icon={LogisticsIcon} />
-                <div>
+                <div className="max-w-[85%]">
                   <h3 className="text-xl font-semibold tracking-tight">{logisticsSvc.title}</h3>
                   <p className="mt-1.5 leading-relaxed text-white/65">{logisticsSvc.text}</p>
                 </div>

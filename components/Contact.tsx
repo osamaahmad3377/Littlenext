@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { divisions, site, tradeModes } from "@/lib/site";
 import { Clock, EnvelopeSimple, MapPin, Phone, WhatsappLogo } from "@phosphor-icons/react/dist/ssr";
 import { ArrowRight, Check } from "./icons";
-import { BgIcon, IconTile } from "./IconTile";
+import { BgIcon } from "./BgIcon";
 import { PREFILL_EVENT, type Prefill } from "./QuickQuote";
 import { Reveal } from "./Reveal";
 import { SectionLabel } from "./ui";
@@ -157,19 +157,18 @@ export function Contact() {
             )}
           </ol>
 
-          <ul className="mt-10 grid grid-cols-2 gap-3 lg:grid-cols-1 xl:grid-cols-2">
+          <ul className="mt-10 grid grid-cols-1 gap-3 min-[480px]:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
             {details.map(({ icon: Icon, label, value, href }) => {
               const inner = (
                 <>
                   <BgIcon icon={Icon} size={96} />
-                  <IconTile icon={Icon} size="sm" />
                   <span className="min-w-0">
                     <span className="block font-mono text-[11px] uppercase tracking-wider text-slate-500">{label}</span>
                     <span className="block break-words text-sm font-semibold text-night-950">{value}</span>
                   </span>
                 </>
               );
-              const cls = "glass glass-edge group relative isolate overflow-hidden flex h-full flex-col gap-3 rounded-2xl p-4 sm:flex-row sm:items-center sm:p-3";
+              const cls = "glass glass-edge group relative isolate flex h-full min-h-[5.5rem] flex-col justify-center overflow-hidden rounded-2xl p-4 pr-10";
               return (
                 <li key={label}>
                   {href ? (
