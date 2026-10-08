@@ -1,7 +1,7 @@
 import { regions, site } from "@/lib/site";
 import { landDots, MAP_H, MAP_W, project } from "@/lib/worldDots";
 import { Globe3D } from "./Globe3D";
-import { ArrowRight, Box, Globe, Ship } from "./icons";
+import { Box, Globe, Ship } from "./icons";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./ui";
 
@@ -129,25 +129,6 @@ export function Network() {
             <div className="hidden p-8 lg:block">
               <FlatMap />
             </div>
-          </div>
-        </Reveal>
-
-        <Reveal className="mt-4 sm:mt-5">
-          <div className="glass-dark glass-edge rounded-[1.75rem] p-5 sm:p-6">
-            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/45">Trade lanes from {hq.name}</p>
-            <ul className="mt-4 grid grid-cols-1 gap-2 min-[420px]:grid-cols-2 lg:flex lg:flex-wrap">
-              {lanes.map((l) => (
-                <li
-                  key={l.name}
-                  className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-3.5 py-2 text-sm text-white/85"
-                >
-                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-amber-brand" />
-                  <span className="text-white/55">{hq.name}</span>
-                  <ArrowRight className="h-3.5 w-3.5 shrink-0 text-electric-300" />
-                  <span className="truncate">{l.name}</span>
-                </li>
-              ))}
-            </ul>
           </div>
         </Reveal>
 
