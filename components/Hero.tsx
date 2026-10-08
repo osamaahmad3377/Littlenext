@@ -1,92 +1,110 @@
+import Image from "next/image";
 import { divisions } from "@/lib/site";
-import { Globe } from "./Globe";
 import { ArrowRight, Check } from "./icons";
+
+const highlights = [
+  { value: "3", label: "Specialised divisions" },
+  { value: "Import & Export", label: "Both directions, one partner" },
+  { value: "End-to-end", label: "From sourcing to delivery" },
+  { value: "On request", label: "Sourcing beyond our core range" },
+];
 
 export function Hero() {
   return (
-    <section id="top" className="relative isolate overflow-hidden bg-ink-950 text-white">
-      <div className="bg-grid absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]" />
-      <div className="absolute -right-40 -top-40 -z-10 h-[36rem] w-[36rem] rounded-full bg-gold-500/15 blur-3xl" />
-      <div className="absolute -bottom-48 -left-32 -z-10 h-[30rem] w-[30rem] rounded-full bg-ink-700/60 blur-3xl" />
+    <section id="top" className="relative overflow-hidden pt-28 sm:pt-36">
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[40rem] bg-gradient-to-b from-brand-50 via-white to-white"
+        aria-hidden="true"
+      />
 
-      <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 pb-20 pt-32 sm:px-8 lg:grid-cols-[1.1fr_1fr] lg:pb-28 lg:pt-40">
-        <div>
-          <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-gold-300">
-            <span className="h-1.5 w-1.5 rounded-full bg-gold-400" />
-            Import · Export · Global sourcing
-          </p>
-
-          <h1 className="mt-7 text-5xl font-semibold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl">
-            Connecting markets,
-            <br />
-            <span className="font-serif text-[1.08em] font-normal italic text-gold-400">delivering</span> quality.
-          </h1>
-
-          <p className="mt-7 max-w-xl text-lg leading-relaxed text-ink-300">
-            Littlenext is a parent company in international trade. Through specialised divisions we source, ship and
-            supply <span className="text-white">commodities</span>, <span className="text-white">textiles</span> and{" "}
-            <span className="text-white">baby products</span> — reliably, transparently and at scale.
-          </p>
-
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="#contact"
-              className="group inline-flex items-center justify-center gap-2 rounded-full bg-gold-400 px-7 py-4 font-semibold text-ink-950 shadow-lg shadow-gold-500/20 transition hover:bg-gold-300"
-            >
-              Start an enquiry
-              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </a>
-            <a
-              href="#divisions"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-7 py-4 font-semibold text-white transition hover:border-white/40 hover:bg-white/5"
-            >
-              Explore our divisions
-            </a>
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-7">
+            <p className="inline-flex items-center gap-2 rounded-full border border-brand-100 bg-white px-3.5 py-1.5 text-sm font-medium text-brand-700 shadow-sm">
+              <span className="h-2 w-2 rounded-full bg-accent-400" />
+              Import · Export · Global sourcing
+            </p>
+            <h1 className="mt-6 text-[2.75rem] font-semibold leading-[1.05] text-brand-950 sm:text-6xl lg:text-7xl">
+              Your trusted partner in <span className="text-brand-500">global trade.</span>
+            </h1>
           </div>
 
-          <ul className="mt-12 flex flex-wrap gap-x-6 gap-y-3 text-sm text-ink-300">
-            {divisions.map((d) => (
-              <li key={d.id} className="flex items-center gap-2">
-                <Check className="h-4 w-4 text-gold-400" />
-                {d.title}
-              </li>
-            ))}
-            <li className="flex items-center gap-2">
-              <Check className="h-4 w-4 text-gold-400" />
-              Sourcing on request
-            </li>
-          </ul>
+          <div className="lg:col-span-5 lg:pb-2">
+            <p className="text-lg leading-relaxed text-slate-600">
+              Littlenext is a parent company in international import and export. Through specialised divisions we source,
+              ship and supply commodities, textiles and baby products — reliably and at scale.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a
+                href="#contact"
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-brand-900 px-6 py-3.5 font-semibold text-white shadow-lg shadow-brand-900/20 transition hover:bg-brand-700"
+              >
+                Start an enquiry
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </a>
+              <a
+                href="#divisions"
+                className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3.5 font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50"
+              >
+                Our divisions
+              </a>
+            </div>
+          </div>
         </div>
 
-        <div className="relative mx-auto aspect-square w-full max-w-[32rem]">
-          <Globe />
+        <div className="relative mt-12 overflow-hidden rounded-[2rem] bg-brand-900 sm:mt-16">
+          <Image
+            src="/images/hero-port.jpg"
+            alt="Aerial view of a busy container port with cranes and stacked cargo"
+            width={2400}
+            height={1350}
+            priority
+            sizes="(min-width: 1280px) 1216px, 100vw"
+            className="aspect-[4/3] w-full object-cover sm:aspect-[16/8] lg:aspect-[16/7]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-950/70 via-brand-950/10 to-transparent" />
 
-          <div className="absolute -left-2 top-[14%] animate-float rounded-2xl border border-white/10 bg-ink-900/80 p-4 shadow-2xl backdrop-blur-md sm:-left-6">
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-ink-300">End-to-end</p>
-            <ol className="mt-2 space-y-1.5 text-sm">
-              {["Sourced", "Inspected", "Shipped"].map((s) => (
-                <li key={s} className="flex items-center gap-2">
-                  <span className="grid h-5 w-5 place-items-center rounded-full bg-gold-400 text-ink-950">
-                    <Check className="h-3 w-3" strokeWidth={3} />
-                  </span>
-                  {s}
+          <div className="absolute inset-x-0 bottom-0 flex flex-col gap-4 p-5 sm:flex-row sm:items-end sm:justify-between sm:p-8">
+            <ul className="flex flex-wrap gap-2">
+              {divisions.map((d) => (
+                <li key={d.id}>
+                  <a
+                    href={`#${d.id}`}
+                    className="inline-flex rounded-full border border-white/25 bg-white/15 px-4 py-2 text-sm font-medium text-white backdrop-blur-md transition hover:bg-white/25"
+                  >
+                    {d.title}
+                  </a>
                 </li>
               ))}
-            </ol>
-          </div>
+            </ul>
 
-          <div
-            className="absolute -right-1 bottom-[12%] animate-float rounded-2xl border border-white/10 bg-white p-4 text-ink-900 shadow-2xl sm:-right-4"
-            style={{ animationDelay: "-3.5s" }}
-          >
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-ink-500">One partner</p>
-            <p className="mt-1 text-lg font-bold leading-tight">
-              3 divisions
-              <br />
-              <span className="font-serif text-xl font-normal italic text-gold-600">many markets</span>
-            </p>
+            <div className="hidden rounded-2xl bg-white/95 p-5 shadow-xl backdrop-blur sm:block">
+              <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">End-to-end trade</p>
+              <ol className="mt-3 flex items-center gap-3 text-sm font-medium text-slate-900">
+                {["Sourced", "Inspected", "Shipped"].map((s, i) => (
+                  <li key={s} className="flex items-center gap-3">
+                    {i > 0 && <span className="h-px w-5 bg-slate-300" />}
+                    <span className="flex items-center gap-1.5">
+                      <span className="grid h-5 w-5 place-items-center rounded-full bg-brand-900 text-white">
+                        <Check className="h-3 w-3" strokeWidth={3} />
+                      </span>
+                      {s}
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            </div>
           </div>
         </div>
+
+        <dl className="grid grid-cols-2 gap-y-8 border-b border-slate-200 py-10 lg:grid-cols-4">
+          {highlights.map((h, i) => (
+            <div key={h.label} className={`flex flex-col-reverse justify-end px-1 ${i > 0 ? "lg:border-l lg:border-slate-200 lg:pl-8" : ""}`}>
+              <dt className="mt-1 text-sm text-slate-500">{h.label}</dt>
+              <dd className="text-xl font-semibold tracking-tight text-brand-950 sm:text-2xl">{h.value}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );

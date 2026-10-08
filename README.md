@@ -26,9 +26,16 @@ Almost all text lives in **`lib/site.ts`**:
 
 ```
 app/            layout, page, global styles, favicon, robots & sitemap
-components/     Header, Hero, Globe, Sections (About, Divisions, Services, Process, Why us), Contact, Footer
+components/     Header, Hero, Sections (About, Divisions, Services, Process, Why us), Contact, Footer
+public/images/  photography
 lib/site.ts     company details and copy
 ```
+
+## Images
+
+Photos in `public/images/` are from [Unsplash](https://unsplash.com) (free for commercial use under the Unsplash License).
+Swap in your own product, warehouse or team photos any time — keep the same file names, or update the paths in
+`lib/site.ts` (division photos) and the components.
 
 ## Contact form
 

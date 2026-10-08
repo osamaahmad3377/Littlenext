@@ -83,12 +83,6 @@ export const Clock = (p: IconProps) => (
   </Base>
 );
 
-export const Plus = (p: IconProps) => (
-  <Base {...p}>
-    <path d="M12 5v14M5 12h14" />
-  </Base>
-);
-
 /* Service icons */
 export const Import = (p: IconProps) => (
   <Base {...p}>
@@ -132,31 +126,6 @@ export const Doc = (p: IconProps) => (
   </Base>
 );
 
-/* Division icons */
-export const Grain = (p: IconProps) => (
-  <Base {...p}>
-    <path d="M12 21V9" />
-    <path d="M12 9c0-2.5 1.5-4.5 4-5 .3 2.5-1.3 4.6-4 5ZM12 9c0-2.5-1.5-4.5-4-5-.3 2.5 1.3 4.6 4 5Z" />
-    <path d="M12 14c0-2.5 1.5-4.5 4-5 .3 2.5-1.3 4.6-4 5ZM12 14c0-2.5-1.5-4.5-4-5-.3 2.5 1.3 4.6 4 5Z" />
-    <path d="M12 19c0-2.5 1.5-4.5 4-5 .3 2.5-1.3 4.6-4 5ZM12 19c0-2.5-1.5-4.5-4-5-.3 2.5 1.3 4.6 4 5Z" />
-  </Base>
-);
-
-export const Thread = (p: IconProps) => (
-  <Base {...p}>
-    <path d="M7 3h10M7 21h10" />
-    <path d="M8 3v18M16 3v18" />
-    <path d="m8 6 8 3M8 10l8 3M8 14l8 3" />
-  </Base>
-);
-
-export const Baby = (p: IconProps) => (
-  <Base {...p}>
-    <path d="M10 3h4v3h-4zM9 6h6l1 3v10a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V9l1-3Z" />
-    <path d="M8 12h3M8 15h3" />
-  </Base>
-);
-
 export const serviceIcons = {
   import: Import,
   export: Export,
@@ -166,8 +135,3 @@ export const serviceIcons = {
   doc: Doc,
 };
 
-export const divisionIcons = {
-  commodities: Grain,
-  textiles: Thread,
-  "baby-products": Baby,
-} as Record<string, (p: IconProps) => React.ReactElement>;

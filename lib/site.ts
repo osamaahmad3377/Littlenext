@@ -30,7 +30,8 @@ export type Division = {
   title: string;
   summary: string;
   items: string[];
-  tone: "amber" | "indigo" | "teal";
+  image: string;
+  imageAlt: string;
 };
 
 export const divisions: Division[] = [
@@ -40,7 +41,8 @@ export const divisions: Division[] = [
     summary:
       "Agricultural and industrial staples, sourced at scale from trusted origins and delivered to specification.",
     items: ["Rice & grains", "Pulses & lentils", "Sugar", "Spices", "Edible oils", "Dry fruits & nuts"],
-    tone: "amber",
+    image: "/images/commodities.jpg",
+    imageAlt: "Close-up of golden wheat grains",
   },
   {
     id: "textiles",
@@ -48,7 +50,8 @@ export const divisions: Division[] = [
     summary:
       "From fibre to finished goods — yarns, fabrics and made-ups produced by mills we know and audit.",
     items: ["Yarn", "Greige & finished fabric", "Home textiles", "Towels & linen", "Denim", "Readymade garments"],
-    tone: "indigo",
+    image: "/images/textiles.jpg",
+    imageAlt: "Neutral-toned garments hanging on a clothing rail",
   },
   {
     id: "baby-products",
@@ -56,7 +59,8 @@ export const divisions: Division[] = [
     summary:
       "Safe, compliant essentials for little ones — sourced from certified manufacturers for retailers and distributors.",
     items: ["Diapers & wipes", "Feeding & bottles", "Baby apparel", "Bath & skincare", "Toys & accessories", "Nursery essentials"],
-    tone: "teal",
+    image: "/images/baby-products.jpg",
+    imageAlt: "Baby's feet wrapped in a soft white blanket",
   },
 ];
 
