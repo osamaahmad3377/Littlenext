@@ -1,8 +1,15 @@
 import { Contact } from "@/components/Contact";
+import { Divisions } from "@/components/Divisions";
 import { Footer } from "@/components/Footer";
+import { ScrollProgress } from "@/components/fx";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { About, Divisions, Process, Services, WhyUs } from "@/components/Sections";
+import { Intro } from "@/components/Intro";
+import { MobileCTA } from "@/components/MobileCTA";
+import { Network } from "@/components/Network";
+import { Process } from "@/components/Process";
+import { Services } from "@/components/Services";
+import { WhyUs } from "@/components/WhyUs";
 import { site } from "@/lib/site";
 
 const organizationJsonLd = {
@@ -22,17 +29,20 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
       />
+      <ScrollProgress />
       <Header />
-      <main>
+      <main id="main">
         <Hero />
-        <About />
+        <Intro />
         <Divisions />
         <Services />
+        <Network />
         <Process />
         <WhyUs />
         <Contact />
       </main>
       <Footer />
+      <MobileCTA />
     </>
   );
 }

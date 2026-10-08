@@ -1,37 +1,58 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand navy */
-  --color-brand-50: #eef4fb;
-  --color-brand-100: #dbe7f6;
-  --color-brand-200: #b9cfec;
-  --color-brand-500: #2f62b0;
-  --color-brand-600: #24508f;
-  --color-brand-700: #1b3f73;
-  --color-brand-800: #132f57;
-  --color-brand-900: #0c213f;
-  --color-brand-950: #07152a;
+  /* Deep navy "night" surfaces */
+  --color-night-950: #03060d;
+  --color-night-900: #060c19;
+  --color-night-800: #0b1427;
+  --color-night-700: #131f3a;
+  --color-night-600: #1e2d52;
 
-  /* Accent */
-  --color-accent-300: #fcd34d;
-  --color-accent-400: #fbbf24;
-  --color-accent-500: #f59e0b;
+  /* Electric blue accent */
+  --color-electric-300: #8ab6ff;
+  --color-electric-400: #5c97ff;
+  --color-electric-500: #3b7bff;
+  --color-electric-600: #2a62e8;
 
-  --animate-marquee: marquee 45s linear infinite;
+  /* Brand (logo arrow) */
+  --color-amber-brand: #fbbf24;
+
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-kenburns: kenburns 30s ease-in-out infinite alternate;
+  --animate-word: word-in 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-dash: dash 2.4s linear infinite;
+  --animate-travel: travel 6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  --animate-ping-slow: ping 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
 
   @keyframes marquee {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
   }
+  @keyframes kenburns {
+    from { transform: scale(1.02); }
+    to { transform: scale(1.14) translate(-1.5%, -1%); }
+  }
+  @keyframes word-in {
+    from { opacity: 0; transform: translateY(0.35em); filter: blur(8px); }
+    to { opacity: 1; transform: none; filter: blur(0); }
+  }
+  @keyframes dash {
+    to { stroke-dashoffset: -32; }
+  }
+  @keyframes travel {
+    0% { left: 0%; }
+    70%, 100% { left: 100%; }
+  }
 }
 
 @theme inline {
   --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 6rem;
 }
 
 body {
@@ -42,23 +63,69 @@ body {
 
 h1, h2, h3 {
   text-wrap: balance;
-  letter-spacing: -0.025em;
 }
 
 ::selection {
-  background: var(--color-brand-100);
-  color: var(--color-brand-950);
+  background: var(--color-electric-500);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-electric-500);
+  outline-offset: 3px;
+}
+
+/* Gradient text used for highlights */
+.text-gradient {
+  background: linear-gradient(100deg, var(--color-electric-300), #67e8f9 55%, var(--color-electric-400));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Faint grid used on dark surfaces */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Mouse-follow glow (see <Spotlight />) */
+.spotlight {
+  --x: 50%;
+  --y: 50%;
+  isolation: isolate;
+}
+.spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background: radial-gradient(420px circle at var(--x) var(--y), rgb(59 123 255 / 0.12), transparent 45%);
+}
+.spotlight:hover::before {
+  opacity: 1;
 }
 
 /* Scroll-reveal (toggled by <Reveal />) */
 .reveal {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transform: translateY(24px);
+  filter: blur(6px);
+  transition:
+    opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 .reveal.is-visible {
   opacity: 1;
   transform: none;
+  filter: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -68,5 +135,5 @@ h1, h2, h3 {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  .reveal { opacity: 1; transform: none; }
+  .reveal { opacity: 1; transform: none; filter: none; }
 }

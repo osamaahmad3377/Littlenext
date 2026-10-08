@@ -20,10 +20,15 @@ export const site = {
     { label: "About", href: "#about" },
     { label: "Divisions", href: "#divisions" },
     { label: "Services", href: "#services" },
+    { label: "Network", href: "#network" },
     { label: "Process", href: "#process" },
-    { label: "Contact", href: "#contact" },
   ],
 } as const;
+
+/** Words cycled in the hero headline: "We move ___ across borders." */
+export const heroWords = ["commodities", "textiles", "baby products", "quality goods"];
+
+export const tradeModes = ["Import", "Export", "Sourcing"] as const;
 
 export type Division = {
   id: string;
@@ -64,6 +69,13 @@ export const divisions: Division[] = [
   },
 ];
 
+export const stats = [
+  { value: 3, label: "Specialised divisions" },
+  { value: 2, label: "Directions — import & export" },
+  { value: 6, label: "Core trade services" },
+  { value: 1, label: "Point of contact for everything" },
+];
+
 export const services = [
   {
     title: "Import",
@@ -97,22 +109,50 @@ export const services = [
   },
 ] as const;
 
+/** Regions shown on the network map (lon, lat). Adjust to the markets you actually serve. */
+export const regions: { name: string; lon: number; lat: number; labelAbove?: boolean }[] = [
+  { name: "East Asia", lon: 116, lat: 31 },
+  { name: "South Asia", lon: 72, lat: 25 },
+  { name: "Middle East", lon: 54, lat: 24, labelAbove: true },
+  { name: "Europe", lon: 6, lat: 50 },
+  { name: "Africa", lon: 32, lat: -2 },
+  { name: "North America", lon: -78, lat: 39 },
+  { name: "South America", lon: -50, lat: -18 },
+  { name: "Southeast Asia", lon: 104, lat: 4 },
+];
+
+/** Pairs of region indexes drawn as trade lanes. */
+export const lanes: [number, number][] = [
+  [0, 3],
+  [1, 2],
+  [2, 3],
+  [1, 4],
+  [3, 5],
+  [7, 2],
+  [5, 6],
+  [0, 5],
+];
+
 export const steps = [
   {
     title: "Share your requirement",
     text: "Product, specification, quantity and destination. A short call or email is enough to start.",
+    output: "Requirement brief",
   },
   {
     title: "Sourcing & quotation",
     text: "We shortlist suppliers, collect samples where needed and send a clear, all-in quotation.",
+    output: "Supplier shortlist & quote",
   },
   {
     title: "Quality & compliance",
     text: "Production is monitored and inspected; documents and certifications are prepared in parallel.",
+    output: "Inspection report & documents",
   },
   {
     title: "Shipping & delivery",
     text: "Goods are shipped, tracked and cleared — you get regular updates until they reach your door.",
+    output: "Delivered & cleared",
   },
 ];
 

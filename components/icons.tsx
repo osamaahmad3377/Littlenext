@@ -83,6 +83,38 @@ export const Clock = (p: IconProps) => (
   </Base>
 );
 
+export const Swap = (p: IconProps) => (
+  <Base {...p}>
+    <path d="M7 4 3 8l4 4M3 8h14M17 20l4-4-4-4M21 16H7" />
+  </Base>
+);
+
+export const ArrowUp = (p: IconProps) => (
+  <Base {...p}>
+    <path d="M12 19V5M6 11l6-6 6 6" />
+  </Base>
+);
+
+export const Globe = (p: IconProps) => (
+  <Base {...p}>
+    <circle cx="12" cy="12" r="9" />
+    <path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z" />
+  </Base>
+);
+
+export const Spark = (p: IconProps) => (
+  <Base {...p}>
+    <path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6" />
+  </Base>
+);
+
+export const Box = (p: IconProps) => (
+  <Base {...p}>
+    <path d="M21 8 12 3 3 8v8l9 5 9-5V8Z" />
+    <path d="m3 8 9 5 9-5M12 13v8" />
+  </Base>
+);
+
 /* Service icons */
 export const Import = (p: IconProps) => (
   <Base {...p}>

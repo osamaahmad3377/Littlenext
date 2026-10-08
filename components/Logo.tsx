@@ -3,7 +3,13 @@ import { site } from "@/lib/site";
 export function LogoMark({ className = "h-9 w-9" }: { className?: string }) {
   return (
     <svg viewBox="0 0 40 40" className={className} aria-hidden="true">
-      <rect width="40" height="40" rx="11" fill="var(--color-brand-800)" />
+      <defs>
+        <linearGradient id="ln-mark" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="var(--color-electric-400)" />
+          <stop offset="100%" stopColor="var(--color-electric-600)" />
+        </linearGradient>
+      </defs>
+      <rect width="40" height="40" rx="11" fill="url(#ln-mark)" />
       <path
         d="M12 10v19h11"
         fill="none"
@@ -15,7 +21,7 @@ export function LogoMark({ className = "h-9 w-9" }: { className?: string }) {
       <path
         d="M19 21 29 11M22.5 11H29v6.5"
         fill="none"
-        stroke="var(--color-accent-400)"
+        stroke="var(--color-amber-brand)"
         strokeWidth="3.2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -28,7 +34,7 @@ export function Logo({ light = false }: { light?: boolean }) {
   return (
     <span className="flex items-center gap-2.5">
       <LogoMark />
-      <span className={`text-xl tracking-tight ${light ? "text-white" : "text-brand-950"}`}>
+      <span className={`text-lg tracking-tight ${light ? "text-white" : "text-night-950"}`}>
         <span className="font-medium">{site.name.slice(0, 6)}</span>
         <span className="font-bold">{site.name.slice(6)}</span>
       </span>

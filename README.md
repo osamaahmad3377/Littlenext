@@ -20,15 +20,19 @@ Almost all text lives in **`lib/site.ts`**:
 - `site.contact` — email, phone, WhatsApp, office address, hours (**replace the placeholders before launch**)
 - `site.url` — your live domain (used for SEO, sitemap and social previews)
 - `divisions` — the division cards and their example products
-- `services`, `steps`, `values` — the "What we do", "How it works" and "Why Littlenext" sections
+- `services`, `steps`, `values` — the "Services", "Process" and "Why Littlenext" sections
+- `regions`, `lanes` — the markets and trade lanes drawn on the network map (set these to the markets you actually serve)
+- `heroWords` — the rotating words in the hero headline
 
 ## Project structure
 
 ```
 app/            layout, page, global styles, favicon, robots & sitemap
-components/     Header, Hero, Sections (About, Divisions, Services, Process, Why us), Contact, Footer
+components/     one file per section (Hero, Intro, Divisions, Services, Network, Process, WhyUs, Contact, Footer)
+                plus QuickQuote (hero widget), fx (scroll/animation effects), ui (section headings)
+lib/site.ts     company details, copy, map regions and trade lanes
+lib/worldDots.ts  pre-generated dotted world map (Natural Earth data)
 public/images/  photography
-lib/site.ts     company details and copy
 ```
 
 ## Images
@@ -39,7 +43,8 @@ Swap in your own product, warehouse or team photos any time — keep the same fi
 
 ## Contact form
 
-The enquiry form currently opens the visitor's email app with the message pre-filled (no server needed).
+The hero "Instant enquiry" widget pre-fills the 3-step enquiry form (requirement → details → review).
+On submit, the form currently opens the visitor's email app with the message pre-filled (no server needed).
 It can be switched to a hosted form service (e.g. Formspree) or an email API later.
 
 ## Deploy
