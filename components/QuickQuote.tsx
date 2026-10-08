@@ -33,7 +33,7 @@ export function QuickQuote() {
   return (
     <form
       onSubmit={submit}
-      className="glass-dark glass-edge w-full rounded-[1.75rem] p-5 sm:p-6"
+      className="glass-dark glass-edge w-full rounded-[1.75rem] bg-night-950/70 p-5 [backdrop-filter:blur(28px)_saturate(160%)] sm:p-6"
       aria-label="Quick enquiry"
     >
       <div className="flex items-center justify-between">

@@ -28,6 +28,7 @@
   --animate-rise: rise 1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   --animate-scroll-cue: scroll-cue 2s cubic-bezier(0.6, 0, 0.4, 1) infinite;
   --animate-aurora: aurora 18s ease-in-out infinite alternate;
+  --animate-fill-x: fill-x linear both;
 
   @keyframes marquee {
     from { transform: translateX(0); }
@@ -60,6 +61,10 @@
     0% { transform: translate3d(0, 0, 0) scale(1); }
     50% { transform: translate3d(8%, -6%, 0) scale(1.15); }
     100% { transform: translate3d(-6%, 5%, 0) scale(0.95); }
+  }
+  @keyframes fill-x {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
   }
   @keyframes travel {
     0% { left: 0%; }

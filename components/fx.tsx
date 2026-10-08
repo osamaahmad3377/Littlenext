@@ -25,23 +25,6 @@ export function ScrollProgress() {
   );
 }
 
-/** Cycles through words with a blur-in animation. */
-export function RotatingWord({ words, interval = 2600 }: { words: string[]; interval?: number }) {
-  const [i, setI] = useState(0);
-  useEffect(() => {
-    const id = setInterval(() => setI((v) => (v + 1) % words.length), interval);
-    return () => clearInterval(id);
-  }, [words.length, interval]);
-  return (
-    <span className="relative inline-block">
-      <span key={i} className="text-gradient inline-block animate-word pb-[0.08em]">
-        {words[i]}
-      </span>
-      <span className="sr-only">{words.join(", ")}</span>
-    </span>
-  );
-}
-
 /** Counts up from 0 to `to` the first time it scrolls into view. */
 export function CountUp({ to, duration = 1400 }: { to: number; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null);

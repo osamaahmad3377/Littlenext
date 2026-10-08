@@ -26,8 +26,13 @@ export const site = {
   ],
 } as const;
 
-/** Words cycled in the hero headline: "We move ___ across borders." */
-export const heroWords = ["commodities", "textiles", "baby products", "quality goods"];
+/** Hero slides: the headline word ("We move ___ across borders.") and the background photo change together. */
+export const heroSlides = [
+  { word: "commodities", label: "Commodities", image: "/images/hero-commodities.jpg", position: "center" },
+  { word: "textiles", label: "Textiles", image: "/images/hero-textiles.jpg", position: "center 30%" },
+  { word: "baby products", label: "Baby Products", image: "/images/hero-baby.jpg", position: "center 60%" },
+  { word: "quality goods", label: "Global Logistics", image: "/images/hero-port.jpg", position: "center" },
+];
 
 export const tradeModes = ["Import", "Export", "Sourcing"] as const;
 

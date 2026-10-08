@@ -22,7 +22,7 @@ Almost all text lives in **`lib/site.ts`**:
 - `divisions`: the division cards and their example products
 - `services`, `steps`, `values`: the "Services", "Process" and "Why Littlenext" sections
 - `regions`: markets on the network map; the entry marked `hq: true` (Australia) is headquarters and gets a trade lane to every other region
-- `heroWords`: the rotating words in the hero headline
+- `heroSlides`: hero slideshow; each slide pairs the headline word with its background photo
 
 ## Project structure
 
