@@ -11,6 +11,7 @@ import { Process } from "@/components/Process";
 import { Services } from "@/components/Services";
 import { Showcase } from "@/components/Showcase";
 import { SmoothScroll } from "@/components/SmoothScroll";
+import { WhatsAppChat } from "@/components/WhatsAppChat";
 import { WhyUs } from "@/components/WhyUs";
 import { site } from "@/lib/site";
 
@@ -48,6 +49,7 @@ export default function Home() {
       </main>
       <Footer />
       <MobileCTA />
+      <WhatsAppChat />
     </>
   );
 }

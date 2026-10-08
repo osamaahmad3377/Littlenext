@@ -30,7 +30,7 @@ Almost all text lives in **`lib/site.ts`**:
 app/            layout, page, global styles, favicon, robots & sitemap
 components/     one file per section (Hero, Intro, Divisions, Services, Network, Process, WhyUs, Contact, Footer)
                 plus Showcase (scroll-expanding photo), QuickQuote (hero widget), Globe3D (mobile globe),
-                SmoothScroll (Lenis), Magnetic (cursor-follow buttons), BgIcon (card background icons,
+                SmoothScroll (Lenis), Magnetic (cursor-follow buttons), WhatsAppChat (floating chat), BgIcon (card background icons,
                 Phosphor icons), fx (scroll effects), ui (section headings)
 lib/site.ts     company details, copy and map regions
 lib/worldDots.ts  pre-generated dotted world map, Pacific-centred (desktop network map)

@@ -11,8 +11,8 @@ export const site = {
 
   contact: {
     email: "info@littlenext.com", // TODO: replace
-    phone: "+61 0 0000 0000", // TODO: replace
-    whatsapp: "", // TODO: digits only incl. country code, e.g. "61400000000"; leave empty to hide
+    phone: "+61 449 545 425",
+    whatsapp: "61449545425", // digits only incl. country code; leave empty to hide WhatsApp
     address: "Office address, City, Australia", // TODO: replace
     hours: "Monday to Saturday, 9am to 6pm (AEST)",
   },

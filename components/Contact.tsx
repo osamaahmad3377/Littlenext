@@ -112,7 +112,7 @@ export function Contact() {
     { icon: EnvelopeSimple, label: "Email", value: contact.email, href: `mailto:${contact.email}` },
     { icon: Phone, label: "Phone", value: contact.phone, href: `tel:${contact.phone.replace(/[^\d+]/g, "")}` },
     ...(contact.whatsapp
-      ? [{ icon: WhatsappLogo, label: "WhatsApp", value: "Chat with us", href: `https://wa.me/${contact.whatsapp}` }]
+      ? [{ icon: WhatsappLogo, label: "WhatsApp", value: "Chat with us on WhatsApp", href: `https://wa.me/${contact.whatsapp}` }]
       : []),
     { icon: MapPin, label: "Office", value: contact.address },
     { icon: Clock, label: "Hours", value: contact.hours },
@@ -158,7 +158,7 @@ export function Contact() {
           </ol>
 
           <ul className="mt-10 grid grid-cols-1 gap-3 min-[480px]:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-            {details.map(({ icon: Icon, label, value, href }) => {
+            {details.map(({ icon: Icon, label, value, href }, i) => {
               const inner = (
                 <>
                   <BgIcon icon={Icon} size={96} />
@@ -170,7 +170,10 @@ export function Contact() {
               );
               const cls = "glass glass-edge group relative isolate flex h-full min-h-[5.5rem] flex-col justify-center overflow-hidden rounded-2xl p-4 pr-10";
               return (
-                <li key={label}>
+                <li
+                  key={label}
+                  className={details.length % 2 === 1 && i === details.length - 1 ? "min-[480px]:col-span-2 lg:col-span-1 xl:col-span-2" : undefined}
+                >
                   {href ? (
                     <a
                       href={href}
