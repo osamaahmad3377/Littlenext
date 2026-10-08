@@ -52,4 +52,8 @@ It can be switched to a hosted form service (e.g. Formspree) or an email API lat
 
 ## Deploy
 
-The easiest option is [Vercel](https://vercel.com/new): import this GitHub repository and click **Deploy**. No configuration needed.
+The easiest option is [Vercel](https://vercel.com/new): import this GitHub repository and click **Deploy**.
+`vercel.json` pins the framework to Next.js, so Vercel builds it correctly even if the project was created before the code was pushed.
+
+If a deployment shows `404 NOT_FOUND`, check in Vercel → Project → Settings → Build and Deployment that
+**Framework Preset** is *Next.js*, **Root Directory** is empty, and **Output Directory** is not overridden; then redeploy.
