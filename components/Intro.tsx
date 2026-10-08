@@ -1,18 +1,18 @@
 import Image from "next/image";
-import { stats } from "@/lib/site";
+import { site, stats } from "@/lib/site";
 import { CountUp, ScrollText } from "./fx";
 import { LogoMark } from "./Logo";
 import { Reveal } from "./Reveal";
 import { SectionLabel } from "./ui";
 
 const statement =
-  "Littlenext is an Australian-based parent company built for modern trade. Our divisions for commodities, textiles and baby products share one team that handles sourcing, quality, shipping and paperwork. Our partners deal with one accountable name, not a chain of intermediaries.";
+  "Little Next is an Australian-based parent company built for modern trade. Our divisions for commodities, textiles and baby products share one team that handles sourcing, quality, shipping and paperwork. Our partners deal with one accountable name, not a chain of intermediaries.";
 
 export function Intro() {
   return (
     <section id="about" className="mesh-light relative isolate overflow-hidden py-20 sm:py-36">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <SectionLabel index="01">About Littlenext</SectionLabel>
+        <SectionLabel index="01">About {site.name}</SectionLabel>
         <ScrollText
           text={statement}
           className="mt-7 max-w-5xl text-[1.65rem] font-normal leading-[1.2] tracking-[-0.03em] text-night-950 sm:text-5xl sm:leading-[1.12]"

@@ -35,8 +35,14 @@ export function Logo({ light = false }: { light?: boolean }) {
     <span className="flex items-center gap-2.5">
       <LogoMark />
       <span className={`text-lg tracking-tight ${light ? "text-white" : "text-night-950"}`}>
-        <span className="font-medium">{site.name.slice(0, 6)}</span>
-        <span className="font-bold">{site.name.slice(6)}</span>
+        {(() => {
+          const [first, ...rest] = site.name.split(" ");
+          return (
+            <>
+              <span className="font-medium">{first}</span> <span className="font-bold">{rest.join(" ")}</span>
+            </>
+          );
+        })()}
       </span>
     </span>
   );

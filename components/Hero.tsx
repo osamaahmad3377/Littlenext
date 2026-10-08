@@ -106,7 +106,7 @@ export function Hero() {
           </h1>
 
           <p className="mt-6 max-w-xl animate-rise text-base leading-relaxed text-white/75 [animation-delay:0.55s] sm:mt-7 sm:text-lg">
-            Littlenext is an Australian-based parent company in international trade. Our specialised divisions source,
+            Little Next is an Australian-based parent company in international trade. Our specialised divisions source,
             inspect, ship and deliver, so you get the right goods on time with one partner accountable end to end.
           </p>
 

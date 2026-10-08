@@ -1,6 +1,6 @@
-# Littlenext
+# Little Next
 
-Website for **Littlenext**, an Australian-based parent company in international import & export (commodities, textiles, baby products).
+Website for **Little Next**, an Australian-based parent company in international import & export (commodities, textiles, baby products).
 
 Built with [Next.js](https://nextjs.org) 16, React 19, TypeScript and Tailwind CSS 4.
 
@@ -41,6 +41,10 @@ public/images/  photography
 ## Images
 
 Photos in `public/images/` are from [Unsplash](https://unsplash.com) (free for commercial use under the Unsplash License).
+`commodities-pulses.jpg` (and its `-portrait` crop for phones) is a composite of three public-domain (CC0) photos:
+chickpeas (rawpixel.com/image/5913543), red kidney beans (rawpixel.com/image/5913548) and green lentils
+(Wikimedia Commons, "Lentil seeds", curid 67840432). No attribution is required.
+
 Swap in your own product, warehouse or team photos any time. Keep the same file names, or update the paths in
 `lib/site.ts` (division photos) and the components.
 

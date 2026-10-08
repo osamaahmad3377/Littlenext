@@ -23,7 +23,7 @@ const organizationJsonLd = {
   description: site.description,
   email: site.contact.email,
   telephone: site.contact.phone,
-  address: { "@type": "PostalAddress", addressCountry: "AU" },
+  address: { "@type": "PostalAddress", addressLocality: "Melbourne", addressRegion: "VIC", addressCountry: "AU" },
 };
 
 export default function Home() {

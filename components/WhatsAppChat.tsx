@@ -62,7 +62,7 @@ export function WhatsAppChat() {
       {/* Chat card */}
       <div
         role="dialog"
-        aria-label="Chat with Littlenext on WhatsApp"
+        aria-label={`Chat with ${site.name} on WhatsApp`}
         aria-hidden={!open}
         className={`mb-4 w-[min(22rem,calc(100vw-2rem))] origin-bottom-right overflow-hidden rounded-[1.5rem] border border-white/10 bg-white shadow-[0_30px_80px_-20px_rgb(3_6_13/0.55)] transition-all duration-300 ease-out ${
           open ? "translate-y-0 scale-100 opacity-100" : "pointer-events-none translate-y-3 scale-95 opacity-0"

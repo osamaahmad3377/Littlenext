@@ -2,10 +2,10 @@
 // Replace the placeholder contact details below before going live.
 
 export const site = {
-  name: "Littlenext",
+  name: "Little Next",
   tagline: "Global trade, made simple.",
   description:
-    "Littlenext is an Australian-based parent company in international import and export, sourcing and supplying commodities, textiles and baby products for businesses worldwide.",
+    "Little Next is an Australian-based parent company in international import and export, sourcing and supplying commodities, textiles and baby products for businesses worldwide.",
   country: "Australia",
   url: "https://www.littlenext.com", // TODO: replace with your real domain
 
@@ -13,7 +13,7 @@ export const site = {
     email: "info@littlenext.com", // TODO: replace
     phone: "+61 449 545 425",
     whatsapp: "61449545425", // digits only incl. country code; leave empty to hide WhatsApp
-    address: "Office address, City, Australia", // TODO: replace
+    address: "Melbourne, Victoria, Australia",
     hours: "Monday to Saturday, 9am to 6pm (AEST)",
   },
 
@@ -42,6 +42,8 @@ export type Division = {
   summary: string;
   items: string[];
   image: string;
+  /** Optional portrait crop used on phones and tablets */
+  imageMobile?: string;
   imageAlt: string;
 };
 
@@ -51,9 +53,10 @@ export const divisions: Division[] = [
     title: "Commodities",
     summary:
       "Agricultural and industrial staples, sourced at scale from trusted origins and delivered to specification.",
-    items: ["Rice & grains", "Pulses & lentils", "Sugar", "Spices", "Edible oils", "Dry fruits & nuts"],
-    image: "/images/commodities.jpg",
-    imageAlt: "Close-up of golden wheat grains",
+    items: ["Chickpeas", "Beans", "Lentils", "Rice & grains", "Sugar", "Spices", "Edible oils", "Dry fruits & nuts"],
+    image: "/images/commodities-pulses.jpg",
+    imageMobile: "/images/commodities-pulses-portrait.jpg",
+    imageAlt: "Chickpeas, red kidney beans and green lentils",
   },
   {
     id: "textiles",

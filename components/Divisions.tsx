@@ -64,12 +64,15 @@ export function Divisions() {
                 className="group relative h-[29rem] w-[85%] shrink-0 cursor-pointer snap-center overflow-hidden rounded-[1.75rem] border border-white/10 bg-night-800 sm:w-[60%] lg:w-auto lg:rounded-[2rem] transition-[flex-grow,flex] duration-700 ease-[cubic-bezier(0.2,0.7,0.2,1)] lg:h-auto lg:min-w-0 lg:[flex:var(--grow)_1_0%]"
                 style={{ "--grow": isActive ? 3.2 : 1 } as React.CSSProperties}
               >
+                {d.imageMobile && (
+                  <Image src={d.imageMobile} alt={d.imageAlt} fill sizes="(min-width: 640px) 60vw, 85vw" className="object-cover lg:hidden" />
+                )}
                 <Image
                   src={d.image}
                   alt={d.imageAlt}
                   fill
                   sizes="(min-width: 1024px) 760px, 100vw"
-                  className={`object-cover transition duration-1000 ${isActive ? "scale-100" : "lg:scale-110 lg:grayscale-[60%]"}`}
+                  className={`object-cover transition duration-1000 ${d.imageMobile ? "max-lg:hidden" : ""} ${isActive ? "scale-100" : "lg:scale-110 lg:grayscale-[60%]"}`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-night-950/60 via-transparent to-night-950/20" />
 
