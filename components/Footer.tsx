@@ -12,8 +12,8 @@ export function Footer() {
   return (
     <footer className="relative overflow-hidden bg-night-950 text-white/60">
       <div className="mx-auto max-w-7xl px-5 pt-20 sm:px-8">
-        <div className="grid gap-12 md:grid-cols-[1.6fr_1fr_1fr_1.3fr]">
-          <div>
+        <div className="grid grid-cols-2 gap-x-6 gap-y-12 md:grid-cols-[1.6fr_1fr_1fr_1.3fr]">
+          <div className="col-span-2 md:col-span-1">
             <Logo light />
             <p className="mt-5 max-w-xs leading-relaxed">{site.description}</p>
           </div>
@@ -33,7 +33,7 @@ export function Footer() {
             </div>
           ))}
 
-          <div>
+          <div className="col-span-2 md:col-span-1">
             <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-white/40">Get in touch</h3>
             <ul className="mt-5 space-y-3">
               <li>
@@ -54,6 +54,7 @@ export function Footer() {
         <div className="mt-16 flex flex-col gap-4 border-t border-white/10 py-8 text-sm sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {site.name}. All rights reserved.
+            <span className="mt-1 block text-white/40 sm:ml-3 sm:mt-0 sm:inline">Based in {site.country} · Trading worldwide</span>
           </p>
           <a href="#top" className="group inline-flex items-center gap-2 transition hover:text-white">
             Back to top

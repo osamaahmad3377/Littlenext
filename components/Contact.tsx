@@ -8,7 +8,7 @@ import { Reveal } from "./Reveal";
 import { SectionLabel } from "./ui";
 
 const fieldClass =
-  "mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 font-normal text-slate-900 placeholder:text-slate-400 outline-none transition focus:border-electric-500 focus:ring-4 focus:ring-electric-500/15";
+  "mt-2 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-base font-normal text-slate-900 placeholder:text-slate-400 outline-none transition focus:border-electric-500 focus:ring-4 focus:ring-electric-500/15";
 const labelClass = "block text-sm font-medium text-slate-700";
 
 const categories = [...divisions.map((d) => d.title), "Other products"];
@@ -129,7 +129,7 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="bg-slate-50 py-24 sm:py-36">
+    <section id="contact" className="bg-slate-50 py-20 sm:py-36">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[1fr_1.35fr] lg:gap-16">
         <Reveal>
           <SectionLabel index="07">Contact</SectionLabel>
@@ -153,7 +153,7 @@ export function Contact() {
             )}
           </ol>
 
-          <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+          <ul className="mt-10 grid grid-cols-2 gap-3 lg:grid-cols-1 xl:grid-cols-2">
             {details.map(({ icon: Icon, label, value, href }) => {
               const inner = (
                 <>
@@ -166,7 +166,7 @@ export function Contact() {
                   </span>
                 </>
               );
-              const cls = "flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-3";
+              const cls = "flex h-full flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-4 sm:flex-row sm:items-center sm:p-3";
               return (
                 <li key={label}>
                   {href ? (
@@ -188,7 +188,7 @@ export function Contact() {
         </Reveal>
 
         <Reveal delay={120}>
-          <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-2xl shadow-slate-900/[0.06] sm:p-10">
+          <div className="rounded-[1.75rem] border border-slate-200 bg-white p-5 shadow-2xl shadow-slate-900/[0.06] sm:rounded-[2rem] sm:p-10">
             {sent ? (
               <div className="flex min-h-[30rem] flex-col items-center justify-center text-center" role="status">
                 <span className="grid h-16 w-16 place-items-center rounded-full bg-electric-500 text-white shadow-lg shadow-electric-500/30">
@@ -223,7 +223,8 @@ export function Contact() {
                     <li key={t} aria-current={i === step ? "step" : undefined}>
                       <span className={`block h-1 rounded-full transition-colors duration-500 ${i <= step ? "bg-electric-500" : "bg-slate-200"}`} />
                       <span className={`mt-2.5 block font-mono text-[11px] uppercase tracking-wider ${i <= step ? "text-night-950" : "text-slate-400"}`}>
-                        0{i + 1} · {t}
+                        <span className="hidden sm:inline">0{i + 1} · </span>
+                        {t}
                       </span>
                     </li>
                   ))}
@@ -258,7 +259,7 @@ export function Contact() {
                         ))}
                       </div>
                     </fieldset>
-                    <div className="grid gap-5 sm:grid-cols-3">
+                    <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5">
                       <label className={labelClass}>
                         From
                         <input value={data.from} onChange={set("from")} className={fieldClass} placeholder="Origin country" />
@@ -267,7 +268,7 @@ export function Contact() {
                         To
                         <input value={data.to} onChange={set("to")} className={fieldClass} placeholder="Destination" />
                       </label>
-                      <label className={labelClass}>
+                      <label className={`${labelClass} col-span-2 sm:col-span-1`}>
                         Quantity
                         <input value={data.quantity} onChange={set("quantity")} className={fieldClass} placeholder="e.g. 2 × 40ft" />
                       </label>
@@ -286,7 +287,7 @@ export function Contact() {
                     <div className="flex justify-end">
                       <button
                         type="submit"
-                        className="group inline-flex items-center gap-2 rounded-full bg-night-950 px-7 py-3.5 font-semibold text-white transition hover:bg-electric-600"
+                        className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-night-950 px-7 py-3.5 sm:w-auto font-semibold text-white transition hover:bg-electric-600"
                       >
                         Continue
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -332,7 +333,7 @@ export function Contact() {
                   <form onSubmit={send} className="mt-8">
                     <dl className="divide-y divide-slate-100 rounded-2xl border border-slate-200">
                       {review.map(([k, v]) => (
-                        <div key={k} className="grid grid-cols-[8rem_1fr] gap-4 px-5 py-3 text-sm">
+                        <div key={k} className="grid grid-cols-[6.5rem_1fr] gap-3 px-4 py-3 text-sm sm:grid-cols-[8rem_1fr] sm:gap-4 sm:px-5">
                           <dt className="font-mono text-xs uppercase tracking-wider text-slate-500">{k}</dt>
                           <dd className="whitespace-pre-line break-words text-slate-900">{v}</dd>
                         </div>

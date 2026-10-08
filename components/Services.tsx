@@ -11,12 +11,14 @@ function ServiceCard({ service, delay = 0 }: { service: (typeof services)[number
   const Icon = serviceIcons[service.icon];
   return (
     <Reveal delay={delay} className="h-full">
-      <Spotlight className="group h-full overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-electric-300 hover:shadow-2xl hover:shadow-electric-500/10">
-        <span className="grid h-12 w-12 place-items-center rounded-2xl bg-slate-100 text-night-950 transition duration-300 group-hover:bg-electric-500 group-hover:text-white">
+      <Spotlight className="group flex h-full gap-4 overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white p-6 transition sm:rounded-[1.75rem] sm:p-7 duration-300 hover:-translate-y-1 hover:border-electric-300 hover:shadow-2xl hover:shadow-electric-500/10 sm:block">
+        <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-slate-100 text-night-950 transition duration-300 group-hover:bg-electric-500 group-hover:text-white">
           <Icon className="h-6 w-6" />
         </span>
-        <h3 className="mt-10 text-xl font-semibold tracking-tight text-night-950">{service.title}</h3>
-        <p className="mt-2.5 leading-relaxed text-slate-600">{service.text}</p>
+        <div>
+          <h3 className="text-lg font-semibold tracking-tight text-night-950 sm:mt-10 sm:text-xl">{service.title}</h3>
+          <p className="mt-1.5 leading-relaxed text-slate-600 sm:mt-2.5">{service.text}</p>
+        </div>
       </Spotlight>
     </Reveal>
   );
@@ -62,7 +64,7 @@ export function Services() {
   const ImportIcon = serviceIcons[importSvc.icon];
 
   return (
-    <section id="services" className="bg-slate-50 py-24 sm:py-36">
+    <section id="services" className="bg-slate-50 py-20 sm:py-36">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
           index="03"
@@ -75,10 +77,10 @@ export function Services() {
           text="Buying or selling across borders, we handle every step so you can focus on your business."
         />
 
-        <div className="mt-14 grid auto-rows-[minmax(15rem,auto)] gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-3 sm:mt-14 sm:auto-rows-[minmax(15rem,auto)] sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
           {/* Import — large photo card */}
           <Reveal className="sm:col-span-2 lg:row-span-2">
-            <div className="group relative h-full min-h-[26rem] overflow-hidden rounded-[1.75rem] bg-night-900 text-white">
+            <div className="group relative h-full min-h-[21rem] overflow-hidden rounded-[1.5rem] sm:min-h-[26rem] sm:rounded-[1.75rem] bg-night-900 text-white">
               <Image
                 src="/images/warehouse.jpg"
                 alt="Warehouse aisle with stocked shelves"
@@ -102,7 +104,7 @@ export function Services() {
 
           {/* Logistics — tracker card */}
           <Reveal className="sm:col-span-2" delay={80}>
-            <div className="flex h-full flex-col justify-between gap-6 rounded-[1.75rem] bg-night-950 p-7 text-white">
+            <div className="flex h-full flex-col justify-between gap-6 rounded-[1.5rem] bg-night-950 p-5 text-white sm:rounded-[1.75rem] sm:p-7">
               <ShipmentTracker />
               <div className="flex items-start gap-4">
                 <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-electric-500">
@@ -123,7 +125,7 @@ export function Services() {
           <Reveal className="sm:col-span-2" delay={160}>
             <a
               href="#contact"
-              className="group relative flex h-full flex-col justify-between overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-electric-500 to-electric-600 p-7 text-white sm:p-9"
+              className="group relative flex h-full flex-col justify-between overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-electric-500 to-electric-600 p-6 text-white sm:rounded-[1.75rem] sm:p-9"
             >
               <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full border border-white/20" aria-hidden="true" />
               <div className="absolute -right-4 -top-4 h-32 w-32 rounded-full border border-white/20" aria-hidden="true" />

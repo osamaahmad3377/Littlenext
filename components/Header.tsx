@@ -117,6 +117,17 @@ export function Header() {
           >
             Get a quote <ArrowRight className="h-4 w-4" />
           </a>
+          <div
+            className={`mt-8 border-t border-white/10 pt-6 text-sm text-white/55 transition-opacity delay-300 duration-500 ${open ? "opacity-100" : "opacity-0"}`}
+          >
+            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/35">Based in {site.country}</p>
+            <a href={`mailto:${site.contact.email}`} className="mt-3 block text-white/80">
+              {site.contact.email}
+            </a>
+            <a href={`tel:${site.contact.phone.replace(/[^\d+]/g, "")}`} className="mt-1 block text-white/80">
+              {site.contact.phone}
+            </a>
+          </div>
         </nav>
       </div>
     </>

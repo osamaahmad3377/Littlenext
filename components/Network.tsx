@@ -1,19 +1,26 @@
-import { lanes, regions } from "@/lib/site";
+import { regions, site } from "@/lib/site";
 import { landDots, MAP_H, MAP_W, project } from "@/lib/worldDots";
-import { Box, Globe, Ship } from "./icons";
+import { CenterScroll } from "./fx";
+import { ArrowRight, Box, Globe, Ship } from "./icons";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./ui";
 
 const points = regions.map((r) => project(r.lon, r.lat));
+const hqIndex = Math.max(0, regions.findIndex((r) => r.hq));
+const hq = regions[hqIndex];
+const [hx, hy] = points[hqIndex];
 
-const arcs = lanes.map(([a, b]) => {
-  const [x1, y1] = points[a];
-  const [x2, y2] = points[b];
-  const dist = Math.hypot(x2 - x1, y2 - y1);
-  const cx = (x1 + x2) / 2;
-  const cy = Math.min(y1, y2) - dist * 0.28;
-  return `M${x1.toFixed(1)} ${y1.toFixed(1)} Q${cx.toFixed(1)} ${cy.toFixed(1)} ${x2.toFixed(1)} ${y2.toFixed(1)}`;
-});
+// One lane from headquarters to every other region
+const lanes = regions
+  .map((r, i) => ({ region: r, i }))
+  .filter(({ i }) => i !== hqIndex)
+  .map(({ region, i }) => {
+    const [x, y] = points[i];
+    const dist = Math.hypot(x - hx, y - hy);
+    const cx = (x + hx) / 2;
+    const cy = Math.max(10, Math.min(y, hy) - dist * 0.32);
+    return { name: region.name, d: `M${hx.toFixed(1)} ${hy.toFixed(1)} Q${cx.toFixed(1)} ${cy.toFixed(1)} ${x.toFixed(1)} ${y.toFixed(1)}` };
+  });
 
 const modes = [
   { icon: Ship, title: "Sea freight", text: "FCL & LCL container shipping for bulk and volume orders." },
@@ -23,7 +30,7 @@ const modes = [
 
 export function Network() {
   return (
-    <section id="network" className="relative isolate overflow-hidden bg-night-950 py-24 text-white sm:py-36">
+    <section id="network" className="relative isolate overflow-hidden bg-night-950 py-20 text-white sm:py-36">
       <div className="absolute left-1/2 top-1/2 -z-10 h-[40rem] w-[60rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-electric-600/15 blur-[160px]" />
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -33,72 +40,112 @@ export function Network() {
           label="Network"
           title={
             <>
-              Connecting markets <span className="text-white/40">across continents.</span>
+              From {hq.name} <span className="text-white/40">to the world.</span>
             </>
           }
-          text="We link suppliers and buyers along the trade lanes that matter to your business — and manage every leg of the journey."
+          text={`Headquartered in ${site.country}, we connect suppliers and buyers across Asia, the Middle East, Europe, Africa and the Americas — and manage every leg of the journey.`}
         />
 
-        <Reveal className="mt-14">
-          <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-night-900/60 p-3 sm:p-8">
-            <div className="relative">
-              <svg viewBox={`0 0 ${MAP_W} ${MAP_H}`} className="h-auto w-full" role="img" aria-label="World map with trade lanes between regions">
-                <defs>
-                  <linearGradient id="lane" x1="0" x2="1">
-                    <stop offset="0%" stopColor="#8ab6ff" />
-                    <stop offset="100%" stopColor="#67e8f9" />
-                  </linearGradient>
-                </defs>
-                <path d={landDots} stroke="#ffffff" strokeOpacity="0.16" strokeWidth="2.6" strokeLinecap="round" />
+        <Reveal className="mt-12 sm:mt-14">
+          <div className="relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-night-900/60 sm:rounded-[2rem]">
+            <CenterScroll
+              at={hx / MAP_W}
+              className="overflow-x-auto overscroll-x-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            >
+              <div className="relative w-[860px] px-4 py-6 sm:w-auto sm:p-8">
+                <div className="relative">
+                  <svg viewBox={`0 0 ${MAP_W} ${MAP_H}`} className="h-auto w-full" role="img" aria-label={`World map with trade lanes from ${hq.name} to ${lanes.map((l) => l.name).join(", ")}`}>
+                    <defs>
+                      <linearGradient id="lane" x1="0" x2="1">
+                        <stop offset="0%" stopColor="#fbbf24" />
+                        <stop offset="45%" stopColor="#8ab6ff" />
+                        <stop offset="100%" stopColor="#67e8f9" />
+                      </linearGradient>
+                    </defs>
+                    <path d={landDots} stroke="#ffffff" strokeOpacity="0.17" strokeWidth="2.4" strokeLinecap="round" />
 
-                <g fill="none" stroke="url(#lane)" strokeWidth="1.6" strokeLinecap="round">
-                  {arcs.map((d, i) => (
-                    <g key={i}>
-                      <path d={d} strokeOpacity="0.2" />
-                      <path id={`lane-${i}`} d={d} strokeDasharray="4 12" className="animate-dash" />
+                    <g fill="none" stroke="url(#lane)" strokeWidth="1.5" strokeLinecap="round">
+                      {lanes.map((l, i) => (
+                        <g key={l.name}>
+                          <path d={l.d} strokeOpacity="0.2" />
+                          <path id={`lane-${i}`} d={l.d} strokeDasharray="4 11" className="animate-dash" />
+                        </g>
+                      ))}
                     </g>
-                  ))}
-                </g>
 
-                {arcs.map((_, i) => (
-                  <circle key={i} r="3" fill="#fff">
-                    <animateMotion dur={`${5 + (i % 4)}s`} begin={`${i * -0.9}s`} repeatCount="indefinite">
-                      <mpath href={`#lane-${i}`} />
-                    </animateMotion>
-                  </circle>
-                ))}
+                    {lanes.map((l, i) => (
+                      <circle key={l.name} r="2.6" fill="#fff">
+                        <animateMotion dur={`${4.5 + (i % 4) * 0.8}s`} begin={`${i * -0.7}s`} repeatCount="indefinite">
+                          <mpath href={`#lane-${i}`} />
+                        </animateMotion>
+                      </circle>
+                    ))}
 
-                {points.map(([x, y], i) => (
-                  <g key={i}>
-                    <circle cx={x} cy={y} r="6" fill="#3b7bff" fillOpacity="0.35">
-                      <animate attributeName="r" values="5;16;5" dur="3s" begin={`${i * 0.4}s`} repeatCount="indefinite" />
-                      <animate attributeName="fill-opacity" values="0.45;0;0.45" dur="3s" begin={`${i * 0.4}s`} repeatCount="indefinite" />
-                    </circle>
-                    <circle cx={x} cy={y} r="4.5" fill="#fff" stroke="#3b7bff" strokeWidth="2.5" />
-                  </g>
-                ))}
-              </svg>
+                    {points.map(([x, y], i) => {
+                      const isHq = i === hqIndex;
+                      const color = isHq ? "#fbbf24" : "#3b7bff";
+                      return (
+                        <g key={regions[i].name}>
+                          <circle cx={x} cy={y} r="5" fill={color} fillOpacity="0.35">
+                            <animate attributeName="r" values={isHq ? "6;22;6" : "4;13;4"} dur="3s" begin={`${i * 0.35}s`} repeatCount="indefinite" />
+                            <animate attributeName="fill-opacity" values="0.5;0;0.5" dur="3s" begin={`${i * 0.35}s`} repeatCount="indefinite" />
+                          </circle>
+                          <circle cx={x} cy={y} r={isHq ? 6.5 : 4} fill={isHq ? "#fbbf24" : "#fff"} stroke={isHq ? "#03060d" : color} strokeWidth={isHq ? 2.5 : 2.2} />
+                        </g>
+                      );
+                    })}
+                  </svg>
 
-              {regions.map((r, i) => {
-                const [x, y] = points[i];
-                return (
-                  <span
-                    key={r.name}
-                    className={`absolute hidden -translate-x-1/2 whitespace-nowrap rounded-full border border-white/10 bg-night-950/70 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-white/75 backdrop-blur sm:block ${r.labelAbove ? "-translate-y-[calc(100%+0.75rem)]" : "translate-y-3"}`}
-                    style={{ left: `${(x / MAP_W) * 100}%`, top: `${(y / MAP_H) * 100}%` }}
-                  >
-                    {r.name}
-                  </span>
-                );
-              })}
-            </div>
+                  {regions.map((r, i) => {
+                    const [x, y] = points[i];
+                    return (
+                      <span
+                        key={r.name}
+                        className={`absolute -translate-x-1/2 whitespace-nowrap rounded-full border px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider backdrop-blur ${
+                          r.hq
+                            ? "translate-y-3.5 border-amber-brand/50 bg-amber-brand text-night-950 font-semibold"
+                            : `border-white/10 bg-night-950/75 text-white/80 ${r.labelAbove ? "-translate-y-[calc(100%+0.6rem)]" : "translate-y-2.5"}`
+                        }`}
+                        style={{ left: `${(x / MAP_W) * 100}%`, top: `${(y / MAP_H) * 100}%` }}
+                      >
+                        {r.hq ? `HQ · ${r.name}` : r.name}
+                      </span>
+                    );
+                  })}
+                </div>
+              </div>
+            </CenterScroll>
+
+            <p className="flex items-center justify-center gap-2 border-t border-white/10 py-3 font-mono text-[11px] uppercase tracking-wider text-white/45 sm:hidden">
+              ← Swipe to explore the map →
+            </p>
           </div>
         </Reveal>
 
-        <div className="mt-5 grid gap-5 md:grid-cols-3">
+        {/* Lane list — readable summary, especially on phones */}
+        <Reveal className="mt-5">
+          <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.03] p-5 sm:p-6">
+            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/45">Trade lanes from {hq.name}</p>
+            <ul className="mt-4 flex flex-wrap gap-2">
+              {lanes.map((l) => (
+                <li
+                  key={l.name}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.05] px-3 py-1.5 text-sm text-white/85"
+                >
+                  <span className="h-1.5 w-1.5 rounded-full bg-amber-brand" />
+                  {hq.name}
+                  <ArrowRight className="h-3.5 w-3.5 text-electric-300" />
+                  {l.name}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
+
+        <div className="mt-5 grid gap-3 sm:gap-5 md:grid-cols-3">
           {modes.map((m, i) => (
             <Reveal key={m.title} delay={i * 90}>
-              <div className="flex h-full items-start gap-4 rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-6">
+              <div className="flex h-full items-start gap-4 rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-5 sm:p-6">
                 <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-white/10 text-electric-300">
                   <m.icon className="h-5 w-5" />
                 </span>

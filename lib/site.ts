@@ -5,15 +5,16 @@ export const site = {
   name: "Littlenext",
   tagline: "Global trade, made simple.",
   description:
-    "Littlenext is a parent company in international import and export — sourcing and supplying commodities, textiles and baby products for businesses worldwide.",
+    "Littlenext is an Australian-based parent company in international import and export — sourcing and supplying commodities, textiles and baby products for businesses worldwide.",
+  country: "Australia",
   url: "https://www.littlenext.com", // TODO: replace with your real domain
 
   contact: {
     email: "info@littlenext.com", // TODO: replace
-    phone: "+00 000 000 0000", // TODO: replace
-    whatsapp: "", // TODO: digits only incl. country code, e.g. "923001234567" — leave empty to hide
-    address: "Office address, City, Country", // TODO: replace
-    hours: "Mon – Sat, 9:00 – 18:00",
+    phone: "+61 0 0000 0000", // TODO: replace
+    whatsapp: "", // TODO: digits only incl. country code, e.g. "61400000000" — leave empty to hide
+    address: "Office address, City, Australia", // TODO: replace
+    hours: "Mon – Sat, 9:00 – 18:00 (AEST)",
   },
 
   nav: [
@@ -109,28 +110,17 @@ export const services = [
   },
 ] as const;
 
-/** Regions shown on the network map (lon, lat). Adjust to the markets you actually serve. */
-export const regions: { name: string; lon: number; lat: number; labelAbove?: boolean }[] = [
-  { name: "East Asia", lon: 116, lat: 31 },
-  { name: "South Asia", lon: 72, lat: 25 },
-  { name: "Middle East", lon: 54, lat: 24, labelAbove: true },
-  { name: "Europe", lon: 6, lat: 50 },
-  { name: "Africa", lon: 32, lat: -2 },
-  { name: "North America", lon: -78, lat: 39 },
-  { name: "South America", lon: -50, lat: -18 },
+/** Regions shown on the network map (lon, lat). The first entry is headquarters; lanes run from it to every other region. */
+export const regions: { name: string; lon: number; lat: number; hq?: boolean; labelAbove?: boolean }[] = [
+  { name: "Australia", lon: 134, lat: -25, hq: true },
   { name: "Southeast Asia", lon: 104, lat: 4 },
-];
-
-/** Pairs of region indexes drawn as trade lanes. */
-export const lanes: [number, number][] = [
-  [0, 3],
-  [1, 2],
-  [2, 3],
-  [1, 4],
-  [3, 5],
-  [7, 2],
-  [5, 6],
-  [0, 5],
+  { name: "East Asia", lon: 116, lat: 31, labelAbove: true },
+  { name: "South Asia", lon: 77, lat: 22 },
+  { name: "Middle East", lon: 50, lat: 26, labelAbove: true },
+  { name: "Europe", lon: 10, lat: 50, labelAbove: true },
+  { name: "Africa", lon: 25, lat: 0 },
+  { name: "North America", lon: -98, lat: 40, labelAbove: true },
+  { name: "South America", lon: -58, lat: -15 },
 ];
 
 export const steps = [

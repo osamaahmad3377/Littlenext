@@ -8,7 +8,7 @@ const valueIcons = [Chat, Shield, Doc, Clock];
 
 export function WhyUs() {
   return (
-    <section id="why" className="relative isolate overflow-hidden bg-night-950 py-24 text-white sm:py-36">
+    <section id="why" className="relative isolate overflow-hidden bg-night-950 py-20 text-white sm:py-36">
       <div className="bg-grid absolute inset-0 -z-10 [mask-image:linear-gradient(to_bottom,black,transparent_50%)]" />
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -24,29 +24,31 @@ export function WhyUs() {
           text="International trade has a lot of moving parts. We keep them moving in the right direction."
         />
 
-        <div className="mt-14 grid gap-px overflow-hidden rounded-[2rem] border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-px overflow-hidden rounded-[1.75rem] sm:mt-14 sm:rounded-[2rem] border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
           {values.map((v, i) => {
             const Icon = valueIcons[i % valueIcons.length];
             return (
               <Reveal key={v.title} delay={i * 90} className="h-full">
-                <div className="group h-full bg-night-950 p-7 transition-colors duration-300 hover:bg-night-900 sm:p-8">
-                  <span className="grid h-11 w-11 place-items-center rounded-xl border border-white/10 text-electric-300 transition group-hover:border-electric-400 group-hover:bg-electric-500 group-hover:text-white">
+                <div className="group flex h-full gap-4 bg-night-950 p-6 transition-colors duration-300 hover:bg-night-900 sm:block sm:p-8">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-white/10 text-electric-300 transition group-hover:border-electric-400 group-hover:bg-electric-500 group-hover:text-white">
                     <Icon className="h-5 w-5" />
                   </span>
-                  <h3 className="mt-12 text-lg font-semibold">{v.title}</h3>
-                  <p className="mt-2 leading-relaxed text-white/55">{v.text}</p>
+                  <div>
+                    <h3 className="text-lg font-semibold sm:mt-12">{v.title}</h3>
+                    <p className="mt-1.5 leading-relaxed text-white/55 sm:mt-2">{v.text}</p>
+                  </div>
                 </div>
               </Reveal>
             );
           })}
         </div>
 
-        <Reveal className="mt-24">
-          <div className="relative isolate overflow-hidden rounded-[2.25rem] border border-white/10">
+        <Reveal className="mt-16 sm:mt-24">
+          <div className="relative isolate overflow-hidden rounded-[1.75rem] border border-white/10 sm:rounded-[2.25rem]">
             <Image src="/images/airport-sunset.jpg" alt="" fill sizes="(min-width: 1280px) 1216px, 100vw" className="-z-10 object-cover" />
             <div className="absolute inset-0 -z-10 bg-gradient-to-r from-night-950 via-night-950/85 to-night-950/20" />
             <div className="absolute -left-20 bottom-0 -z-10 h-80 w-80 rounded-full bg-electric-500/30 blur-[100px]" />
-            <div className="max-w-2xl px-7 py-16 sm:px-14 sm:py-24">
+            <div className="max-w-2xl px-6 py-14 sm:px-14 sm:py-24">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-electric-300">Ready when you are</p>
               <h2 className="mt-5 text-4xl font-semibold leading-[1.02] tracking-[-0.035em] sm:text-6xl">
                 Let&apos;s move your next shipment.

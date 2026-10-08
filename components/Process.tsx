@@ -23,7 +23,7 @@ export function Process() {
   }, []);
 
   return (
-    <section id="process" className="py-24 sm:py-36">
+    <section id="process" className="py-20 sm:py-36">
       <div className="mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
         <div className="lg:sticky lg:top-32 lg:self-start">
           <SectionLabel index="05">Process</SectionLabel>
@@ -48,7 +48,7 @@ export function Process() {
           </div>
         </div>
 
-        <ol className="space-y-5">
+        <ol className="space-y-3 sm:space-y-5">
           {steps.map((s, i) => {
             const done = i < active;
             const current = i === active;
@@ -59,9 +59,9 @@ export function Process() {
                   refs.current[i] = el;
                 }}
                 data-index={i}
-                className={`relative flex gap-6 rounded-[1.75rem] border p-6 transition-all duration-500 sm:p-8 ${
+                className={`relative flex gap-4 rounded-[1.5rem] border p-5 transition-all duration-500 sm:gap-6 sm:rounded-[1.75rem] sm:p-8 ${
                   current
-                    ? "border-electric-200 bg-white shadow-2xl shadow-electric-500/10"
+                    ? "border-electric-300/60 bg-white shadow-2xl shadow-electric-500/10"
                     : "border-transparent bg-slate-50"
                 }`}
               >

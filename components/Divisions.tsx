@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { divisions } from "@/lib/site";
 import { ArrowUpRight } from "./icons";
 import { Reveal } from "./Reveal";
@@ -9,9 +9,26 @@ import { SectionHeading } from "./ui";
 
 export function Divisions() {
   const [active, setActive] = useState(0);
+  const [slide, setSlide] = useState(0);
+  const track = useRef<HTMLDivElement>(null);
+
+  // Mobile carousel: track which card is centred
+  function onTrackScroll() {
+    const el = track.current;
+    if (!el) return;
+    const card = el.firstElementChild as HTMLElement | null;
+    if (!card) return;
+    setSlide(Math.round(el.scrollLeft / (card.offsetWidth + 16)));
+  }
+
+  function goTo(i: number) {
+    const el = track.current;
+    const card = el?.children[i] as HTMLElement | undefined;
+    if (el && card) el.scrollTo({ left: card.offsetLeft - (el.clientWidth - card.offsetWidth) / 2, behavior: "smooth" });
+  }
 
   return (
-    <section id="divisions" className="relative isolate overflow-hidden bg-night-950 py-24 text-white sm:py-36">
+    <section id="divisions" className="relative isolate overflow-hidden bg-night-950 py-20 text-white sm:py-36">
       <div className="bg-grid absolute inset-0 -z-10 [mask-image:linear-gradient(to_bottom,black,transparent_60%)]" />
       <div className="absolute right-0 top-0 -z-10 h-[28rem] w-[28rem] rounded-full bg-electric-600/20 blur-[140px]" />
 
@@ -29,7 +46,12 @@ export function Divisions() {
           text="Each division has its own supplier network and product expertise — backed by the group's logistics, quality and compliance teams."
         />
 
-        <Reveal className="mt-14 flex flex-col gap-4 lg:h-[34rem] lg:flex-row">
+        <Reveal className="mt-12 lg:mt-14">
+          <div
+            ref={track}
+            onScroll={onTrackScroll}
+            className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 [scrollbar-width:none] sm:-mx-8 sm:px-8 lg:mx-0 lg:h-[34rem] lg:snap-none lg:overflow-visible lg:px-0 [&::-webkit-scrollbar]:hidden"
+          >
           {divisions.map((d, i) => {
             const isActive = active === i;
             return (
@@ -39,7 +61,7 @@ export function Divisions() {
                 onMouseEnter={() => setActive(i)}
                 onFocus={() => setActive(i)}
                 onClick={() => setActive(i)}
-                className="group relative h-[30rem] cursor-pointer overflow-hidden rounded-[2rem] border border-white/10 bg-night-800 transition-[flex-grow,flex] duration-700 ease-[cubic-bezier(0.2,0.7,0.2,1)] lg:h-auto lg:min-w-0 lg:[flex:var(--grow)_1_0%]"
+                className="group relative h-[29rem] w-[85%] shrink-0 cursor-pointer snap-center overflow-hidden rounded-[1.75rem] border border-white/10 bg-night-800 sm:w-[60%] lg:w-auto lg:rounded-[2rem] transition-[flex-grow,flex] duration-700 ease-[cubic-bezier(0.2,0.7,0.2,1)] lg:h-auto lg:min-w-0 lg:[flex:var(--grow)_1_0%]"
                 style={{ "--grow": isActive ? 3.2 : 1 } as React.CSSProperties}
               >
                 <Image
@@ -97,6 +119,21 @@ export function Divisions() {
               </article>
             );
           })}
+          </div>
+
+          {/* Carousel dots (mobile / tablet) */}
+          <div className="mt-6 flex justify-center gap-2 lg:hidden">
+            {divisions.map((d, i) => (
+              <button
+                key={d.id}
+                type="button"
+                onClick={() => goTo(i)}
+                aria-label={`Show ${d.title}`}
+                aria-current={slide === i}
+                className={`h-2 rounded-full transition-all duration-300 ${slide === i ? "w-8 bg-white" : "w-2 bg-white/30"}`}
+              />
+            ))}
+          </div>
         </Reveal>
 
         <p className="mt-6 text-center text-sm text-white/45">

@@ -23,7 +23,8 @@ export const metadata: Metadata = {
   },
   description: site.description,
   keywords: [
-    "import export company",
+    "Australian import export company",
+    "import export company Australia",
     "commodities trading",
     "textile export",
     "baby products wholesale",
