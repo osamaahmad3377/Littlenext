@@ -80,7 +80,7 @@ export function Showcase() {
           <p ref={setLine(0)} className="font-mono text-xs uppercase tracking-[0.3em] text-amber-brand opacity-0">
             Proudly based in {site.country}
           </p>
-          <h2 className="mt-6 text-5xl font-semibold leading-[0.98] tracking-[-0.045em] sm:text-7xl lg:text-[7rem]">
+          <h2 className="mt-6 text-5xl font-medium leading-[0.98] tracking-[-0.05em] sm:text-7xl lg:text-[7rem]">
             <span ref={setLine(1)} className="block opacity-0">
               Built in Australia.
             </span>

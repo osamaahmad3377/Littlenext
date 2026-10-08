@@ -103,7 +103,7 @@ export function QuickQuote() {
 
       <button
         type="submit"
-        className="group mt-5 flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-electric-500 to-electric-600 py-3.5 font-semibold text-white shadow-lg shadow-electric-600/30 transition hover:brightness-110"
+        className="btn-shine group mt-5 flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-electric-500 to-electric-600 py-3.5 font-semibold text-white shadow-lg shadow-electric-600/30 transition hover:brightness-110"
       >
         Continue to quote
         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

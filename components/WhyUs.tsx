@@ -1,11 +1,13 @@
 import { site, values } from "@/lib/site";
-import { ArrowRight, Chat, Doc, Shield, Clock } from "./icons";
+import { Handshake, Receipt, ShieldCheck, Timer } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight } from "./icons";
+import { IconTile } from "./IconTile";
 import { LogoMark } from "./Logo";
 import { Magnetic } from "./Magnetic";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./ui";
 
-const valueIcons = [Chat, Shield, Doc, Clock];
+const valueIcons = [Handshake, ShieldCheck, Receipt, Timer];
 
 export function WhyUs() {
   return (
@@ -33,9 +35,7 @@ export function WhyUs() {
             return (
               <Reveal key={v.title} delay={i * 90} className="h-full">
                 <div className="glass-dark glass-edge group flex h-full gap-4 rounded-[1.5rem] p-6 transition duration-300 hover:-translate-y-1 hover:bg-white/[0.06] sm:block sm:rounded-[1.75rem] sm:p-8">
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-electric-400 to-electric-600 text-white shadow-lg shadow-electric-600/30 transition group-hover:scale-105">
-                    <Icon className="h-5 w-5" />
-                  </span>
+                  <IconTile icon={Icon} />
                   <div>
                     <h3 className="text-lg font-semibold sm:mt-12">{v.title}</h3>
                     <p className="mt-1.5 leading-relaxed text-white/55 sm:mt-2">{v.text}</p>
@@ -57,7 +57,7 @@ export function WhyUs() {
             <div className="grid items-center gap-8 p-3 sm:p-8 lg:grid-cols-[1.4fr_1fr] lg:p-12">
               <div className="glass-dark glass-edge rounded-[1.5rem] px-6 py-10 sm:rounded-[1.75rem] sm:px-12 sm:py-14">
                 <p className="font-mono text-xs uppercase tracking-[0.2em] text-electric-300">Ready when you are</p>
-                <h2 className="mt-5 text-4xl font-semibold leading-[1.02] tracking-[-0.035em] sm:text-6xl">
+                <h2 className="mt-5 text-4xl font-medium leading-[1.02] tracking-[-0.045em] sm:text-6xl">
                   Let&apos;s move your next shipment.
                 </h2>
                 <p className="mt-5 text-lg text-white/70">
@@ -67,7 +67,7 @@ export function WhyUs() {
                   <Magnetic>
                     <a
                       href="#contact"
-                      className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-7 py-4 font-semibold text-night-950 shadow-[0_10px_40px_-10px_rgb(255_255_255/0.45)] transition hover:bg-electric-300"
+                      className="btn-shine group inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-7 py-4 font-semibold text-night-950 shadow-[0_10px_40px_-10px_rgb(255_255_255/0.45)] transition hover:bg-electric-300"
                     >
                       Get a quote
                       <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />

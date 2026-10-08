@@ -110,7 +110,7 @@ export function Divisions() {
                   <a
                     href="#contact"
                     onClick={(e) => e.stopPropagation()}
-                    className="group/link mt-5 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-night-950 transition hover:bg-electric-300"
+                    className="btn-shine group/link mt-5 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-night-950 transition hover:bg-electric-300"
                   >
                     Enquire about {d.title.toLowerCase()}
                     <ArrowUpRight className="h-4 w-4 transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />

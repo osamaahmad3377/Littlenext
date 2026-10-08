@@ -1,7 +1,9 @@
 import Image from "next/image";
 import { services } from "@/lib/site";
 import { Spotlight } from "./fx";
-import { ArrowRight, Check, serviceIcons, Ship } from "./icons";
+import { Boat } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight, Check, serviceIcons } from "./icons";
+import { IconTile } from "./IconTile";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./ui";
 
@@ -12,9 +14,7 @@ function ServiceCard({ service, delay = 0 }: { service: (typeof services)[number
   return (
     <Reveal delay={delay} className="h-full">
       <Spotlight className="glass glass-edge group flex h-full gap-4 overflow-hidden rounded-[1.5rem] p-6 transition duration-300 hover:-translate-y-1 hover:shadow-[0_30px_60px_-25px_rgb(42_98_232/0.35)] sm:block sm:rounded-[1.75rem] sm:p-7">
-        <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-electric-400 to-electric-600 text-white shadow-lg shadow-electric-600/25 transition duration-300 group-hover:scale-105">
-          <Icon className="h-6 w-6" />
-        </span>
+        <IconTile icon={Icon} />
         <div>
           <h3 className="text-lg font-semibold tracking-tight text-night-950 sm:mt-10 sm:text-xl">{service.title}</h3>
           <p className="mt-1.5 leading-relaxed text-slate-600 sm:mt-2.5">{service.text}</p>
@@ -39,7 +39,7 @@ function ShipmentTracker() {
         <span className="font-medium text-white">Origin</span>
         <div className="relative h-px flex-1 bg-gradient-to-r from-electric-400 via-electric-400/60 to-white/15">
           <span className="absolute -top-3 grid h-6 w-6 -translate-x-1/2 animate-travel place-items-center rounded-full bg-electric-500 text-white shadow-lg shadow-electric-500/40">
-            <Ship className="h-3.5 w-3.5" />
+            <Boat size={14} weight="fill" aria-hidden="true" />
           </span>
         </div>
         <span className="font-medium text-white/50">Destination</span>
@@ -90,9 +90,7 @@ export function Services() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-night-950/70 via-transparent to-transparent" />
               <div className="glass-dark glass-edge absolute inset-x-3 bottom-3 rounded-[1.25rem] p-6 sm:inset-x-4 sm:bottom-4 sm:rounded-[1.5rem] sm:p-8">
-                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-electric-400 to-electric-600 shadow-lg shadow-electric-600/30">
-                  <ImportIcon className="h-6 w-6" />
-                </span>
+                <IconTile icon={ImportIcon} />
                 <h3 className="mt-5 text-2xl font-semibold tracking-tight sm:text-3xl">{importSvc.title}</h3>
                 <p className="mt-2 max-w-md leading-relaxed text-white/75">{importSvc.text}</p>
               </div>
@@ -108,9 +106,7 @@ export function Services() {
               <div className="absolute -right-10 -top-16 -z-10 h-56 w-56 rounded-full bg-electric-500/30 blur-[70px]" aria-hidden="true" />
               <ShipmentTracker />
               <div className="flex items-start gap-4">
-                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-electric-400 to-electric-600 shadow-lg shadow-electric-600/30">
-                  <LogisticsIcon className="h-6 w-6" />
-                </span>
+                <IconTile icon={LogisticsIcon} />
                 <div>
                   <h3 className="text-xl font-semibold tracking-tight">{logisticsSvc.title}</h3>
                   <p className="mt-1.5 leading-relaxed text-white/65">{logisticsSvc.text}</p>
@@ -126,17 +122,25 @@ export function Services() {
           <Reveal className="sm:col-span-2" delay={160}>
             <a
               href="#contact"
-              className="group relative flex h-full flex-col justify-between overflow-hidden rounded-[1.5rem] bg-gradient-to-br from-electric-500 to-electric-600 p-6 text-white sm:rounded-[1.75rem] sm:p-9"
+              className="group relative isolate flex h-full flex-col justify-between overflow-hidden rounded-[1.5rem] bg-night-950 p-6 text-white shadow-2xl shadow-night-950/20 sm:rounded-[1.75rem] sm:p-9"
             >
-              <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full border border-white/20" aria-hidden="true" />
-              <div className="absolute -right-4 -top-4 h-32 w-32 rounded-full border border-white/20" aria-hidden="true" />
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-white/70">Not sure where to start?</p>
+              <div className="absolute -right-24 -top-24 -z-10 h-72 w-72 animate-aurora rounded-full bg-electric-500/45 blur-[80px]" aria-hidden="true" />
+              <div className="absolute -bottom-24 left-1/4 -z-10 h-56 w-56 animate-aurora rounded-full bg-amber-brand/20 blur-[80px] [animation-delay:-8s]" aria-hidden="true" />
+              <svg className="absolute -right-10 -top-10 -z-10 h-64 w-64 text-white/10" viewBox="0 0 200 200" aria-hidden="true">
+                {[40, 64, 88].map((r) => (
+                  <circle key={r} cx="150" cy="50" r={r} fill="none" stroke="currentColor" strokeWidth="0.75" />
+                ))}
+              </svg>
+              <p className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/60">
+                <span className="h-px w-10 bg-gradient-to-r from-amber-brand to-amber-brand/0" />
+                Not sure where to start?
+              </p>
               <div className="mt-10 flex items-end justify-between gap-6">
-                <h3 className="max-w-sm text-2xl font-semibold leading-tight tracking-tight sm:text-3xl">
+                <h3 className="max-w-sm text-2xl font-medium leading-tight tracking-[-0.03em] sm:text-3xl">
                   Tell us what you need and we&apos;ll map the route.
                 </h3>
-                <span className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-white text-electric-600 transition group-hover:scale-110">
-                  <ArrowRight className="h-6 w-6 -rotate-45 transition-transform group-hover:rotate-0" />
+                <span className="btn-shine grid h-14 w-14 shrink-0 place-items-center rounded-full bg-white text-night-950 shadow-[0_10px_30px_-8px_rgb(255_255_255/0.5)] transition duration-500 group-hover:scale-110">
+                  <ArrowRight className="h-6 w-6 -rotate-45 transition-transform duration-500 group-hover:rotate-0" />
                 </span>
               </div>
             </a>

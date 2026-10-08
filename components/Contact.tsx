@@ -2,7 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { divisions, site, tradeModes } from "@/lib/site";
-import { ArrowRight, Chat, Check, Clock, Mail, Phone, Pin } from "./icons";
+import { Clock, EnvelopeSimple, MapPin, Phone, WhatsappLogo } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight, Check } from "./icons";
+import { IconTile } from "./IconTile";
 import { PREFILL_EVENT, type Prefill } from "./QuickQuote";
 import { Reveal } from "./Reveal";
 import { SectionLabel } from "./ui";
@@ -107,12 +109,12 @@ export function Contact() {
   }
 
   const details = [
-    { icon: Mail, label: "Email", value: contact.email, href: `mailto:${contact.email}` },
+    { icon: EnvelopeSimple, label: "Email", value: contact.email, href: `mailto:${contact.email}` },
     { icon: Phone, label: "Phone", value: contact.phone, href: `tel:${contact.phone.replace(/[^\d+]/g, "")}` },
     ...(contact.whatsapp
-      ? [{ icon: Chat, label: "WhatsApp", value: "Chat with us", href: `https://wa.me/${contact.whatsapp}` }]
+      ? [{ icon: WhatsappLogo, label: "WhatsApp", value: "Chat with us", href: `https://wa.me/${contact.whatsapp}` }]
       : []),
-    { icon: Pin, label: "Office", value: contact.address },
+    { icon: MapPin, label: "Office", value: contact.address },
     { icon: Clock, label: "Hours", value: contact.hours },
   ];
 
@@ -133,7 +135,7 @@ export function Contact() {
       <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[1fr_1.35fr] lg:gap-16">
         <Reveal>
           <SectionLabel index="07">Contact</SectionLabel>
-          <h2 className="mt-5 overflow-hidden pb-[0.06em] text-4xl font-semibold leading-[1.02] tracking-[-0.035em] text-night-950 sm:text-6xl">
+          <h2 className="mt-5 overflow-hidden pb-[0.06em] text-4xl font-medium leading-[1.02] tracking-[-0.045em] text-night-950 sm:text-6xl">
             <span className="reveal-line">
               Let&apos;s talk <span className="text-slate-400">trade.</span>
             </span>
@@ -159,16 +161,14 @@ export function Contact() {
             {details.map(({ icon: Icon, label, value, href }) => {
               const inner = (
                 <>
-                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-electric-400 to-electric-600 text-white shadow-lg shadow-electric-600/25">
-                    <Icon className="h-[18px] w-[18px]" />
-                  </span>
+                  <IconTile icon={Icon} size="sm" />
                   <span className="min-w-0">
                     <span className="block font-mono text-[11px] uppercase tracking-wider text-slate-500">{label}</span>
                     <span className="block break-words text-sm font-semibold text-night-950">{value}</span>
                   </span>
                 </>
               );
-              const cls = "glass glass-edge flex h-full flex-col gap-3 rounded-2xl p-4 sm:flex-row sm:items-center sm:p-3";
+              const cls = "glass glass-edge group flex h-full flex-col gap-3 rounded-2xl p-4 sm:flex-row sm:items-center sm:p-3";
               return (
                 <li key={label}>
                   {href ? (

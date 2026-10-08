@@ -27,7 +27,7 @@ export function Process() {
       <div className="mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
         <div className="lg:sticky lg:top-32 lg:self-start">
           <SectionLabel index="05">Process</SectionLabel>
-          <h2 className="mt-5 text-4xl font-semibold leading-[1.02] tracking-[-0.035em] text-night-950 sm:text-6xl">
+          <h2 className="mt-5 text-4xl font-medium leading-[1.02] tracking-[-0.045em] text-night-950 sm:text-6xl">
             From enquiry to delivery <span className="text-slate-400">in four steps.</span>
           </h2>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-slate-600">

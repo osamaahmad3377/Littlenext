@@ -72,7 +72,7 @@ export function Header() {
               <Magnetic strength={0.2}>
                 <a
                   href="#contact"
-                  className="group inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-night-950 transition hover:bg-electric-300"
+                  className="btn-shine group inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-night-950 transition hover:bg-electric-300"
                 >
                   Get a quote
                   <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />

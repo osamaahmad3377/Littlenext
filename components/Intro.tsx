@@ -15,7 +15,7 @@ export function Intro() {
         <SectionLabel index="01">About Littlenext</SectionLabel>
         <ScrollText
           text={statement}
-          className="mt-7 max-w-5xl text-[1.65rem] font-medium leading-[1.2] tracking-[-0.025em] text-night-950 sm:text-5xl sm:leading-[1.12]"
+          className="mt-7 max-w-5xl text-[1.65rem] font-normal leading-[1.2] tracking-[-0.03em] text-night-950 sm:text-5xl sm:leading-[1.12]"
         />
 
         <div className="mt-12 grid gap-3 sm:gap-5 lg:mt-24 lg:grid-cols-[1.15fr_1fr]">

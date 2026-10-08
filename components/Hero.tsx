@@ -39,7 +39,7 @@ export function Hero() {
 
       <div className="mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 items-end gap-12 px-5 pb-8 pt-28 sm:px-8 sm:pb-12 lg:grid-cols-[1.3fr_1fr] lg:items-center lg:pt-36">
         <div className="min-w-0">
-          <h1 className="text-[3.1rem] font-semibold leading-[0.98] tracking-[-0.04em] sm:text-7xl lg:text-[5.6rem]">
+          <h1 className="text-[3.1rem] font-medium leading-[0.98] tracking-[-0.05em] sm:text-7xl lg:text-[5.6rem]">
             {/* Each line slides up out of its own mask on load */}
             <span className="block overflow-hidden pb-[0.04em]">
               <span className="block animate-line-up" style={{ animationDelay: "0.1s" }}>
@@ -67,7 +67,7 @@ export function Hero() {
             <Magnetic className="w-full sm:w-auto">
               <a
                 href="#contact"
-                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-5 py-3.5 text-[15px] font-semibold text-night-950 shadow-[0_10px_40px_-10px_rgb(255_255_255/0.45)] transition hover:bg-electric-300 sm:px-7 sm:py-4 sm:text-base"
+                className="btn-shine group inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-5 py-3.5 text-[15px] font-semibold text-night-950 shadow-[0_10px_40px_-10px_rgb(255_255_255/0.45)] transition hover:bg-electric-300 sm:px-7 sm:py-4 sm:text-base"
               >
                 Get a quote
                 <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />

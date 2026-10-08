@@ -1,7 +1,8 @@
 import { regions, site } from "@/lib/site";
 import { landDots, MAP_H, MAP_W, project } from "@/lib/worldDots";
 import { Globe3D } from "./Globe3D";
-import { Box, Globe, Ship } from "./icons";
+import { Airplane, Boat, Truck } from "@phosphor-icons/react/dist/ssr";
+import { IconTile } from "./IconTile";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./ui";
 
@@ -23,9 +24,9 @@ const lanes = regions
   });
 
 const modes = [
-  { icon: Ship, title: "Sea freight", text: "FCL and LCL container shipping for bulk and volume orders." },
-  { icon: Globe, title: "Air freight", text: "Fast, secure delivery for urgent and high-value goods." },
-  { icon: Box, title: "Land & last mile", text: "Road transport, warehousing and door-to-door delivery." },
+  { icon: Boat, title: "Sea freight", text: "FCL and LCL container shipping for bulk and volume orders." },
+  { icon: Airplane, title: "Air freight", text: "Fast, secure delivery for urgent and high-value goods." },
+  { icon: Truck, title: "Land & last mile", text: "Road transport, warehousing and door-to-door delivery." },
 ];
 
 function FlatMap() {
@@ -135,10 +136,8 @@ export function Network() {
         <div className="mt-4 grid gap-3 sm:mt-5 sm:gap-5 md:grid-cols-3">
           {modes.map((m, i) => (
             <Reveal key={m.title} delay={i * 90}>
-              <div className="glass-dark glass-edge flex h-full items-start gap-4 rounded-[1.5rem] p-5 sm:p-6">
-                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-electric-400 to-electric-600 text-white shadow-lg shadow-electric-600/30">
-                  <m.icon className="h-5 w-5" />
-                </span>
+              <div className="glass-dark glass-edge group flex h-full items-start gap-4 rounded-[1.5rem] p-5 sm:p-6">
+                <IconTile icon={m.icon} />
                 <div>
                   <h3 className="font-semibold">{m.title}</h3>
                   <p className="mt-1 text-sm leading-relaxed text-white/55">{m.text}</p>
