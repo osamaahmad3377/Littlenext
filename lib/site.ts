@@ -26,9 +26,16 @@ export const site = {
   ],
 } as const;
 
-/** Hero slides: the headline word ("We move ___ across borders.") and the background photo change together. */
-export const heroSlides = [
-  { word: "commodities", label: "Commodities", image: "/images/hero-commodities.jpg", position: "center" },
+/** Hero slides: the headline word ("We move ___ across borders.") and the background photo change together.
+ *  `imageMobile` is an optional portrait crop used on portrait screens (phones, upright tablets). */
+export const heroSlides: { word: string; label: string; image: string; imageMobile?: string; position: string }[] = [
+  {
+    word: "commodities",
+    label: "Commodities",
+    image: "/images/hero-pulses.jpg",
+    imageMobile: "/images/hero-pulses-portrait.jpg",
+    position: "center",
+  },
   { word: "textiles", label: "Textiles", image: "/images/hero-textiles.jpg", position: "center 30%" },
   { word: "baby products", label: "Baby Products", image: "/images/hero-baby.jpg", position: "center 60%" },
   { word: "quality goods", label: "Global Logistics", image: "/images/hero-port.jpg", position: "center" },

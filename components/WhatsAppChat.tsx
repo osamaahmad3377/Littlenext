@@ -16,6 +16,7 @@ export function WhatsAppChat() {
   const [open, setOpen] = useState(false);
   const [showHint, setShowHint] = useState(false);
   const [message, setMessage] = useState("");
+  const [pastHero, setPastHero] = useState(false);
   const panel = useRef<HTMLDivElement>(null);
 
   // A gentle "Need help?" bubble after a few seconds, once per visit
@@ -27,6 +28,14 @@ export function WhatsAppChat() {
     if (seen) return;
     const t = setTimeout(() => setShowHint(true), 6000);
     return () => clearTimeout(t);
+  }, []);
+
+  // On phones, keep the button out of the hero so it doesn't cover the hero buttons
+  useEffect(() => {
+    const onScroll = () => setPastHero(window.scrollY > window.innerHeight * 0.6);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const dismissHint = () => {
@@ -58,7 +67,9 @@ export function WhatsAppChat() {
   };
 
   return (
-    <div ref={panel} className="fixed bottom-24 right-4 z-[35] flex flex-col items-end sm:bottom-6 sm:right-6">
+    <div ref={panel} className={`fixed bottom-24 right-4 z-[35] flex flex-col items-end transition-all duration-500 sm:bottom-6 sm:right-6 ${
+        pastHero || open ? "" : "max-sm:pointer-events-none max-sm:translate-y-6 max-sm:opacity-0"
+      }`}>
       {/* Chat card */}
       <div
         role="dialog"

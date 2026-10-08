@@ -44,6 +44,8 @@ Photos in `public/images/` are from [Unsplash](https://unsplash.com) (free for c
 `commodities-pulses.jpg` (and its `-portrait` crop for phones) is a composite of three public-domain (CC0) photos:
 chickpeas (rawpixel.com/image/5913543), red kidney beans (rawpixel.com/image/5913548) and green lentils
 (Wikimedia Commons, "Lentil seeds", curid 67840432). No attribution is required.
+`hero-pulses.jpg` (and `-portrait`) is a high-resolution composite for the hero, using Wikimedia Commons CC0 photos
+"Red kidney beans" and "Chickpeas🫘" plus the same lentils photo.
 
 Swap in your own product, warehouse or team photos any time. Keep the same file names, or update the paths in
 `lib/site.ts` (division photos) and the components.

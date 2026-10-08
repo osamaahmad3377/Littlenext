@@ -62,13 +62,23 @@ export function Hero() {
               key={s.image}
               className={`absolute inset-0 transition-opacity duration-[1.4s] ease-in-out ${i === index ? "opacity-100" : "opacity-0"}`}
             >
+              {s.imageMobile && (
+                <Image
+                  src={s.imageMobile}
+                  alt=""
+                  fill
+                  priority={i === 0}
+                  sizes="100vw"
+                  className={`object-cover landscape:hidden ${i === index ? "animate-kenburns" : ""}`}
+                />
+              )}
               <Image
                 src={s.image}
                 alt=""
                 fill
                 priority={i === 0}
                 sizes="(orientation: portrait) 180vh, 100vw"
-                className={`object-cover ${i === index ? "animate-kenburns" : ""}`}
+                className={`object-cover ${s.imageMobile ? "portrait:hidden" : ""} ${i === index ? "animate-kenburns" : ""}`}
                 style={{ objectPosition: s.position }}
               />
             </div>
