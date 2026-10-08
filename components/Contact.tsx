@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { divisions, site, tradeModes } from "@/lib/site";
 import { Clock, EnvelopeSimple, MapPin, Phone, WhatsappLogo } from "@phosphor-icons/react/dist/ssr";
 import { ArrowRight, Check } from "./icons";
-import { IconTile } from "./IconTile";
+import { BgIcon, IconTile } from "./IconTile";
 import { PREFILL_EVENT, type Prefill } from "./QuickQuote";
 import { Reveal } from "./Reveal";
 import { SectionLabel } from "./ui";
@@ -161,6 +161,7 @@ export function Contact() {
             {details.map(({ icon: Icon, label, value, href }) => {
               const inner = (
                 <>
+                  <BgIcon icon={Icon} size={96} />
                   <IconTile icon={Icon} size="sm" />
                   <span className="min-w-0">
                     <span className="block font-mono text-[11px] uppercase tracking-wider text-slate-500">{label}</span>
@@ -168,7 +169,7 @@ export function Contact() {
                   </span>
                 </>
               );
-              const cls = "glass glass-edge group flex h-full flex-col gap-3 rounded-2xl p-4 sm:flex-row sm:items-center sm:p-3";
+              const cls = "glass glass-edge group relative isolate overflow-hidden flex h-full flex-col gap-3 rounded-2xl p-4 sm:flex-row sm:items-center sm:p-3";
               return (
                 <li key={label}>
                   {href ? (

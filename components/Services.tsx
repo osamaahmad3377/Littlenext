@@ -3,7 +3,7 @@ import { services } from "@/lib/site";
 import { Spotlight } from "./fx";
 import { Boat } from "@phosphor-icons/react/dist/ssr";
 import { ArrowRight, Check, serviceIcons } from "./icons";
-import { IconTile } from "./IconTile";
+import { BgIcon, IconTile } from "./IconTile";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./ui";
 
@@ -14,6 +14,7 @@ function ServiceCard({ service, delay = 0 }: { service: (typeof services)[number
   return (
     <Reveal delay={delay} className="h-full">
       <Spotlight className="glass glass-edge group flex h-full gap-4 overflow-hidden rounded-[1.5rem] p-6 transition duration-300 hover:-translate-y-1 hover:shadow-[0_30px_60px_-25px_rgb(42_98_232/0.35)] sm:block sm:rounded-[1.75rem] sm:p-7">
+        <BgIcon icon={Icon} />
         <IconTile icon={Icon} />
         <div>
           <h3 className="text-lg font-semibold tracking-tight text-night-950 sm:mt-10 sm:text-xl">{service.title}</h3>
@@ -102,10 +103,11 @@ export function Services() {
 
           {/* Logistics: tracker card */}
           <Reveal className="sm:col-span-2" delay={80}>
-            <div className="relative isolate flex h-full flex-col justify-between gap-6 overflow-hidden rounded-[1.5rem] bg-night-950 p-5 text-white shadow-2xl shadow-night-950/20 sm:rounded-[1.75rem] sm:p-7">
+            <div className="group relative isolate flex h-full flex-col justify-between gap-6 overflow-hidden rounded-[1.5rem] bg-night-950 p-5 text-white shadow-2xl shadow-night-950/20 sm:rounded-[1.75rem] sm:p-7">
               <div className="absolute -right-10 -top-16 -z-10 h-56 w-56 rounded-full bg-electric-500/30 blur-[70px]" aria-hidden="true" />
               <ShipmentTracker />
               <div className="flex items-start gap-4">
+                <BgIcon icon={LogisticsIcon} tone="dark" size={200} />
                 <IconTile icon={LogisticsIcon} />
                 <div>
                   <h3 className="text-xl font-semibold tracking-tight">{logisticsSvc.title}</h3>
