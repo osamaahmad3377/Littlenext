@@ -10,8 +10,8 @@ import { Reveal } from "./Reveal";
 import { SectionLabel } from "./ui";
 
 const fieldClass =
-  "mt-2 w-full rounded-xl border border-slate-200 bg-white/80 px-4 py-3 text-base font-normal text-slate-900 placeholder:text-slate-400 outline-none transition focus:border-electric-500 focus:ring-4 focus:ring-electric-500/15";
-const labelClass = "block text-sm font-medium text-slate-700";
+  "mt-2 w-full rounded-xl border border-neutral-200 bg-white/80 px-4 py-3 text-base font-normal text-neutral-900 placeholder:text-neutral-400 outline-none transition focus:border-electric-500 focus:ring-4 focus:ring-electric-500/15";
+const labelClass = "block text-sm font-medium text-neutral-700";
 
 const categories = [...divisions.map((d) => d.title), "Other products"];
 const stepTitles = ["Requirement", "Your details", "Review"];
@@ -51,7 +51,7 @@ function Chip({ selected, onClick, children }: { selected: boolean; onClick: () 
       className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
         selected
           ? "border-night-950 bg-night-950 text-white"
-          : "border-slate-200 bg-white/80 text-slate-700 hover:border-slate-400"
+          : "border-neutral-200 bg-white/80 text-neutral-700 hover:border-neutral-400"
       }`}
     >
       {children}
@@ -173,18 +173,18 @@ export function Contact() {
           <SectionLabel index="07">Contact</SectionLabel>
           <h2 className="mt-5 overflow-hidden pb-[0.06em] text-4xl font-medium leading-[1.02] tracking-[-0.045em] text-night-950 sm:text-6xl">
             <span className="reveal-line">
-              Let&apos;s talk <span className="text-slate-400">trade.</span>
+              Let&apos;s talk <span className="text-neutral-400">trade.</span>
             </span>
           </h2>
-          <p className="mt-6 max-w-md text-lg leading-relaxed text-slate-600">
+          <p className="mt-6 max-w-md text-lg leading-relaxed text-neutral-600">
             Buying or selling, one shipment or a long-term contract. Tell us what you need.
           </p>
 
           <ol className="mt-10 space-y-4">
             {["We review your requirement within one business day", "We share supplier options and a clear quotation", "You decide, with no obligation"].map(
               (t, i) => (
-                <li key={t} className="flex items-center gap-4 text-slate-700">
-                  <span className="glass grid h-8 w-8 shrink-0 place-items-center rounded-full font-mono text-xs text-electric-600">
+                <li key={t} className="flex items-center gap-4 text-neutral-700">
+                  <span className="glass grid h-8 w-8 shrink-0 place-items-center rounded-full font-mono text-xs text-electric-700">
                     0{i + 1}
                   </span>
                   {t}
@@ -199,7 +199,7 @@ export function Contact() {
                 <>
                   <BgIcon icon={Icon} size={96} />
                   <span className="min-w-0">
-                    <span className="block font-mono text-[11px] uppercase tracking-wider text-slate-500">{label}</span>
+                    <span className="block font-mono text-[11px] uppercase tracking-wider text-neutral-500">{label}</span>
                     <span className="block break-words text-sm font-semibold text-night-950">{value}</span>
                   </span>
                 </>
@@ -232,13 +232,13 @@ export function Contact() {
           <div className="glass glass-edge rounded-[1.75rem] p-5 sm:rounded-[2rem] sm:p-10">
             {sent ? (
               <div className="flex min-h-[30rem] flex-col items-center justify-center text-center" role="status">
-                <span className="grid h-16 w-16 place-items-center rounded-full bg-electric-500 text-white shadow-lg shadow-electric-500/30">
+                <span className="grid h-16 w-16 place-items-center rounded-full bg-electric-500 text-night-950 shadow-lg shadow-electric-500/30">
                   <Check className="h-8 w-8" strokeWidth={2.4} />
                 </span>
                 {delivery === "sent" ? (
                   <>
                     <h3 className="mt-6 text-2xl font-semibold tracking-tight text-night-950">Thank you, {data.name.split(" ")[0]}</h3>
-                    <p className="mt-3 max-w-sm text-slate-600">
+                    <p className="mt-3 max-w-sm text-neutral-600">
                       We&apos;ve received your enquiry and will reply to <span className="font-semibold text-night-950">{data.email}</span>{" "}
                       within one business day.
                     </p>
@@ -246,7 +246,7 @@ export function Contact() {
                 ) : (
                   <>
                     <h3 className="mt-6 text-2xl font-semibold tracking-tight text-night-950">Almost there</h3>
-                    <p className="mt-3 max-w-sm text-slate-600">
+                    <p className="mt-3 max-w-sm text-neutral-600">
                       We couldn&apos;t send your enquiry automatically, so your email app should have opened with it ready to send. If it
                       didn&apos;t, write to us at{" "}
                       <a href={`mailto:${contact.email}`} className="font-semibold text-night-950 underline">
@@ -264,7 +264,7 @@ export function Contact() {
                     setData(empty);
                     setPrefilled(false);
                   }}
-                  className="mt-8 rounded-full border border-slate-300 px-5 py-2.5 font-semibold text-night-950 hover:bg-slate-50"
+                  className="mt-8 rounded-full border border-neutral-300 px-5 py-2.5 font-semibold text-night-950 hover:bg-neutral-50"
                 >
                   Start a new enquiry
                 </button>
@@ -275,8 +275,8 @@ export function Contact() {
                 <ol className="grid grid-cols-3 gap-3" aria-label="Form progress">
                   {stepTitles.map((t, i) => (
                     <li key={t} aria-current={i === step ? "step" : undefined}>
-                      <span className={`block h-1 rounded-full transition-colors duration-500 ${i <= step ? "bg-electric-500" : "bg-slate-200"}`} />
-                      <span className={`mt-2.5 block font-mono text-[11px] uppercase tracking-wider ${i <= step ? "text-night-950" : "text-slate-400"}`}>
+                      <span className={`block h-1 rounded-full transition-colors duration-500 ${i <= step ? "bg-electric-500" : "bg-neutral-200"}`} />
+                      <span className={`mt-2.5 block font-mono text-[11px] uppercase tracking-wider ${i <= step ? "text-night-950" : "text-neutral-400"}`}>
                         <span className="hidden sm:inline">0{i + 1} · </span>
                         {t}
                       </span>
@@ -285,7 +285,7 @@ export function Contact() {
                 </ol>
 
                 {prefilled && step === 0 && (
-                  <p className="mt-6 flex items-center gap-2 rounded-xl bg-electric-500/10 px-4 py-3 text-sm text-electric-600">
+                  <p className="mt-6 flex items-center gap-2 rounded-xl bg-electric-500/10 px-4 py-3 text-sm text-electric-700">
                     <Check className="h-4 w-4" strokeWidth={2.6} />
                     We&apos;ve added the details from your quick enquiry.
                   </p>
@@ -341,7 +341,7 @@ export function Contact() {
                     <div className="flex justify-end">
                       <button
                         type="submit"
-                        className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-night-950 px-7 py-3.5 sm:w-auto font-semibold text-white transition hover:bg-electric-600"
+                        className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-night-950 px-7 py-3.5 sm:w-auto font-semibold text-white transition hover:bg-electric-500 hover:text-night-950"
                       >
                         Continue
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -369,12 +369,12 @@ export function Contact() {
                       <input type="tel" autoComplete="tel" value={data.phone} onChange={set("phone")} className={fieldClass} placeholder="+1 555 000 0000" />
                     </label>
                     <div className="flex items-center justify-between sm:col-span-2">
-                      <button type="button" onClick={() => setStep(0)} className="rounded-full px-5 py-3.5 font-semibold text-slate-600 hover:bg-slate-100">
+                      <button type="button" onClick={() => setStep(0)} className="rounded-full px-5 py-3.5 font-semibold text-neutral-600 hover:bg-neutral-100">
                         Back
                       </button>
                       <button
                         type="submit"
-                        className="group inline-flex items-center gap-2 rounded-full bg-night-950 px-7 py-3.5 font-semibold text-white transition hover:bg-electric-600"
+                        className="group inline-flex items-center gap-2 rounded-full bg-night-950 px-7 py-3.5 font-semibold text-white transition hover:bg-electric-500 hover:text-night-950"
                       >
                         Review
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -387,11 +387,11 @@ export function Contact() {
                   <form onSubmit={send} className="mt-8">
                     {/* Honeypot: hidden from people, filled in by spam bots */}
                     <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 opacity-0" />
-                    <dl className="divide-y divide-slate-100 rounded-2xl border border-slate-200 bg-white/70">
+                    <dl className="divide-y divide-neutral-100 rounded-2xl border border-neutral-200 bg-white/70">
                       {review.map(([k, v]) => (
                         <div key={k} className="grid grid-cols-[6.5rem_1fr] gap-3 px-4 py-3 text-sm sm:grid-cols-[8rem_1fr] sm:gap-4 sm:px-5">
-                          <dt className="font-mono text-xs uppercase tracking-wider text-slate-500">{k}</dt>
-                          <dd className="whitespace-pre-line break-words text-slate-900">{v}</dd>
+                          <dt className="font-mono text-xs uppercase tracking-wider text-neutral-500">{k}</dt>
+                          <dd className="whitespace-pre-line break-words text-neutral-900">{v}</dd>
                         </div>
                       ))}
                     </dl>
@@ -401,13 +401,13 @@ export function Contact() {
                       </p>
                     )}
                     <div className="mt-6 flex items-center justify-between">
-                      <button type="button" onClick={() => setStep(1)} className="rounded-full px-5 py-3.5 font-semibold text-slate-600 hover:bg-slate-100">
+                      <button type="button" onClick={() => setStep(1)} className="rounded-full px-5 py-3.5 font-semibold text-neutral-600 hover:bg-neutral-100">
                         Back
                       </button>
                       <button
                         type="submit"
                         disabled={sending}
-                        className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-electric-500 to-electric-600 px-7 py-3.5 font-semibold text-white shadow-lg shadow-electric-500/25 transition hover:brightness-110 disabled:opacity-60"
+                        className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-electric-500 to-electric-400 px-7 py-3.5 font-semibold text-night-950 shadow-lg shadow-electric-500/25 transition hover:brightness-110 disabled:opacity-60"
                       >
                         {sending ? "Sending…" : "Send enquiry"}
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

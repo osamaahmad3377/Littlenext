@@ -177,7 +177,7 @@ export function Hero() {
                   {active ? (
                     <span
                       key={`${index}-${paused}-${cycle}`}
-                      className="absolute inset-0 origin-left animate-fill-x rounded-full bg-gradient-to-r from-electric-400 to-cyan-300"
+                      className="absolute inset-0 origin-left animate-fill-x rounded-full bg-gradient-to-r from-electric-500 to-electric-300"
                       style={{ animationDuration: `${SLIDE_MS}ms`, animationPlayState: paused ? "paused" : "running" }}
                     />
                   ) : (

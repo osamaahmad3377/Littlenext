@@ -44,7 +44,7 @@ export function Intro() {
                   <span className="bg-gradient-to-br from-night-950 via-electric-600 to-electric-400 bg-clip-text font-mono text-[2.75rem] font-medium leading-none tracking-tight text-transparent sm:text-6xl">
                     <CountUp to={s.value} />
                   </span>
-                  <span className="mt-6 text-sm leading-snug sm:mt-8 text-slate-600 sm:text-base">{s.label}</span>
+                  <span className="mt-6 text-sm leading-snug sm:mt-8 text-neutral-600 sm:text-base">{s.label}</span>
                 </div>
               </Reveal>
             ))}

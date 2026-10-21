@@ -20,7 +20,7 @@ export function ScrollProgress() {
     <div
       ref={ref}
       aria-hidden="true"
-      className="fixed inset-x-0 top-0 z-[60] h-0.5 origin-left scale-x-0 bg-gradient-to-r from-electric-500 via-cyan-400 to-electric-400"
+      className="fixed inset-x-0 top-0 z-[60] h-0.5 origin-left scale-x-0 bg-gradient-to-r from-electric-500 via-electric-300 to-electric-500"
     />
   );
 }

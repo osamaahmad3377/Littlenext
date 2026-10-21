@@ -35,9 +35,9 @@ function FlatMap() {
       <svg viewBox={`0 0 ${MAP_W} ${MAP_H}`} className="h-auto w-full" role="img" aria-label={`World map with trade lanes from ${hq.name} to ${lanes.map((l) => l.name).join(", ")}`}>
         <defs>
           <linearGradient id="lane" x1="0" x2="1">
-            <stop offset="0%" stopColor="#fbbf24" />
-            <stop offset="45%" stopColor="#8ab6ff" />
-            <stop offset="100%" stopColor="#67e8f9" />
+            <stop offset="0%" stopColor="#ff8f4e" />
+            <stop offset="55%" stopColor="#ffb27f" />
+            <stop offset="100%" stopColor="#ffffff" />
           </linearGradient>
         </defs>
         <path d={landDots} stroke="#ffffff" strokeOpacity="0.17" strokeWidth="2.4" strokeLinecap="round" />
@@ -61,14 +61,14 @@ function FlatMap() {
 
         {points.map(([x, y], i) => {
           const isHq = i === hqIndex;
-          const color = isHq ? "#fbbf24" : "#3b7bff";
+          const color = isHq ? "#ff8f4e" : "#ffb27f";
           return (
             <g key={regions[i].name}>
               <circle cx={x} cy={y} r="5" fill={color} fillOpacity="0.35">
                 <animate attributeName="r" values={isHq ? "6;22;6" : "4;13;4"} dur="3s" begin={`${i * 0.35}s`} repeatCount="indefinite" />
                 <animate attributeName="fill-opacity" values="0.5;0;0.5" dur="3s" begin={`${i * 0.35}s`} repeatCount="indefinite" />
               </circle>
-              <circle cx={x} cy={y} r={isHq ? 6.5 : 4} fill={isHq ? "#fbbf24" : "#fff"} stroke={isHq ? "#03060d" : color} strokeWidth={isHq ? 2.5 : 2.2} />
+              <circle cx={x} cy={y} r={isHq ? 6.5 : 4} fill={isHq ? "#ff8f4e" : "#fff"} stroke={isHq ? "#050505" : color} strokeWidth={isHq ? 2.5 : 2.2} />
             </g>
           );
         })}
@@ -98,7 +98,7 @@ export function Network() {
   return (
     <section id="network" className="relative isolate overflow-hidden bg-night-950 py-20 text-white sm:py-36">
       <div className="absolute left-1/2 top-1/2 -z-10 h-[40rem] w-[60rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-electric-600/20 blur-[160px]" />
-      <div className="absolute -right-32 top-24 -z-10 h-80 w-80 rounded-full bg-cyan-400/10 blur-[120px]" />
+      <div className="absolute -right-32 top-24 -z-10 h-80 w-80 rounded-full bg-electric-300/10 blur-[120px]" />
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading

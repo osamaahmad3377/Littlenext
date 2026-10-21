@@ -13,11 +13,11 @@ function ServiceCard({ service, delay = 0 }: { service: (typeof services)[number
   const Icon = serviceIcons[service.icon];
   return (
     <Reveal delay={delay} className="h-full">
-      <Spotlight className="glass glass-edge group block h-full min-h-[11rem] overflow-hidden rounded-[1.5rem] p-6 transition duration-300 hover:-translate-y-1 hover:shadow-[0_30px_60px_-25px_rgb(42_98_232/0.35)] sm:rounded-[1.75rem] sm:p-7">
+      <Spotlight className="glass glass-edge group block h-full min-h-[11rem] overflow-hidden rounded-[1.5rem] p-6 transition duration-300 hover:-translate-y-1 hover:shadow-[0_30px_60px_-25px_rgb(240_115_42/0.35)] sm:rounded-[1.75rem] sm:p-7">
         <BgIcon icon={Icon} />
         <div className="max-w-[85%]">
           <h3 className="text-lg font-semibold tracking-tight text-night-950 sm:text-xl">{service.title}</h3>
-          <p className="mt-1.5 leading-relaxed text-slate-600 sm:mt-2.5">{service.text}</p>
+          <p className="mt-1.5 leading-relaxed text-neutral-600 sm:mt-2.5">{service.text}</p>
         </div>
       </Spotlight>
     </Reveal>
@@ -38,7 +38,7 @@ function ShipmentTracker() {
       <div className="mt-6 flex items-center gap-3 text-sm">
         <span className="font-medium text-white">Origin</span>
         <div className="relative h-px flex-1 bg-gradient-to-r from-electric-400 via-electric-400/60 to-white/15">
-          <span className="absolute -top-3 grid h-6 w-6 -translate-x-1/2 animate-travel place-items-center rounded-full bg-electric-500 text-white shadow-lg shadow-electric-500/40">
+          <span className="absolute -top-3 grid h-6 w-6 -translate-x-1/2 animate-travel place-items-center rounded-full bg-electric-500 text-night-950 shadow-lg shadow-electric-500/40">
             <Boat size={14} weight="fill" aria-hidden="true" />
           </span>
         </div>
@@ -71,7 +71,7 @@ export function Services() {
           label="Services"
           title={
             <>
-              Everything between <span className="text-slate-400">supplier and shelf.</span>
+              Everything between <span className="text-neutral-400">supplier and shelf.</span>
             </>
           }
           text="Buying or selling across borders, we handle every step so you can focus on your business."

@@ -28,20 +28,20 @@ export function Process() {
         <div className="lg:sticky lg:top-32 lg:self-start">
           <SectionLabel index="05">Process</SectionLabel>
           <h2 className="mt-5 text-4xl font-medium leading-[1.02] tracking-[-0.045em] text-night-950 sm:text-6xl">
-            From enquiry to delivery <span className="text-slate-400">in four steps.</span>
+            From enquiry to delivery <span className="text-neutral-400">in four steps.</span>
           </h2>
-          <p className="mt-6 max-w-md text-lg leading-relaxed text-slate-600">
+          <p className="mt-6 max-w-md text-lg leading-relaxed text-neutral-600">
             A clear, predictable process, so you always know where your order stands and what comes next.
           </p>
 
           <div className="mt-10 hidden max-w-sm lg:block" aria-hidden="true">
             <div className="flex items-baseline justify-between font-mono text-sm">
               <span className="text-night-950">Step {String(active + 1).padStart(2, "0")}</span>
-              <span className="text-slate-400">/ {String(steps.length).padStart(2, "0")}</span>
+              <span className="text-neutral-400">/ {String(steps.length).padStart(2, "0")}</span>
             </div>
-            <div className="mt-3 h-1 overflow-hidden rounded-full bg-white/80 ring-1 ring-slate-200">
+            <div className="mt-3 h-1 overflow-hidden rounded-full bg-white/80 ring-1 ring-neutral-200">
               <div
-                className="h-full rounded-full bg-gradient-to-r from-electric-500 to-cyan-400 transition-all duration-700"
+                className="h-full rounded-full bg-gradient-to-r from-electric-500 to-electric-300 transition-all duration-700"
                 style={{ width: `${((active + 1) / steps.length) * 100}%` }}
               />
             </div>
@@ -60,21 +60,21 @@ export function Process() {
                 }}
                 data-index={i}
                 className={`glass glass-edge flex gap-4 rounded-[1.5rem] p-5 transition-all duration-500 sm:gap-6 sm:rounded-[1.75rem] sm:p-8 ${
-                  current ? "scale-[1.01] ring-2 ring-electric-400/40 shadow-[0_30px_60px_-25px_rgb(42_98_232/0.35)]" : ""
+                  current ? "scale-[1.01] ring-2 ring-electric-400/40 shadow-[0_30px_60px_-25px_rgb(240_115_42/0.35)]" : ""
                 }`}
               >
                 <span
                   className={`relative z-10 grid h-8 w-8 shrink-0 place-items-center rounded-full font-mono text-xs transition-colors duration-500 ${
-                    current || done ? "bg-electric-500 text-white" : "bg-white text-slate-400 ring-1 ring-slate-200"
+                    current || done ? "bg-electric-500 text-night-950" : "bg-white text-neutral-400 ring-1 ring-neutral-200"
                   }`}
                 >
                   {done ? <Check className="h-4 w-4" strokeWidth={3} /> : String(i + 1).padStart(2, "0")}
                 </span>
                 <div className={`transition-opacity duration-500 ${current ? "opacity-100" : "opacity-60"}`}>
                   <h3 className="text-xl font-semibold tracking-tight text-night-950 sm:text-2xl">{s.title}</h3>
-                  <p className="mt-2.5 leading-relaxed text-slate-600">{s.text}</p>
-                  <p className="mt-5 inline-flex items-center gap-2 rounded-full border border-white bg-white/70 px-3 py-1.5 font-mono text-xs text-slate-600">
-                    <span className="text-electric-600">→</span> {s.output}
+                  <p className="mt-2.5 leading-relaxed text-neutral-600">{s.text}</p>
+                  <p className="mt-5 inline-flex items-center gap-2 rounded-full border border-white bg-white/70 px-3 py-1.5 font-mono text-xs text-neutral-600">
+                    <span className="text-electric-700">→</span> {s.output}
                   </p>
                 </div>
               </li>

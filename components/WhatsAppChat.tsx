@@ -100,7 +100,7 @@ export function WhatsAppChat() {
         </div>
 
         <div className="bg-[#efeae2] bg-[radial-gradient(rgb(0_0_0/0.035)_1px,transparent_1px)] [background-size:14px_14px] px-4 py-5">
-          <div className="max-w-[85%] rounded-2xl rounded-tl-sm bg-white px-4 py-3 text-sm leading-relaxed text-slate-800 shadow-sm">
+          <div className="max-w-[85%] rounded-2xl rounded-tl-sm bg-white px-4 py-3 text-sm leading-relaxed text-neutral-800 shadow-sm">
             <p className="font-semibold text-night-950">Hi there 👋</p>
             <p className="mt-1">
               Welcome to {site.name}. How can we help with your import, export or sourcing needs today?
@@ -127,7 +127,7 @@ export function WhatsAppChat() {
             start(message.trim());
             setMessage("");
           }}
-          className="flex items-center gap-2 border-t border-slate-100 bg-white p-3"
+          className="flex items-center gap-2 border-t border-neutral-100 bg-white p-3"
         >
           <label className="sr-only" htmlFor="wa-message">
             Your message
@@ -138,7 +138,7 @@ export function WhatsAppChat() {
             onChange={(e) => setMessage(e.target.value)}
             tabIndex={open ? 0 : -1}
             placeholder="Type a message…"
-            className="min-w-0 flex-1 rounded-full bg-slate-100 px-4 py-2.5 text-base text-slate-900 outline-none placeholder:text-slate-400 focus:ring-2 focus:ring-[#25D366]/40 sm:text-sm"
+            className="min-w-0 flex-1 rounded-full bg-neutral-100 px-4 py-2.5 text-base text-neutral-900 outline-none placeholder:text-neutral-400 focus:ring-2 focus:ring-[#25D366]/40 sm:text-sm"
           />
           <button
             type="submit"
@@ -149,7 +149,7 @@ export function WhatsAppChat() {
             Start chat
           </button>
         </form>
-        <p className="bg-white pb-3 text-center text-[11px] text-slate-400">Opens WhatsApp · {site.contact.phone}</p>
+        <p className="bg-white pb-3 text-center text-[11px] text-neutral-400">Opens WhatsApp · {site.contact.phone}</p>
       </div>
 
       {/* Hint bubble */}
@@ -165,7 +165,7 @@ export function WhatsAppChat() {
           onClick={dismissHint}
           tabIndex={showHint && !open ? 0 : -1}
           aria-label="Dismiss"
-          className="grid h-6 w-6 place-items-center rounded-full text-slate-400 hover:bg-slate-100 hover:text-slate-700"
+          className="grid h-6 w-6 place-items-center rounded-full text-neutral-400 hover:bg-neutral-100 hover:text-neutral-700"
         >
           <X size={12} weight="bold" />
         </button>

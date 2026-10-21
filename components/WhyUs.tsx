@@ -13,7 +13,7 @@ export function WhyUs() {
   return (
     <section id="why" className="relative isolate overflow-hidden bg-night-950 py-20 text-white sm:py-36">
       <div className="absolute -left-40 top-40 -z-10 h-[28rem] w-[28rem] rounded-full bg-electric-600/25 blur-[140px]" />
-      <div className="absolute -right-32 bottom-1/3 -z-10 h-80 w-80 rounded-full bg-cyan-400/10 blur-[120px]" />
+      <div className="absolute -right-32 bottom-1/3 -z-10 h-80 w-80 rounded-full bg-electric-300/10 blur-[120px]" />
       <div className="bg-grid absolute inset-0 -z-10 [mask-image:linear-gradient(to_bottom,black,transparent_50%)]" />
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -50,7 +50,7 @@ export function WhyUs() {
           <div className="relative isolate overflow-hidden rounded-[1.75rem] border border-white/10 bg-night-900 sm:rounded-[2.25rem]">
             {/* Drifting aurora behind the glass panel */}
             <div className="absolute -left-[10%] -top-1/3 -z-10 h-[34rem] w-[34rem] animate-aurora rounded-full bg-electric-500/45 blur-[110px]" />
-            <div className="absolute -bottom-1/3 right-[-5%] -z-10 h-[30rem] w-[30rem] animate-aurora rounded-full bg-cyan-400/30 blur-[110px] [animation-delay:-6s]" />
+            <div className="absolute -bottom-1/3 right-[-5%] -z-10 h-[30rem] w-[30rem] animate-aurora rounded-full bg-electric-300/30 blur-[110px] [animation-delay:-6s]" />
             <div className="absolute left-1/3 top-1/4 -z-10 h-72 w-72 animate-aurora rounded-full bg-amber-brand/25 blur-[100px] [animation-delay:-12s]" />
             <div className="bg-grid absolute inset-0 -z-10 opacity-60 [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
 
@@ -86,8 +86,8 @@ export function WhyUs() {
 
               {/* Brand mark floating in the aurora (desktop) */}
               <div className="hidden justify-center lg:flex" aria-hidden="true">
-                <div className="glass-dark glass-edge grid h-56 w-56 place-items-center rounded-[3rem] shadow-[0_40px_80px_-30px_rgb(59_123_255/0.6)]">
-                  <LogoMark className="h-28 w-28 drop-shadow-[0_20px_30px_rgb(59_123_255/0.5)]" />
+                <div className="glass-dark glass-edge grid h-56 w-56 place-items-center rounded-[3rem] shadow-[0_40px_80px_-30px_rgb(255_143_78/0.6)]">
+                  <LogoMark className="h-28 w-28 drop-shadow-[0_20px_30px_rgb(255_143_78/0.5)]" />
                 </div>
               </div>
             </div>

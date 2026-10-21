@@ -2,8 +2,8 @@ import { Reveal } from "./Reveal";
 
 export function SectionLabel({ index, children, light = false }: { index: string; children: React.ReactNode; light?: boolean }) {
   return (
-    <p className={`flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] ${light ? "text-white/55" : "text-slate-500"}`}>
-      <span className={light ? "text-electric-400" : "text-electric-600"}>{index}</span>
+    <p className={`flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] ${light ? "text-white/55" : "text-neutral-500"}`}>
+      <span className={light ? "text-electric-400" : "text-electric-700"}>{index}</span>
       <span className="h-px w-10 bg-gradient-to-r from-amber-brand to-amber-brand/0" />
       {children}
     </p>
@@ -38,7 +38,7 @@ export function SectionHeading({
         </h2>
       </div>
       {text && (
-        <p className={`max-w-md text-lg leading-relaxed lg:justify-self-end ${light ? "text-white/60" : "text-slate-600"}`}>
+        <p className={`max-w-md text-lg leading-relaxed lg:justify-self-end ${light ? "text-white/60" : "text-neutral-600"}`}>
           {text}
         </p>
       )}

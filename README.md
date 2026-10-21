@@ -13,6 +13,12 @@ npm run dev        # http://localhost:3000
 
 Production build: `npm run build && npm start`
 
+## Brand colours
+
+Orange `#FF8F4E`, black and white. The palette lives in the `@theme` block of `app/globals.css`: `night-*` are the blacks,
+`electric-*` is the orange scale (500 is `#FF8F4E`; use 700 for orange text on white so it stays readable), and light sections use
+Tailwind's `neutral-*` greys. Text on orange is black for contrast.
+
 ## Editing content
 
 Almost all text lives in **`lib/site.ts`**:

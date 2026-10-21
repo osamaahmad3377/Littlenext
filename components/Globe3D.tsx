@@ -88,22 +88,22 @@ export function Globe3D() {
 
       // Atmosphere glow
       const glow = ctx.createRadialGradient(cx, cy, R * 0.9, cx, cy, R * 1.35);
-      glow.addColorStop(0, "rgba(59,123,255,0.28)");
-      glow.addColorStop(1, "rgba(59,123,255,0)");
+      glow.addColorStop(0, "rgba(255,143,78,0.22)");
+      glow.addColorStop(1, "rgba(255,143,78,0)");
       ctx.fillStyle = glow;
       ctx.fillRect(0, 0, W, W);
 
       // Sphere body
       const body = ctx.createRadialGradient(cx - R * 0.35, cy - R * 0.4, R * 0.1, cx, cy, R);
-      body.addColorStop(0, "#1e2d52");
-      body.addColorStop(0.65, "#0b1427");
-      body.addColorStop(1, "#060c19");
+      body.addColorStop(0, "#2a2a2d");
+      body.addColorStop(0.65, "#141415");
+      body.addColorStop(1, "#0b0b0c");
       ctx.beginPath();
       ctx.arc(cx, cy, R, 0, Math.PI * 2);
       ctx.fillStyle = body;
       ctx.fill();
       ctx.lineWidth = 1 * dpr;
-      ctx.strokeStyle = "rgba(138,182,255,0.28)";
+      ctx.strokeStyle = "rgba(255,255,255,0.22)";
       ctx.stroke();
 
       // Land dots, brighter towards the centre
@@ -111,7 +111,7 @@ export function Globe3D() {
       for (const [lon, lat] of DOTS) {
         const p = project(lon, lat);
         if (p.z <= 0) continue;
-        ctx.fillStyle = `rgba(190,210,255,${(0.18 + 0.67 * p.z).toFixed(3)})`;
+        ctx.fillStyle = `rgba(255,255,255,${(0.18 + 0.67 * p.z).toFixed(3)})`;
         ctx.beginPath();
         ctx.arc(cx + p.x * R, cy - p.y * R, dot * (0.55 + 0.45 * p.z), 0, Math.PI * 2);
         ctx.fill();
@@ -126,7 +126,7 @@ export function Globe3D() {
         });
 
         ctx.lineWidth = 1.2 * dpr;
-        ctx.strokeStyle = "rgba(138,182,255,0.35)";
+        ctx.strokeStyle = "rgba(255,170,120,0.4)";
         ctx.beginPath();
         pts.forEach((p, j) => {
           if (!p.visible) return;
@@ -144,7 +144,7 @@ export function Globe3D() {
         for (let j = tail + 1; j <= head; j++) {
           if (!pts[j].visible || !pts[j - 1].visible) continue;
           const a = (j - tail) / (head - tail || 1);
-          ctx.strokeStyle = `rgba(${Math.round(251 - 148 * a)},${Math.round(191 + 41 * a)},${Math.round(36 + 213 * a)},${a.toFixed(2)})`;
+          ctx.strokeStyle = `rgba(255,${Math.round(143 + 112 * a)},${Math.round(78 + 177 * a)},${a.toFixed(2)})`;
           ctx.beginPath();
           ctx.moveTo(pts[j - 1].x, pts[j - 1].y);
           ctx.lineTo(pts[j].x, pts[j].y);
@@ -180,14 +180,14 @@ export function Globe3D() {
       const drawLabel = (text: string, r: Rect, hq: boolean) => {
         ctx.beginPath();
         ctx.roundRect(r.x, r.y, r.w, r.h, r.h / 2);
-        ctx.fillStyle = hq ? "#fbbf24" : "rgba(3,6,13,0.8)";
+        ctx.fillStyle = hq ? "#ff8f4e" : "rgba(5,5,5,0.82)";
         ctx.fill();
         if (!hq) {
           ctx.lineWidth = 1 * dpr;
           ctx.strokeStyle = "rgba(255,255,255,0.14)";
           ctx.stroke();
         }
-        ctx.fillStyle = hq ? "#03060d" : "rgba(255,255,255,0.88)";
+        ctx.fillStyle = hq ? "#050505" : "rgba(255,255,255,0.88)";
         ctx.fillText(text, r.x + 7 * dpr, r.y + r.h / 2 + 0.5 * dpr);
       };
 
@@ -208,7 +208,7 @@ export function Globe3D() {
         ctx.fillStyle = "#fff";
         ctx.fill();
         ctx.lineWidth = 2 * dpr;
-        ctx.strokeStyle = "#3b7bff";
+        ctx.strokeStyle = "#ff8f4e";
         ctx.stroke();
         if (p.z > 0.3) {
           const text = r.name.toUpperCase();
@@ -225,14 +225,14 @@ export function Globe3D() {
         const pulse = (time % 2200) / 2200;
         ctx.beginPath();
         ctx.arc(hqPos.x, hqPos.y, (6 + pulse * 16) * dpr, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(251,191,36,${(0.45 * (1 - pulse)).toFixed(3)})`;
+        ctx.fillStyle = `rgba(255,143,78,${(0.45 * (1 - pulse)).toFixed(3)})`;
         ctx.fill();
         ctx.beginPath();
         ctx.arc(hqPos.x, hqPos.y, 6 * dpr, 0, Math.PI * 2);
-        ctx.fillStyle = "#fbbf24";
+        ctx.fillStyle = "#ff8f4e";
         ctx.fill();
         ctx.lineWidth = 2.5 * dpr;
-        ctx.strokeStyle = "#03060d";
+        ctx.strokeStyle = "#050505";
         ctx.stroke();
         if (hqRect) drawLabel(hqText, hqRect, true);
       }
