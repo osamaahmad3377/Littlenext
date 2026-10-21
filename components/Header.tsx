@@ -4,12 +4,14 @@ import { useEffect, useState } from "react";
 import { site } from "@/lib/site";
 import { Logo } from "./Logo";
 import { Magnetic } from "./Magnetic";
+import { useNavHref } from "./useNavHref";
 import { ArrowRight, Close, Menu } from "./icons";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("");
+  const nav = useNavHref();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -20,7 +22,7 @@ export function Header() {
 
   // Highlight the nav item for the section currently in view
   useEffect(() => {
-    const sections = [...site.nav.map((n) => n.href), "#top", "#why", "#contact"]
+    const sections = [...site.nav.map((n) => n.href).filter((h) => h.startsWith("#")), "#top", "#why", "#contact"]
       .map((href) => document.querySelector(href))
       .filter((el): el is Element => Boolean(el));
     const observer = new IntersectionObserver(
@@ -48,7 +50,7 @@ export function Header() {
             scrolled ? "h-14 max-w-5xl pl-4 pr-2" : "h-16 max-w-7xl pl-5 pr-2.5"
           }`}
         >
-          <a href="#top" aria-label={`${site.name} home`} onClick={() => setOpen(false)}>
+          <a href={nav.isHome ? "#top" : "/"} aria-label={`${site.name} home`} onClick={() => setOpen(false)}>
             <Logo light />
           </a>
 
@@ -56,10 +58,10 @@ export function Header() {
             {site.nav.map((item) => (
               <a
                 key={item.href}
-                href={item.href}
-                aria-current={active === item.href ? "true" : undefined}
+                href={nav.href(item.href)}
+                aria-current={active === item.href || nav.pathname === item.href ? "true" : undefined}
                 className={`relative rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-                  active === item.href ? "bg-white/10 text-white" : "text-white/65 hover:text-white"
+                  active === item.href || nav.pathname === item.href ? "bg-white/10 text-white" : "text-white/65 hover:text-white"
                 }`}
               >
                 {item.label}
@@ -104,7 +106,7 @@ export function Header() {
           {[...site.nav, { label: "Contact", href: "#contact" }].map((item, i) => (
             <a
               key={item.href}
-              href={item.href}
+              href={nav.href(item.href)}
               onClick={() => setOpen(false)}
               className={`flex items-baseline gap-4 py-2 text-4xl font-semibold tracking-tight text-white transition-all duration-500 ${
                 open ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"

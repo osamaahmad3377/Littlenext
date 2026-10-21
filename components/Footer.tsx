@@ -1,9 +1,13 @@
+"use client";
+
 import { divisions, site } from "@/lib/site";
 import { ArrowUp } from "./icons";
 import { Logo } from "./Logo";
+import { useNavHref } from "./useNavHref";
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const nav = useNavHref();
   const columns = [
     { title: "Company", links: [...site.nav, { label: "Contact", href: "#contact" }] },
     { title: "Divisions", links: divisions.map((d) => ({ label: d.title, href: `#${d.id}` })) },
@@ -24,7 +28,7 @@ export function Footer() {
               <ul className="mt-5 space-y-3">
                 {c.links.map((l) => (
                   <li key={l.href}>
-                    <a href={l.href} className="transition hover:text-white">
+                    <a href={nav.href(l.href)} className="transition hover:text-white">
                       {l.label}
                     </a>
                   </li>

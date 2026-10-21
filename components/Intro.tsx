@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { facts, site } from "@/lib/site";
 import { ScrollText } from "./fx";
+import { ArrowRight } from "./icons";
 import { LogoMark } from "./Logo";
 import { Reveal } from "./Reveal";
 import { SectionLabel } from "./ui";
@@ -17,6 +18,13 @@ export function Intro() {
           text={statement}
           className="mt-7 max-w-5xl text-[1.6rem] font-normal leading-[1.22] tracking-[-0.03em] text-night-950 sm:text-[2.75rem] sm:leading-[1.15]"
         />
+        <a
+          href="/about"
+          className="group mt-8 inline-flex items-center gap-2 font-semibold text-night-950 underline decoration-neutral-300 underline-offset-[6px] transition hover:decoration-electric-500"
+        >
+          Read our story
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+        </a>
 
         <div className="mt-12 grid gap-4 sm:gap-5 lg:mt-20 lg:grid-cols-[1.1fr_1fr]">
           <Reveal className="relative min-h-[18rem] overflow-hidden rounded-[1.75rem] bg-night-900 sm:min-h-[26rem] sm:rounded-[2rem]">

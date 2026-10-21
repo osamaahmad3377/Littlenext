@@ -7,6 +7,14 @@ export const site = {
   description:
     "Little Next is an Australian-based parent company in international import and export, sourcing and supplying commodities, textiles and baby products for businesses worldwide.",
   country: "Australia",
+  founder: {
+    name: "Imran Ahmad",
+    role: "Founder",
+    /** Optional: path to a portrait in /public/images (e.g. "/images/imran-ahmad.jpg"). Shows initials until added. */
+    photo: "",
+    /** Optional: a short first-person message from the founder. Hidden until added. */
+    message: "",
+  },
   abn: "70 678 994 860",
   url: "https://www.littlenext.com.au",
 
@@ -19,7 +27,7 @@ export const site = {
   },
 
   nav: [
-    { label: "About", href: "#about" },
+    { label: "Our story", href: "/about" },
     { label: "Divisions", href: "#divisions" },
     { label: "Services", href: "#services" },
     { label: "Network", href: "#network" },

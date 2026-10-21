@@ -9,7 +9,8 @@ declare global {
   }
 }
 
-const HEADER_OFFSET = -96;
+// The header offset comes from `scroll-padding-top` in globals.css, which Lenis already respects.
+const HEADER_OFFSET = 0;
 
 /** Momentum scrolling for mouse and trackpad. Touch devices and reduced-motion users keep native scrolling. */
 export function SmoothScroll() {

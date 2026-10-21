@@ -36,12 +36,13 @@ Almost all text lives in **`lib/site.ts`**:
 - `divisions`: the division cards and their example products
 - `services`, `steps`, `values`: the "Services", "Process" and "Why Littlenext" sections
 - `regions`: markets on the network map; the entry marked `hq: true` (Australia) is headquarters and gets a trade lane to every other region
+- `site.founder`: founder name and role on the Our story page (`/about`); add `photo` (e.g. `/images/imran-ahmad.jpg`) and an optional `message` and they appear automatically
 - `heroSlides`: hero slideshow; each slide pairs the headline word with its background photo
 
 ## Project structure
 
 ```
-app/            layout, page, global styles, favicon, robots & sitemap
+app/            layout, home page, `about/` (Our story page), global styles, icons, robots & sitemap
 components/     one file per section (Hero, Intro, Divisions, Services, Network, Process, WhyUs, Contact, Footer)
                 plus Showcase (scroll-expanding photo), QuickQuote (hero widget), Globe3D (mobile globe),
                 SmoothScroll (Lenis), Magnetic (cursor-follow buttons), WhatsAppChat (floating chat), BgIcon (card background icons,

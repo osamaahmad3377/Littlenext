@@ -59,7 +59,7 @@ function Chip({ selected, onClick, children }: { selected: boolean; onClick: () 
   );
 }
 
-export function Contact() {
+export function Contact({ index = "07" }: { index?: string }) {
   const [step, setStep] = useState(0);
   const [data, setData] = useState<Data>(empty);
   const [prefilled, setPrefilled] = useState(false);
@@ -170,8 +170,8 @@ export function Contact() {
     <section id="contact" className="mesh-light relative isolate overflow-hidden py-20 sm:py-28 lg:py-32">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[1fr_1.35fr] lg:gap-16">
         <Reveal>
-          <SectionLabel index="07">Contact</SectionLabel>
-          <h2 className="mt-5 overflow-hidden pb-[0.06em] text-4xl font-medium leading-[1.02] tracking-[-0.045em] text-night-950 sm:text-6xl">
+          <SectionLabel index={index}>Contact</SectionLabel>
+          <h2 className="mt-5 overflow-hidden pb-[0.06em] font-display text-[2.65rem] font-normal leading-[1.02] tracking-[-0.015em] text-night-950 sm:text-[4.4rem]">
             <span className="reveal-line">
               Let&apos;s talk <span className="text-neutral-400">trade.</span>
             </span>

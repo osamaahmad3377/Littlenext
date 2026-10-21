@@ -76,6 +76,7 @@
 @theme inline {
   --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-display: var(--font-instrument), ui-serif, Georgia, serif;
 }
 
 html {
