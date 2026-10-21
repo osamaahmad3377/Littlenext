@@ -80,11 +80,11 @@ export function Showcase() {
           <p ref={setLine(0)} className="font-mono text-xs uppercase tracking-[0.3em] text-amber-brand opacity-0">
             Melbourne · Victoria · Australia
           </p>
-          <h2 className="mt-6 font-display text-[3.4rem] font-normal leading-[0.95] tracking-[-0.02em] sm:text-[5.5rem] lg:text-[8rem]">
+          <h2 className="mt-6 text-5xl font-medium leading-[0.98] tracking-[-0.045em] sm:text-7xl lg:text-[7rem]">
             <span ref={setLine(1)} className="block opacity-0">
               Proudly Australian.
             </span>
-            <span ref={setLine(2)} className="text-gradient block pb-[0.08em] italic opacity-0">
+            <span ref={setLine(2)} className="text-gradient block pb-[0.08em] opacity-0">
               Trading Worldwide.
             </span>
           </h2>

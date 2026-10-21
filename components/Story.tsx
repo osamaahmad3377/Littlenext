@@ -23,8 +23,8 @@ export function StoryHero() {
         <SectionLabel index="00" light>
           Our story
         </SectionLabel>
-        <h1 className="mt-6 max-w-4xl font-display text-[3.25rem] font-normal leading-[0.98] tracking-[-0.02em] sm:text-[5rem] lg:text-[6.25rem]">
-          Built in Melbourne. <span className="text-gradient italic">Made for global trade.</span>
+        <h1 className="mt-6 max-w-4xl text-[2.9rem] font-medium leading-[1] tracking-[-0.05em] sm:text-7xl lg:text-[5.5rem]">
+          Built in Melbourne. <span className="text-gradient">Made for global trade.</span>
         </h1>
         <p className="mt-7 max-w-2xl text-lg leading-relaxed text-white/70">
           {site.name} is an Australian-based parent company in international import and export, founded by{" "}
@@ -52,11 +52,11 @@ export function Founder() {
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-electric-500 to-transparent" />
                 <span
                   aria-hidden="true"
-                  className="absolute inset-0 grid place-items-center font-display text-[11rem] leading-none text-white"
+                  className="absolute inset-0 grid place-items-center text-[9rem] font-semibold leading-none tracking-[-0.06em] text-white"
                 >
                   <span>
                     {initials[0]}
-                    <span className="ml-[0.06em] italic text-electric-500">{initials[1]}</span>
+                    <span className="text-electric-500">{initials[1]}</span>
                   </span>
                 </span>
               </>
@@ -75,7 +75,7 @@ export function Founder() {
 
         <Reveal delay={120}>
           <SectionLabel index="01">The founder</SectionLabel>
-          <h2 className="mt-5 font-display text-[2.65rem] font-normal leading-[1.02] tracking-[-0.015em] text-night-950 sm:text-[4.4rem]">
+          <h2 className="mt-5 text-4xl font-medium leading-[1.02] tracking-[-0.045em] text-night-950 sm:text-6xl">
             {founder.name}
           </h2>
           <p className="mt-2 font-mono text-xs uppercase tracking-[0.2em] text-electric-700">
@@ -83,7 +83,7 @@ export function Founder() {
           </p>
 
           {founder.message && (
-            <blockquote className="mt-8 border-l-2 border-electric-500 pl-6 font-display text-2xl leading-snug text-night-950 sm:text-3xl">
+            <blockquote className="mt-8 border-l-2 border-electric-500 pl-6 text-2xl font-medium leading-snug tracking-[-0.02em] text-night-950 sm:text-3xl">
               “{founder.message}”
             </blockquote>
           )}
@@ -169,7 +169,7 @@ export function Purpose() {
                 <div className="absolute inset-0 -z-10 bg-gradient-to-t from-night-950 via-night-950/60 to-night-950/10" />
                 <div className="flex h-full flex-col justify-end p-6">
                   <span className="font-mono text-xs text-electric-400">0{i + 1}</span>
-                  <h3 className="mt-2 flex items-center justify-between font-display text-3xl">
+                  <h3 className="mt-2 flex items-center justify-between text-2xl font-semibold tracking-tight">
                     {d.title}
                     <ArrowUpRight className="h-5 w-5 text-white/50 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white" />
                   </h3>
@@ -192,8 +192,8 @@ export function Principles() {
       <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
         <div>
           <SectionLabel index="03">What we stand for</SectionLabel>
-          <h2 className="mt-5 font-display text-[2.65rem] font-normal leading-[1.02] tracking-[-0.015em] text-night-950 sm:text-[4.4rem]">
-            How we work <span className="italic text-neutral-400">with partners.</span>
+          <h2 className="mt-5 text-4xl font-medium leading-[1.02] tracking-[-0.045em] text-night-950 sm:text-6xl">
+            How we work <span className="text-neutral-400">with partners.</span>
           </h2>
           <ol className="mt-10 divide-y divide-neutral-200">
             {values.map((v, i) => (
