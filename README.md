@@ -19,6 +19,14 @@ Orange `#FF8F4E`, black and white. The palette lives in the `@theme` block of `a
 `electric-*` is the orange scale (500 is `#FF8F4E`; use 700 for orange text on white so it stays readable), and light sections use
 Tailwind's `neutral-*` greys. Text on orange is black for contrast.
 
+## Logo
+
+The brand logo (LN mark) was prepared from the supplied `LN logo.png` into `public/images/logo-mark.png` / `logo-mark-dark.png`
+(mark only, for light / dark backgrounds) and `logo-full.png` / `logo-full-dark.png` (mark plus "Little Next"). The dark versions
+turn the black parts white so the logo stays visible on black. `app/icon.png`, `app/apple-icon.png` and `app/opengraph-image.png`
+(favicon, home-screen icon and link-preview image) are generated from the same file. To swap the logo, replace those files
+(a transparent SVG or a larger PNG will look sharper than the current 500px source).
+
 ## Editing content
 
 Almost all text lives in **`lib/site.ts`**:

@@ -87,7 +87,7 @@ export function WhyUs() {
               {/* Brand mark floating in the aurora (desktop) */}
               <div className="hidden justify-center lg:flex" aria-hidden="true">
                 <div className="glass-dark glass-edge grid h-56 w-56 place-items-center rounded-[3rem] shadow-[0_40px_80px_-30px_rgb(255_143_78/0.6)]">
-                  <LogoMark className="h-28 w-28 drop-shadow-[0_20px_30px_rgb(255_143_78/0.5)]" />
+                  <LogoMark className="h-28 w-28 drop-shadow-[0_20px_30px_rgb(255_143_78/0.35)]" />
                 </div>
               </div>
             </div>

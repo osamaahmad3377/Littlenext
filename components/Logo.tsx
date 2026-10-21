@@ -1,39 +1,24 @@
+import Image from "next/image";
 import { site } from "@/lib/site";
 
-export function LogoMark({ className = "h-9 w-9" }: { className?: string }) {
+/** The LN mark from the brand logo. Dark-background version by default; pass `onLight` for white backgrounds. */
+export function LogoMark({ className = "h-9 w-9", onLight = false }: { className?: string; onLight?: boolean }) {
   return (
-    <svg viewBox="0 0 40 40" className={className} aria-hidden="true">
-      <defs>
-        <linearGradient id="ln-mark" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#ffa96f" />
-          <stop offset="100%" stopColor="#ff8f4e" />
-        </linearGradient>
-      </defs>
-      <rect width="40" height="40" rx="11" fill="url(#ln-mark)" />
-      <path
-        d="M12 10v19h11"
-        fill="none"
-        stroke="var(--color-night-950)"
-        strokeWidth="3.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M19 21 29 11M22.5 11H29v6.5"
-        fill="none"
-        stroke="#ffffff"
-        strokeWidth="3.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+    <Image
+      src={onLight ? "/images/logo-mark.png" : "/images/logo-mark-dark.png"}
+      alt=""
+      width={193}
+      height={184}
+      className={`object-contain ${className}`}
+      aria-hidden="true"
+    />
   );
 }
 
 export function Logo({ light = false }: { light?: boolean }) {
   return (
     <span className="flex items-center gap-2.5">
-      <LogoMark />
+      <LogoMark onLight={!light} className="h-9 w-9" />
       <span className={`text-lg tracking-tight ${light ? "text-white" : "text-night-950"}`}>
         {(() => {
           const [first, ...rest] = site.name.split(" ");
