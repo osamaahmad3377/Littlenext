@@ -23,7 +23,7 @@ export function StoryHero() {
         <SectionLabel index="00" light>
           Our story
         </SectionLabel>
-        <h1 className="mt-6 max-w-4xl text-[2.9rem] font-medium leading-[1] tracking-[-0.05em] sm:text-7xl lg:text-[5.5rem]">
+        <h1 className="mt-6 max-w-4xl text-[2.9rem] font-medium leading-[1] tracking-[-0.03em] sm:text-7xl lg:text-[5.5rem]">
           Built in Melbourne. <span className="text-gradient">Made for global trade.</span>
         </h1>
         <p className="mt-7 max-w-2xl text-lg leading-relaxed text-white/70">
@@ -84,7 +84,7 @@ export function Founder() {
 
         <Reveal delay={120}>
           <SectionLabel index="01">The founder</SectionLabel>
-          <h2 className="mt-5 text-4xl font-medium leading-[1.02] tracking-[-0.045em] text-night-950 sm:text-6xl">
+          <h2 className="mt-5 text-4xl font-medium leading-[1.02] tracking-[-0.025em] text-night-950 sm:text-6xl">
             {founder.name}
           </h2>
           <p className="mt-2 font-mono text-xs uppercase tracking-[0.2em] text-electric-700">
@@ -201,7 +201,7 @@ export function Principles() {
       <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
         <div>
           <SectionLabel index="03">What we stand for</SectionLabel>
-          <h2 className="mt-5 text-4xl font-medium leading-[1.02] tracking-[-0.045em] text-night-950 sm:text-6xl">
+          <h2 className="mt-5 text-4xl font-medium leading-[1.02] tracking-[-0.025em] text-night-950 sm:text-6xl">
             How we work <span className="text-neutral-400">with partners.</span>
           </h2>
           <ol className="mt-10 divide-y divide-neutral-200">

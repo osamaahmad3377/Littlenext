@@ -93,7 +93,7 @@ export function Hero() {
 
       <div className="mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 items-end gap-12 px-5 pb-6 pt-28 sm:px-8 sm:pb-10 lg:grid-cols-[1.35fr_1fr] lg:items-center lg:pt-36">
         <div className="min-w-0">
-          <h1 className="text-[3.1rem] font-medium leading-[0.98] tracking-[-0.05em] sm:text-7xl lg:text-[5.75rem]">
+          <h1 className="text-[3.1rem] font-medium leading-[0.98] tracking-[-0.03em] sm:text-7xl lg:text-[5.75rem]">
             <span className="block overflow-hidden pb-[0.04em]">
               <span className="block animate-line-up" style={{ animationDelay: "0.1s" }}>
                 We move

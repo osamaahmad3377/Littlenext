@@ -16,7 +16,7 @@ export function Intro() {
         <SectionLabel index="01">About {site.name}</SectionLabel>
         <ScrollText
           text={statement}
-          className="mt-7 max-w-5xl text-[1.6rem] font-normal leading-[1.22] tracking-[-0.03em] text-night-950 sm:text-[2.75rem] sm:leading-[1.15]"
+          className="mt-7 max-w-5xl text-[1.6rem] font-normal leading-[1.22] tracking-[-0.015em] text-night-950 sm:text-[2.75rem] sm:leading-[1.15]"
         />
         <a
           href="/about"

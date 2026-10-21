@@ -2,7 +2,7 @@
 
 Website for **Little Next**, an Australian-based parent company in international import & export (commodities, textiles, baby products).
 
-Built with [Next.js](https://nextjs.org) 16, React 19, TypeScript and Tailwind CSS 4.
+Built with [Next.js](https://nextjs.org) 16, React 19, TypeScript and Tailwind CSS 4. Typeface: Roboto (with Roboto Mono for small labels).
 
 ## Run locally
 

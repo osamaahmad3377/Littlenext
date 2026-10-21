@@ -63,7 +63,7 @@ export function WhyUs() {
                   <span className="h-px w-10 bg-gradient-to-r from-electric-500 to-electric-500/0" />
                   Ready when you are
                 </p>
-                <h2 className="mt-5 text-4xl font-medium leading-[1.02] tracking-[-0.045em] sm:text-6xl">
+                <h2 className="mt-5 text-4xl font-medium leading-[1.02] tracking-[-0.025em] sm:text-6xl">
                   Let&apos;s move your <span className="text-electric-500">next shipment.</span>
                 </h2>
                 <p className="mt-5 max-w-lg text-lg leading-relaxed text-white/65">

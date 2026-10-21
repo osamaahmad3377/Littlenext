@@ -171,7 +171,7 @@ export function Contact({ index = "07" }: { index?: string }) {
       <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[1fr_1.35fr] lg:gap-16">
         <Reveal>
           <SectionLabel index={index}>Contact</SectionLabel>
-          <h2 className="mt-5 overflow-hidden pb-[0.06em] text-4xl font-medium leading-[1.02] tracking-[-0.045em] text-night-950 sm:text-6xl">
+          <h2 className="mt-5 overflow-hidden pb-[0.06em] text-4xl font-medium leading-[1.02] tracking-[-0.025em] text-night-950 sm:text-6xl">
             <span className="reveal-line">
               Let&apos;s talk <span className="text-neutral-400">trade.</span>
             </span>
