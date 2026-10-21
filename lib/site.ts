@@ -7,10 +7,11 @@ export const site = {
   description:
     "Little Next is an Australian-based parent company in international import and export, sourcing and supplying commodities, textiles and baby products for businesses worldwide.",
   country: "Australia",
+  abn: "70 678 994 860",
   url: "https://www.littlenext.com", // TODO: replace with your real domain
 
   contact: {
-    email: "info@littlenext.com", // TODO: replace
+    email: "info@littlenext.com.au",
     phone: "+61 449 545 425",
     whatsapp: "61449545425", // digits only incl. country code; leave empty to hide WhatsApp
     address: "Melbourne, Victoria, Australia",

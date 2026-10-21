@@ -23,6 +23,7 @@ const organizationJsonLd = {
   description: site.description,
   email: site.contact.email,
   telephone: site.contact.phone,
+  taxID: `ABN ${site.abn}`,
   address: { "@type": "PostalAddress", addressLocality: "Melbourne", addressRegion: "VIC", addressCountry: "AU" },
 };
 

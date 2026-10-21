@@ -54,6 +54,7 @@ export function Footer() {
         <div className="mt-16 flex flex-col gap-4 border-t border-white/10 py-8 text-sm sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {year} {site.name}. All rights reserved.
+            <span className="mt-1 block text-white/40 sm:ml-3 sm:mt-0 sm:inline">ABN {site.abn}</span>
             <span className="mt-1 block text-white/40 sm:ml-3 sm:mt-0 sm:inline">Based in {site.country} · Trading worldwide</span>
           </p>
           <a href="#top" className="group inline-flex items-center gap-2 transition hover:text-white">
