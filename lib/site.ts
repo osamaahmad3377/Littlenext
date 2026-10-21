@@ -86,11 +86,14 @@ export const divisions: Division[] = [
   },
 ];
 
-export const stats = [
-  { value: 3, label: "Specialised divisions" },
-  { value: 2, label: "Directions: import and export" },
-  { value: 6, label: "Core trade services" },
-  { value: 1, label: "Point of contact for everything" },
+/** Company profile shown in the About section. Keep these strictly factual. */
+export const facts = [
+  { label: "Headquarters", value: "Melbourne, Victoria, Australia" },
+  { label: "Divisions", value: "Commodities · Textiles · Baby Products" },
+  { label: "Trade", value: "Import · Export · Product sourcing" },
+  { label: "Freight", value: "Sea · Air · Land" },
+  { label: "We work with", value: "Importers, wholesalers, retailers and distributors" },
+  { label: "Registered", value: "ABN 70 678 994 860" },
 ];
 
 export const services = [

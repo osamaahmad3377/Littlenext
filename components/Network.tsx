@@ -96,9 +96,8 @@ function FlatMap() {
 
 export function Network() {
   return (
-    <section id="network" className="relative isolate overflow-hidden bg-night-950 py-20 text-white sm:py-36">
-      <div className="absolute left-1/2 top-1/2 -z-10 h-[40rem] w-[60rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-electric-600/20 blur-[160px]" />
-      <div className="absolute -right-32 top-24 -z-10 h-80 w-80 rounded-full bg-electric-300/10 blur-[120px]" />
+    <section id="network" className="relative isolate overflow-hidden bg-night-950 py-20 text-white sm:py-28 lg:py-32">
+      <div className="absolute left-1/2 top-1/3 -z-10 h-[36rem] w-[56rem] -translate-x-1/2 rounded-full bg-white/[0.035] blur-[140px]" />
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading

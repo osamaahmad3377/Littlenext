@@ -25,34 +25,6 @@ export function ScrollProgress() {
   );
 }
 
-/** Counts up from 0 to `to` the first time it scrolls into view. */
-export function CountUp({ to, duration = 1400 }: { to: number; duration?: number }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const [value, setValue] = useState(0);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting) return;
-      observer.disconnect();
-      const start = performance.now();
-      const tick = (now: number) => {
-        const t = Math.min(1, (now - start) / duration);
-        setValue(Math.round(to * (1 - Math.pow(1 - t, 3))));
-        if (t < 1) requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
-    });
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [to, duration]);
-  return (
-    <span ref={ref} className="tabular-nums">
-      {String(value).padStart(2, "0")}
-    </span>
-  );
-}
-
 /** Paragraph whose words light up progressively as it scrolls through the viewport. */
 export function ScrollText({ text, className = "" }: { text: string; className?: string }) {
   const ref = useRef<HTMLParagraphElement>(null);

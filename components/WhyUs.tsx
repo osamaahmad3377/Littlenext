@@ -1,19 +1,24 @@
 import { site, values } from "@/lib/site";
-import { Handshake, Receipt, ShieldCheck, Timer } from "@phosphor-icons/react/dist/ssr";
-import { ArrowRight } from "./icons";
+import { EnvelopeSimple, Handshake, Phone, Receipt, ShieldCheck, Timer, WhatsappLogo } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight, ArrowUpRight } from "./icons";
 import { BgIcon } from "./BgIcon";
-import { LogoMark } from "./Logo";
 import { Magnetic } from "./Magnetic";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./ui";
 
 const valueIcons = [Handshake, ShieldCheck, Receipt, Timer];
 
+const channels = [
+  { icon: Phone, label: "Call us", value: site.contact.phone, href: `tel:${site.contact.phone.replace(/[^\d+]/g, "")}`, external: false },
+  ...(site.contact.whatsapp
+    ? [{ icon: WhatsappLogo, label: "WhatsApp", value: "Chat with our team", href: `https://wa.me/${site.contact.whatsapp}`, external: true }]
+    : []),
+  { icon: EnvelopeSimple, label: "Email", value: site.contact.email, href: `mailto:${site.contact.email}`, external: false },
+];
+
 export function WhyUs() {
   return (
-    <section id="why" className="relative isolate overflow-hidden bg-night-950 py-20 text-white sm:py-36">
-      <div className="absolute -left-40 top-40 -z-10 h-[28rem] w-[28rem] rounded-full bg-electric-600/25 blur-[140px]" />
-      <div className="absolute -right-32 bottom-1/3 -z-10 h-80 w-80 rounded-full bg-electric-300/10 blur-[120px]" />
+    <section id="why" className="relative isolate overflow-hidden bg-night-950 py-20 text-white sm:py-28 lg:py-32">
       <div className="bg-grid absolute inset-0 -z-10 [mask-image:linear-gradient(to_bottom,black,transparent_50%)]" />
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -48,48 +53,57 @@ export function WhyUs() {
 
         <Reveal className="mt-16 sm:mt-24">
           <div className="relative isolate overflow-hidden rounded-[1.75rem] border border-white/10 bg-night-900 sm:rounded-[2.25rem]">
-            {/* Drifting aurora behind the glass panel */}
-            <div className="absolute -left-[10%] -top-1/3 -z-10 h-[34rem] w-[34rem] animate-aurora rounded-full bg-electric-500/45 blur-[110px]" />
-            <div className="absolute -bottom-1/3 right-[-5%] -z-10 h-[30rem] w-[30rem] animate-aurora rounded-full bg-electric-300/30 blur-[110px] [animation-delay:-6s]" />
-            <div className="absolute left-1/3 top-1/4 -z-10 h-72 w-72 animate-aurora rounded-full bg-amber-brand/25 blur-[100px] [animation-delay:-12s]" />
-            <div className="bg-grid absolute inset-0 -z-10 opacity-60 [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-electric-500 to-transparent" aria-hidden="true" />
+            <div className="bg-grid absolute inset-0 -z-10 opacity-70 [mask-image:radial-gradient(ellipse_at_top_left,black,transparent_70%)]" aria-hidden="true" />
+            <div className="absolute -left-24 -top-24 -z-10 h-80 w-80 rounded-full bg-electric-500/[0.12] blur-[100px]" aria-hidden="true" />
 
-            <div className="grid items-center gap-8 p-3 sm:p-8 lg:grid-cols-[1.4fr_1fr] lg:p-12">
-              <div className="glass-dark glass-edge rounded-[1.5rem] px-6 py-10 sm:rounded-[1.75rem] sm:px-12 sm:py-14">
-                <p className="font-mono text-xs uppercase tracking-[0.2em] text-electric-300">Ready when you are</p>
-                <h2 className="mt-5 text-4xl font-medium leading-[1.02] tracking-[-0.045em] sm:text-6xl">
-                  Let&apos;s move your next shipment.
-                </h2>
-                <p className="mt-5 text-lg text-white/70">
-                  Share your requirement and our team will come back with options and a clear quotation.
+            <div className="grid gap-10 p-6 sm:p-10 lg:grid-cols-[1.25fr_1fr] lg:items-center lg:gap-16 lg:p-14">
+              <div>
+                <p className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-white/55">
+                  <span className="h-px w-10 bg-gradient-to-r from-electric-500 to-electric-500/0" />
+                  Ready when you are
                 </p>
-                <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                <h2 className="mt-5 text-4xl font-medium leading-[1.02] tracking-[-0.045em] sm:text-6xl">
+                  Let&apos;s move your <span className="text-electric-500">next shipment.</span>
+                </h2>
+                <p className="mt-5 max-w-lg text-lg leading-relaxed text-white/65">
+                  Share your requirement and our Melbourne team will come back with options and a clear quotation.
+                </p>
+                <div className="mt-9">
                   <Magnetic>
                     <a
                       href="#contact"
-                      className="btn-shine group inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-7 py-4 font-semibold text-night-950 shadow-[0_10px_40px_-10px_rgb(255_255_255/0.45)] transition hover:bg-electric-300"
+                      className="btn-shine group inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-4 font-semibold text-night-950 transition hover:bg-electric-300"
                     >
                       Get a quote
                       <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                     </a>
                   </Magnetic>
-                  <Magnetic>
-                    <a
-                      href={`mailto:${site.contact.email}`}
-                      className="inline-flex w-full items-center justify-center rounded-full border border-white/25 bg-white/5 px-7 py-4 font-semibold text-white backdrop-blur transition hover:bg-white/10"
-                    >
-                      Email our team
-                    </a>
-                  </Magnetic>
                 </div>
               </div>
 
-              {/* Brand mark floating in the aurora (desktop) */}
-              <div className="hidden justify-center lg:flex" aria-hidden="true">
-                <div className="glass-dark glass-edge grid h-56 w-56 place-items-center rounded-[3rem] shadow-[0_40px_80px_-30px_rgb(255_143_78/0.6)]">
-                  <LogoMark className="h-28 w-28 drop-shadow-[0_20px_30px_rgb(255_143_78/0.35)]" />
-                </div>
-              </div>
+              {/* Direct contact options */}
+              <ul className="glass-dark glass-edge divide-y divide-white/10 rounded-[1.5rem] p-2">
+                {channels.map(({ icon: Icon, label, value, href, external }) => (
+                  <li key={label}>
+                    <a
+                      href={href}
+                      target={external ? "_blank" : undefined}
+                      rel={external ? "noopener noreferrer" : undefined}
+                      className="group flex items-center gap-4 rounded-2xl px-4 py-4 transition hover:bg-white/[0.06]"
+                    >
+                      <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/10 bg-white/[0.04] text-electric-400 transition group-hover:border-electric-500/60 group-hover:bg-electric-500 group-hover:text-night-950">
+                        <Icon size={20} weight="duotone" />
+                      </span>
+                      <span className="min-w-0 flex-1">
+                        <span className="block font-mono text-[11px] uppercase tracking-[0.14em] text-white/45">{label}</span>
+                        <span className="block truncate font-medium text-white">{value}</span>
+                      </span>
+                      <ArrowUpRight className="h-5 w-5 shrink-0 text-white/35 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white" />
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </Reveal>

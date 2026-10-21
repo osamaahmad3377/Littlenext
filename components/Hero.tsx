@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { heroSlides } from "@/lib/site";
-import { ArrowRight, Check } from "./icons";
+import { ArrowRight } from "./icons";
 import { Magnetic } from "./Magnetic";
 import { QuickQuote } from "./QuickQuote";
 
@@ -87,10 +87,9 @@ export function Hero() {
       </div>
 
       {/* Legibility: deep fade from the text side, vignette and bottom fade */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-night-950 via-night-950/75 to-night-950/30 lg:bg-gradient-to-r lg:from-night-950/95 lg:via-night-950/70 lg:to-night-950/10" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-night-950 via-night-950/80 to-night-950/35 lg:bg-gradient-to-r lg:from-night-950/95 lg:via-night-950/75 lg:to-night-950/25" />
       <div className="absolute inset-x-0 bottom-0 -z-10 h-1/3 bg-gradient-to-t from-night-950 to-transparent" />
       <div className="absolute inset-x-0 top-0 -z-10 h-40 bg-gradient-to-b from-night-950/70 to-transparent" />
-      <div className="absolute -left-40 top-1/3 -z-10 h-[34rem] w-[34rem] rounded-full bg-electric-600/25 blur-[130px]" />
 
       <div className="mx-auto grid w-full max-w-7xl flex-1 grid-cols-1 items-end gap-12 px-5 pb-6 pt-28 sm:px-8 sm:pb-10 lg:grid-cols-[1.35fr_1fr] lg:items-center lg:pt-36">
         <div className="min-w-0">
@@ -116,8 +115,8 @@ export function Hero() {
           </h1>
 
           <p className="mt-6 max-w-xl animate-rise text-base leading-relaxed text-white/75 [animation-delay:0.55s] sm:mt-7 sm:text-lg">
-            Little Next is an Australian-based parent company in international trade. Our specialised divisions source,
-            inspect, ship and deliver, so you get the right goods on time with one partner accountable end to end.
+            An Australian-based parent company in international trade. We source, inspect, ship and deliver, with one
+            partner accountable from supplier to destination.
           </p>
 
           <div className="mt-8 grid animate-rise grid-cols-2 gap-3 [animation-delay:0.7s] sm:mt-9 sm:flex">
@@ -140,14 +139,6 @@ export function Hero() {
             </Magnetic>
           </div>
 
-          <ul className="mt-9 hidden animate-rise flex-wrap gap-x-6 gap-y-2 text-sm text-white/65 [animation-delay:0.85s] sm:flex">
-            {["Quality inspected", "Documents handled", "Door-to-door logistics"].map((t) => (
-              <li key={t} className="flex items-center gap-2">
-                <Check className="h-4 w-4 text-electric-400" strokeWidth={2.4} />
-                {t}
-              </li>
-            ))}
-          </ul>
         </div>
 
         {/* Instant enquiry widget: desktop only */}

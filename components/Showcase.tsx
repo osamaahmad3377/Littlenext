@@ -38,7 +38,7 @@ export function Showcase() {
       frame.current.style.clipPath = `inset(${insetY}% ${insetX}% ${insetY}% ${insetX}% round ${radius}px)`;
       photo.current.style.transform = `scale(${1.18 - 0.18 * open}) translateY(${(p - 0.5) * -4}%)`;
 
-      const stops = [0.35, 0.47, 0.6, 0.7];
+      const stops = [0.3, 0.42, 0.54, 0.64];
       lines.current.forEach((line, i) => {
         if (!line) return;
         const t = ease(range(p, stops[i], stops[i] + 0.12));
@@ -66,7 +66,7 @@ export function Showcase() {
   };
 
   return (
-    <section ref={track} aria-label={`${site.name} statement`} className="relative h-[230vh] bg-night-950">
+    <section ref={track} aria-label={`${site.name} statement`} className="relative h-[175vh] bg-night-950">
       <div className="sticky top-0 h-[100svh] overflow-hidden">
         <div ref={frame} className="absolute inset-0 will-change-[clip-path]" style={{ clipPath: "inset(12% 9% 12% 9% round 32px)" }}>
           <div ref={photo} className="absolute inset-0 will-change-transform">
@@ -80,7 +80,7 @@ export function Showcase() {
           <p ref={setLine(0)} className="font-mono text-xs uppercase tracking-[0.3em] text-amber-brand opacity-0">
             Melbourne · Victoria · Australia
           </p>
-          <h2 className="mt-6 text-5xl font-medium leading-[0.98] tracking-[-0.05em] sm:text-7xl lg:text-[7rem]">
+          <h2 className="mt-6 text-5xl font-medium leading-[0.98] tracking-[-0.045em] sm:text-7xl lg:text-[7rem]">
             <span ref={setLine(1)} className="block opacity-0">
               Proudly Australian.
             </span>

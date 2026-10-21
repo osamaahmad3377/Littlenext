@@ -64,7 +64,7 @@ export function Services() {
   const ImportIcon = serviceIcons[importSvc.icon];
 
   return (
-    <section id="services" className="mesh-light relative isolate overflow-hidden py-20 sm:py-36">
+    <section id="services" className="mesh-light relative isolate overflow-hidden py-20 sm:py-28 lg:py-32">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
           index="03"
@@ -103,7 +103,7 @@ export function Services() {
           {/* Logistics: tracker card */}
           <Reveal className="sm:col-span-2" delay={80}>
             <div className="group relative isolate flex h-full flex-col justify-between gap-6 overflow-hidden rounded-[1.5rem] bg-night-950 p-5 text-white shadow-2xl shadow-night-950/20 sm:rounded-[1.75rem] sm:p-7">
-              <div className="absolute -right-10 -top-16 -z-10 h-56 w-56 rounded-full bg-electric-500/30 blur-[70px]" aria-hidden="true" />
+              <div className="absolute -right-10 -top-16 -z-10 h-56 w-56 rounded-full bg-electric-500/[0.12] blur-[80px]" aria-hidden="true" />
               <ShipmentTracker />
               <div>
                 <BgIcon icon={LogisticsIcon} tone="dark" size={200} />
@@ -124,8 +124,7 @@ export function Services() {
               href="#contact"
               className="group relative isolate flex h-full flex-col justify-between overflow-hidden rounded-[1.5rem] bg-night-950 p-6 text-white shadow-2xl shadow-night-950/20 sm:rounded-[1.75rem] sm:p-9"
             >
-              <div className="absolute -right-24 -top-24 -z-10 h-72 w-72 animate-aurora rounded-full bg-electric-500/45 blur-[80px]" aria-hidden="true" />
-              <div className="absolute -bottom-24 left-1/4 -z-10 h-56 w-56 animate-aurora rounded-full bg-amber-brand/20 blur-[80px] [animation-delay:-8s]" aria-hidden="true" />
+              <div className="absolute -right-24 -top-24 -z-10 h-72 w-72 rounded-full bg-electric-500/[0.14] blur-[90px]" aria-hidden="true" />
               <svg className="absolute -right-10 -top-10 -z-10 h-64 w-64 text-white/10" viewBox="0 0 200 200" aria-hidden="true">
                 {[40, 64, 88].map((r) => (
                   <circle key={r} cx="150" cy="50" r={r} fill="none" stroke="currentColor" strokeWidth="0.75" />

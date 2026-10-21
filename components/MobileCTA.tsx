@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Phone, WhatsappLogo } from "@phosphor-icons/react/dist/ssr";
+import { site } from "@/lib/site";
 import { ArrowRight } from "./icons";
 
 /** Sticky "Get a quote" bar on small screens: shown after the hero, hidden over the contact form. */
@@ -25,15 +27,32 @@ export function MobileCTA() {
         show ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-24 opacity-0"
       }`}
     >
-      <a
-        href="#contact"
-        className="flex items-center justify-between rounded-full border border-white/10 bg-night-950/90 py-2 pl-5 pr-2 text-white shadow-2xl shadow-black/30 backdrop-blur-xl"
-      >
-        <span className="text-sm font-medium">Need a quote?</span>
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-4 py-2.5 text-sm font-semibold text-night-950">
-          Get started <ArrowRight className="h-4 w-4" />
-        </span>
-      </a>
+      <div className="flex items-center gap-2 rounded-full border border-white/10 bg-night-950/90 p-2 text-white shadow-2xl shadow-black/30 backdrop-blur-xl">
+        {site.contact.whatsapp && (
+          <a
+            href={`https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(`Hello ${site.name}, I'd like to make an enquiry.`)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chat with us on WhatsApp"
+            className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#25D366] text-white"
+          >
+            <WhatsappLogo size={24} weight="fill" />
+          </a>
+        )}
+        <a
+          href={`tel:${site.contact.phone.replace(/[^\d+]/g, "")}`}
+          aria-label={`Call ${site.contact.phone}`}
+          className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/15 bg-white/5"
+        >
+          <Phone size={20} weight="duotone" />
+        </a>
+        <a
+          href="#contact"
+          className="ml-auto inline-flex h-11 flex-1 items-center justify-center gap-1.5 rounded-full bg-white px-4 text-sm font-semibold text-night-950"
+        >
+          Get a quote <ArrowRight className="h-4 w-4" />
+        </a>
+      </div>
     </div>
   );
 }

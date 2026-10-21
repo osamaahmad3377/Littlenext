@@ -1,25 +1,25 @@
 import Image from "next/image";
-import { site, stats } from "@/lib/site";
-import { CountUp, ScrollText } from "./fx";
+import { facts, site } from "@/lib/site";
+import { ScrollText } from "./fx";
 import { LogoMark } from "./Logo";
 import { Reveal } from "./Reveal";
 import { SectionLabel } from "./ui";
 
 const statement =
-  "Little Next is an Australian-based parent company built for modern trade. Our divisions for commodities, textiles and baby products share one team that handles sourcing, quality, shipping and paperwork. Our partners deal with one accountable name, not a chain of intermediaries.";
+  "Little Next is an Australian-based parent company built for modern trade. Our commodities, textiles and baby products divisions share one team for sourcing, quality, shipping and paperwork, so our partners deal with one accountable name.";
 
 export function Intro() {
   return (
-    <section id="about" className="mesh-light relative isolate overflow-hidden py-20 sm:py-36">
+    <section id="about" className="mesh-light relative isolate overflow-hidden py-20 sm:py-32">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionLabel index="01">About {site.name}</SectionLabel>
         <ScrollText
           text={statement}
-          className="mt-7 max-w-5xl text-[1.65rem] font-normal leading-[1.2] tracking-[-0.03em] text-night-950 sm:text-5xl sm:leading-[1.12]"
+          className="mt-7 max-w-5xl text-[1.6rem] font-normal leading-[1.22] tracking-[-0.03em] text-night-950 sm:text-[2.75rem] sm:leading-[1.15]"
         />
 
-        <div className="mt-12 grid gap-3 sm:gap-5 lg:mt-24 lg:grid-cols-[1.15fr_1fr]">
-          <Reveal className="relative min-h-[17rem] overflow-hidden rounded-[1.75rem] sm:min-h-[22rem] sm:rounded-[2rem] bg-night-900">
+        <div className="mt-12 grid gap-4 sm:gap-5 lg:mt-20 lg:grid-cols-[1.1fr_1fr]">
+          <Reveal className="relative min-h-[18rem] overflow-hidden rounded-[1.75rem] bg-night-900 sm:min-h-[26rem] sm:rounded-[2rem]">
             <Image
               src="/images/container-yard.jpg"
               alt="Aerial view of a container yard at dusk"
@@ -28,7 +28,7 @@ export function Intro() {
               className="object-cover transition duration-[1.5s] hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-night-950/80 via-transparent to-transparent" />
-            <div className="absolute inset-x-4 bottom-4 glass-dark glass-edge flex items-center gap-3 rounded-2xl p-3 pr-5 text-white sm:bottom-5 sm:inset-x-auto sm:left-6">
+            <div className="glass-dark glass-edge absolute inset-x-4 bottom-4 flex items-center gap-3 rounded-2xl p-3 pr-5 text-white sm:inset-x-auto sm:bottom-5 sm:left-6">
               <LogoMark className="h-10 w-10" />
               <div>
                 <p className="font-mono text-[11px] uppercase tracking-wider text-white/60">Parent company</p>
@@ -37,18 +37,26 @@ export function Intro() {
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-2 gap-3 sm:gap-5">
-            {stats.map((s, i) => (
-              <Reveal key={s.label} delay={i * 90}>
-                <div className="glass glass-edge flex h-full flex-col justify-between rounded-[1.5rem] p-5 transition duration-300 hover:-translate-y-1 sm:rounded-[1.75rem] sm:p-7">
-                  <span className="bg-gradient-to-br from-night-950 via-electric-600 to-electric-400 bg-clip-text font-mono text-[2.75rem] font-medium leading-none tracking-tight text-transparent sm:text-6xl">
-                    <CountUp to={s.value} />
-                  </span>
-                  <span className="mt-6 text-sm leading-snug sm:mt-8 text-neutral-600 sm:text-base">{s.label}</span>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          {/* Company profile */}
+          <Reveal delay={100}>
+            <div className="glass glass-edge h-full rounded-[1.75rem] p-6 sm:rounded-[2rem] sm:p-9">
+              <div className="flex items-center justify-between">
+                <h3 className="text-lg font-semibold tracking-tight text-night-950">Company at a glance</h3>
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-neutral-200 bg-white px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-neutral-500">
+                  <span className="h-1.5 w-1.5 rounded-full bg-electric-500" />
+                  Australia
+                </span>
+              </div>
+              <dl className="mt-6 divide-y divide-neutral-200/80">
+                {facts.map((f) => (
+                  <div key={f.label} className="grid gap-1 py-3.5 sm:grid-cols-[9rem_1fr] sm:gap-6">
+                    <dt className="font-mono text-[11px] uppercase tracking-[0.14em] text-neutral-500 sm:pt-0.5">{f.label}</dt>
+                    <dd className="font-medium leading-snug text-night-950">{f.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>

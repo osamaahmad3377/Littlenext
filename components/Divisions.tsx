@@ -28,9 +28,8 @@ export function Divisions() {
   }
 
   return (
-    <section id="divisions" className="relative isolate overflow-hidden bg-night-950 py-20 text-white sm:py-36">
+    <section id="divisions" className="relative isolate overflow-hidden bg-night-950 py-20 text-white sm:py-28 lg:py-32">
       <div className="bg-grid absolute inset-0 -z-10 [mask-image:linear-gradient(to_bottom,black,transparent_60%)]" />
-      <div className="absolute right-0 top-0 -z-10 h-[28rem] w-[28rem] rounded-full bg-electric-600/20 blur-[140px]" />
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading

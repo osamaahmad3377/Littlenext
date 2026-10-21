@@ -23,7 +23,7 @@ export function Process() {
   }, []);
 
   return (
-    <section id="process" className="mesh-light relative isolate overflow-hidden py-20 sm:py-36">
+    <section id="process" className="mesh-light relative isolate overflow-hidden py-20 sm:py-28 lg:py-32">
       <div className="mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
         <div className="lg:sticky lg:top-32 lg:self-start">
           <SectionLabel index="05">Process</SectionLabel>

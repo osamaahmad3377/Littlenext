@@ -167,7 +167,7 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="mesh-light relative isolate overflow-hidden py-20 sm:py-36">
+    <section id="contact" className="mesh-light relative isolate overflow-hidden py-20 sm:py-28 lg:py-32">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[1fr_1.35fr] lg:gap-16">
         <Reveal>
           <SectionLabel index="07">Contact</SectionLabel>

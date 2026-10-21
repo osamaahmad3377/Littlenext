@@ -16,7 +16,6 @@ export function WhatsAppChat() {
   const [open, setOpen] = useState(false);
   const [showHint, setShowHint] = useState(false);
   const [message, setMessage] = useState("");
-  const [pastHero, setPastHero] = useState(false);
   const panel = useRef<HTMLDivElement>(null);
 
   // A gentle "Need help?" bubble after a few seconds, once per visit
@@ -26,16 +25,12 @@ export function WhatsAppChat() {
       seen = sessionStorage.getItem("ln-wa-hint") === "1";
     } catch {}
     if (seen) return;
-    const t = setTimeout(() => setShowHint(true), 6000);
-    return () => clearTimeout(t);
-  }, []);
-
-  // On phones, keep the button out of the hero so it doesn't cover the hero buttons
-  useEffect(() => {
-    const onScroll = () => setPastHero(window.scrollY > window.innerHeight * 0.6);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const show = setTimeout(() => setShowHint(true), 6000);
+    const hide = setTimeout(() => setShowHint(false), 14000);
+    return () => {
+      clearTimeout(show);
+      clearTimeout(hide);
+    };
   }, []);
 
   const dismissHint = () => {
@@ -67,9 +62,7 @@ export function WhatsAppChat() {
   };
 
   return (
-    <div ref={panel} className={`pointer-events-none fixed bottom-24 right-4 z-[35] flex flex-col items-end transition-all duration-500 sm:bottom-6 sm:right-6 ${
-        pastHero || open ? "" : "max-sm:translate-y-6 max-sm:opacity-0"
-      }`}>
+    <div ref={panel} className="pointer-events-none fixed bottom-6 right-6 z-[35] hidden flex-col items-end sm:flex">
       {/* Chat card */}
       <div
         role="dialog"
@@ -180,9 +173,7 @@ export function WhatsAppChat() {
         }}
         aria-expanded={open}
         aria-label={open ? "Close WhatsApp chat" : "Chat with us on WhatsApp"}
-        className={`group relative grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-[0_12px_30px_-6px_rgb(37_211_102/0.6)] transition duration-300 hover:scale-105 hover:bg-[#1ebe5b] sm:pointer-events-auto sm:h-16 sm:w-16 ${
-          pastHero || open ? "pointer-events-auto" : "pointer-events-none"
-        }`}
+        className={`group relative grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-[0_12px_30px_-6px_rgb(37_211_102/0.6)] transition duration-300 hover:scale-105 hover:bg-[#1ebe5b] pointer-events-auto sm:h-16 sm:w-16`}
       >
         {!open && <span className="absolute inset-0 animate-ping-slow rounded-full bg-[#25D366]/40" aria-hidden="true" />}
         <span className={`relative transition-transform duration-300 ${open ? "rotate-90" : ""}`}>
