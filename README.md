@@ -21,11 +21,11 @@ Tailwind's `neutral-*` greys. Text on orange is black for contrast.
 
 ## Logo
 
-The brand logo (LN mark) was prepared from the supplied `LN logo.png` into `public/images/logo-mark.png` / `logo-mark-dark.png`
-(mark only, for light / dark backgrounds) and `logo-full.png` / `logo-full-dark.png` (mark plus "Little Next"). The dark versions
-turn the black parts white so the logo stays visible on black. `app/icon.png`, `app/apple-icon.png` and `app/opengraph-image.png`
-(favicon, home-screen icon and link-preview image) are generated from the same file. To swap the logo, replace those files
-(a transparent SVG or a larger PNG will look sharper than the current 500px source).
+The LN mark is drawn in code (`components/Logo.tsx`): the **L** in black (white on dark backgrounds) and an orange
+`#FF8F4E` **N** whose last stroke rises into an arrow. Because it is an SVG it stays sharp at every size.
+`LogoTile` is the square version used in small badges. The favicon (`app/icon.svg`), home-screen icon
+(`app/apple-icon.png`) and link-preview images (`app/opengraph-image.png`, `app/twitter-image.png`) use the same shape;
+if the mark's geometry changes, update those files to match.
 
 ## Editing content
 

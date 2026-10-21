@@ -3,7 +3,7 @@
 import { WhatsappLogo, X } from "@phosphor-icons/react/dist/ssr";
 import { useEffect, useRef, useState } from "react";
 import { site } from "@/lib/site";
-import { LogoMark } from "./Logo";
+import { LogoTile } from "./Logo";
 
 const quickTopics = ["Get a quote", "Import enquiry", "Export enquiry", "Product sourcing"];
 
@@ -74,7 +74,7 @@ export function WhatsAppChat() {
       >
         <div className="relative flex items-center gap-3 bg-night-950 px-5 py-4 text-white">
           <span className="relative">
-            <LogoMark className="h-10 w-10" />
+            <LogoTile />
             <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-night-950 bg-[#25D366]" />
           </span>
           <div className="min-w-0 flex-1">

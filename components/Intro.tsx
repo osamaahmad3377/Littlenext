@@ -2,7 +2,7 @@ import Image from "next/image";
 import { facts, site } from "@/lib/site";
 import { ScrollText } from "./fx";
 import { ArrowRight } from "./icons";
-import { LogoMark } from "./Logo";
+import { LogoTile } from "./Logo";
 import { Reveal } from "./Reveal";
 import { SectionLabel } from "./ui";
 
@@ -37,7 +37,7 @@ export function Intro() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-night-950/80 via-transparent to-transparent" />
             <div className="glass-dark glass-edge absolute inset-x-4 bottom-4 flex items-center gap-3 rounded-2xl p-3 pr-5 text-white sm:inset-x-auto sm:bottom-5 sm:left-6">
-              <LogoMark className="h-10 w-10" />
+              <LogoTile />
               <div>
                 <p className="font-mono text-[11px] uppercase tracking-wider text-white/60">Parent company</p>
                 <p className="text-sm font-semibold sm:text-base">Commodities · Textiles · Baby Products</p>
