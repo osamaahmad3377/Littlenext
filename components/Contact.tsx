@@ -64,6 +64,9 @@ export function Contact() {
   const [data, setData] = useState<Data>(empty);
   const [prefilled, setPrefilled] = useState(false);
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
+  const [delivery, setDelivery] = useState<"sent" | "mailto">("sent");
   const { contact } = site;
 
   const set = (k: keyof Data) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
@@ -87,9 +90,43 @@ export function Contact() {
     setStep((s) => Math.min(s + 1, 2));
   }
 
-  // No backend yet: compose the enquiry in the visitor's email app.
-  function send(e: React.FormEvent) {
+  // Sends the enquiry to our inbox via /api/enquiry. If the server can't send, fall back to the visitor's email app.
+  async function send(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (sending) return;
+    const honeypot = String(new FormData(e.currentTarget).get("website") ?? "");
+    setSending(true);
+    setError("");
+    try {
+      const res = await fetch("/api/enquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...data, website: honeypot }),
+      });
+      if (res.ok) {
+        setDelivery("sent");
+        setSent(true);
+        return;
+      }
+      if (res.status === 400) {
+        setError("Please check your details and try again.");
+        return;
+      }
+      if (res.status === 429) {
+        setError("Too many enquiries from this connection. Please try again in a few minutes.");
+        return;
+      }
+      throw new Error(String(res.status));
+    } catch {
+      openEmailApp();
+      setDelivery("mailto");
+      setSent(true);
+    } finally {
+      setSending(false);
+    }
+  }
+
+  function openEmailApp() {
     const subject = `${data.mode} enquiry: ${data.category} (${data.company || data.name})`;
     const body = [
       `Trade type: ${data.mode}`,
@@ -105,7 +142,6 @@ export function Contact() {
       `Phone: ${data.phone || "Not provided"}`,
     ].join("\n");
     window.location.href = `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setSent(true);
   }
 
   const details = [
@@ -199,14 +235,27 @@ export function Contact() {
                 <span className="grid h-16 w-16 place-items-center rounded-full bg-electric-500 text-white shadow-lg shadow-electric-500/30">
                   <Check className="h-8 w-8" strokeWidth={2.4} />
                 </span>
-                <h3 className="mt-6 text-2xl font-semibold tracking-tight text-night-950">Almost there</h3>
-                <p className="mt-3 max-w-sm text-slate-600">
-                  Your email app should have opened with your enquiry ready to send. If it didn&apos;t, write to us at{" "}
-                  <a href={`mailto:${contact.email}`} className="font-semibold text-night-950 underline">
-                    {contact.email}
-                  </a>
-                  .
-                </p>
+                {delivery === "sent" ? (
+                  <>
+                    <h3 className="mt-6 text-2xl font-semibold tracking-tight text-night-950">Thank you, {data.name.split(" ")[0]}</h3>
+                    <p className="mt-3 max-w-sm text-slate-600">
+                      We&apos;ve received your enquiry and will reply to <span className="font-semibold text-night-950">{data.email}</span>{" "}
+                      within one business day.
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <h3 className="mt-6 text-2xl font-semibold tracking-tight text-night-950">Almost there</h3>
+                    <p className="mt-3 max-w-sm text-slate-600">
+                      We couldn&apos;t send your enquiry automatically, so your email app should have opened with it ready to send. If it
+                      didn&apos;t, write to us at{" "}
+                      <a href={`mailto:${contact.email}`} className="font-semibold text-night-950 underline">
+                        {contact.email}
+                      </a>
+                      .
+                    </p>
+                  </>
+                )}
                 <button
                   type="button"
                   onClick={() => {
@@ -336,6 +385,8 @@ export function Contact() {
 
                 {step === 2 && (
                   <form onSubmit={send} className="mt-8">
+                    {/* Honeypot: hidden from people, filled in by spam bots */}
+                    <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 opacity-0" />
                     <dl className="divide-y divide-slate-100 rounded-2xl border border-slate-200 bg-white/70">
                       {review.map(([k, v]) => (
                         <div key={k} className="grid grid-cols-[6.5rem_1fr] gap-3 px-4 py-3 text-sm sm:grid-cols-[8rem_1fr] sm:gap-4 sm:px-5">
@@ -344,15 +395,21 @@ export function Contact() {
                         </div>
                       ))}
                     </dl>
+                    {error && (
+                      <p role="alert" className="mt-4 rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700">
+                        {error}
+                      </p>
+                    )}
                     <div className="mt-6 flex items-center justify-between">
                       <button type="button" onClick={() => setStep(1)} className="rounded-full px-5 py-3.5 font-semibold text-slate-600 hover:bg-slate-100">
                         Back
                       </button>
                       <button
                         type="submit"
-                        className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-electric-500 to-electric-600 px-7 py-3.5 font-semibold text-white shadow-lg shadow-electric-500/25 transition hover:brightness-110"
+                        disabled={sending}
+                        className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-electric-500 to-electric-600 px-7 py-3.5 font-semibold text-white shadow-lg shadow-electric-500/25 transition hover:brightness-110 disabled:opacity-60"
                       >
-                        Send enquiry
+                        {sending ? "Sending…" : "Send enquiry"}
                         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </button>
                     </div>

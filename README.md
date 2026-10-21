@@ -52,9 +52,24 @@ Swap in your own product, warehouse or team photos any time. Keep the same file 
 
 ## Contact form
 
-The hero "Instant enquiry" widget pre-fills the 3-step enquiry form (requirement → details → review).
-On submit, the form currently opens the visitor's email app with the message pre-filled (no server needed).
-It can be switched to a hosted form service (e.g. Formspree) or an email API later.
+The 3-step enquiry form (and the hero "Instant enquiry" widget that pre-fills it) posts to `/api/enquiry`, which emails the
+enquiry to `info@littlenext.com.au` through [Resend](https://resend.com). The visitor's address is set as **Reply-To**, so
+replying in your inbox answers them directly. Spam is filtered with a hidden honeypot field and a per-IP rate limit.
+
+**Setup (one time, in Vercel → Project → Settings → Environment Variables):**
+
+| Variable | Value |
+| --- | --- |
+| `RESEND_API_KEY` | API key from resend.com (required) |
+| `CONTACT_TO_EMAIL` | where enquiries go (default: `info@littlenext.com.au`) |
+| `CONTACT_FROM_EMAIL` | sender, e.g. `Little Next <enquiries@littlenext.com.au>` (needs a verified domain in Resend) |
+
+Until the domain is verified in Resend, leave `CONTACT_FROM_EMAIL` empty: Resend then sends from `onboarding@resend.dev`,
+which can only deliver to the email address the Resend account was created with. Create the account with
+`info@littlenext.com.au` (or verify `littlenext.com.au` in Resend) and redeploy after saving the variables.
+
+If `RESEND_API_KEY` is missing or sending fails, the form falls back to opening the visitor's email app, so no enquiry is lost.
+For local testing copy `.env.example` to `.env.local`.
 
 ## Deploy
 
