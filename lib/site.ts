@@ -8,7 +8,7 @@ export const site = {
     "Little Next is an Australian-based parent company in international import and export, sourcing and supplying commodities, textiles and baby products for businesses worldwide.",
   country: "Australia",
   abn: "70 678 994 860",
-  url: "https://www.littlenext.com", // TODO: replace with your real domain
+  url: "https://www.littlenext.com.au",
 
   contact: {
     email: "info@littlenext.com.au",
