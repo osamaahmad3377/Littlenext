@@ -73,6 +73,21 @@ export function Footer() {
       >
         {site.name.toLowerCase()}
       </p>
+
+      {/* Developer credit */}
+      <div className="relative z-10 border-t border-white/10 bg-night-950">
+        <p className="mx-auto max-w-7xl px-5 py-5 text-center text-xs text-white/40 sm:px-8">
+          Developed by{" "}
+          <a
+            href="https://nextcore.net.au/"
+            target="_blank"
+            rel="noopener"
+            className="font-medium text-white/70 underline decoration-white/20 underline-offset-4 transition hover:text-electric-400 hover:decoration-electric-400"
+          >
+            Nextcore
+          </a>
+        </p>
+      </div>
     </footer>
   );
 }
