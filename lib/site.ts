@@ -11,7 +11,7 @@ export const site = {
     name: "Imran Ahmad",
     role: "Founder",
     /** Optional: path to a portrait in /public/images (e.g. "/images/imran-ahmad.jpg"). Shows initials until added. */
-    photo: "",
+    photo: "/images/imran-ahmad.jpg",
     /** Optional: a short first-person message from the founder. Hidden until added. */
     message: "",
   },

@@ -45,7 +45,16 @@ export function Founder() {
         <Reveal>
           <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-[2rem] bg-night-950">
             {founder.photo ? (
-              <Image src={founder.photo} alt={founder.name} fill sizes="(min-width: 1024px) 440px, 90vw" className="object-cover" />
+              <>
+                <Image
+                  src={founder.photo}
+                  alt={`${founder.name}, ${founder.role} of ${site.name}`}
+                  fill
+                  sizes="(min-width: 1024px) 440px, 90vw"
+                  className="object-cover object-[52%_20%]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-night-950/70 via-transparent to-transparent" />
+              </>
             ) : (
               <>
                 <div className="bg-grid absolute inset-0 opacity-70 [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
